@@ -6,9 +6,9 @@ with open("README.rst") as f:
 	long_description = f.read()
 
 setup(name="wccls",
-	version="1.0",
+	version="0.1",
 	description="WCCLS scraper",
-	long_description=long_description
+	long_description=long_description,
 	author="Rehan Khwaja",
 	author_email="rehan@khwaja.name",
 	url="https://github.com/rkhwaja/wccls",
