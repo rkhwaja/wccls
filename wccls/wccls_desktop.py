@@ -101,9 +101,10 @@ class WcclsDesktop:
 		items = []
 		for row in soup.find_all(class_="patrongrid-row") + soup.find_all(class_="patrongrid-alternating-row"):
 			tds = row.find_all("td")
+			renewalsTds = tds[7]
 			items.append(CheckedOutItem(title=tds[4].span.a.contents[0],
 				dueDate=datetime.strptime(tds[6].span.contents[0], "%m/%d/%Y").date(),
-				renewals=int(tds[7].span.contents[0])))
+				renewals=int(tds[7].span.contents[0]) if tds[7].span is not None else None))
 		return items
 
 	def Holds(self):
