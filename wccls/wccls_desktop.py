@@ -3,7 +3,7 @@ from logging import debug, info
 from os.path import join
 from re import search
 
-from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold
+from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold, UnclaimedHold
 
 from bs4 import BeautifulSoup
 from requests import Session
@@ -142,6 +142,8 @@ class WcclsDesktop:
 			elif status == "Pending":
 				reservationDate = datetime.strptime(dateInfo, "(as of %m/%d/%Y)").date()
 				item = PendingItem(title=title, reservationDate=reservationDate)
+			elif status == "Unclaimed":
+				item = UnclaimedHold(title=title)
 			else:
 				debug("Status: {}, dateInfo: {}".format(status, dateInfo))
 				assert False

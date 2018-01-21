@@ -69,3 +69,7 @@ class PendingItem(Item):
 
 	def __repr__(self):
 		return "<PendingItem {}, reservationDate={}>".format(super().__repr__(), self.reservationDate)
+
+class UnclaimedHold(Item):
+	def __init__(self, title):
+		super().__init__(title, StatusType.Unclaimed)
