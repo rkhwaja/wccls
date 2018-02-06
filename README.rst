@@ -7,6 +7,6 @@ Usage
 
 .. code:: python
 
- wccls = WcclsDesktop(login=cardNumber, password=password)
+ wccls = Wccls(login=cardNumber, password=password)
  for item in wccls.items:
      print(item)

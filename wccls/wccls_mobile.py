@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from logging import debug, error, warning
 from os.path import join
 from re import search
+from tempfile import gettempdir
 
 from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold
 
@@ -10,8 +11,9 @@ from bs4 import BeautifulSoup
 from requests import Session
 
 class WcclsMobile:
-	def __init__(self, login, password, host='https://catalog.wccls.org'):
-		self.host = host
+	def __init__(self, login, password, debug=False):
+		self.host = "https://catalog.wccls.org"
+		self.debug = debug
 		self.session = Session()
 		self.Login(login, password)
 		self.items = self.CheckedOutItems() + self.Holds()
@@ -29,14 +31,19 @@ class WcclsMobile:
 		debug("Login reponse: {}".format(response))
 
 	def ParseCheckedOutItem(self, tr):
-		title = tr('td')[1]('a')[0].text
+		td = tr("td")[1] # first td is the renewal checkbox
+		title = td("a")[0].text
+		# debug(f"td: {td}")
 		allText = tr('td')[1].text.strip()[len(title):]
+		# debug(f"Parsing {allText}")
 		splits = allText.split(' renewals leftDue: ')
 		if len(splits) == 2:
 			renewals = int(splits[0])
-			datePlusPossibleOverdueSplits = splits[1].split(' ')
+			datePlusPossibleOverdueSplits = splits[1].split('\xa0\xa0')
+			# debug(f"Splits: {datePlusPossibleOverdueSplits}")
 			if len(datePlusPossibleOverdueSplits) > 1:
 				debug("Overdue")
+			# debug(f"Date string: {datePlusPossibleOverdueSplits[0]}")
 			dueDate = datetime.strptime(datePlusPossibleOverdueSplits[0], '%m/%d/%Y').date()
 			return CheckedOutItem(title, dueDate, renewals)
 
@@ -54,7 +61,7 @@ class WcclsMobile:
 		itemsOutUrl = self.host + '/Mobile/MyAccount/ItemsOut'
 		r = self.session.get(itemsOutUrl, timeout=60)
 		self.DumpDebugFile("itemsout-0.html", r.text)
-		soup = BeautifulSoup(r.content, "lxml")
+		soup = BeautifulSoup(r.content, "html.parser")
 
 		breadcrumbsDiv = soup.find_all('div', id='breadcrumbs')
 		breadcrumbsText = breadcrumbsDiv[0].text
@@ -162,7 +169,6 @@ class WcclsMobile:
 		return items
 
 	def DumpDebugFile(self, filename, content):
-		if False:
-			from tempfile import gettempdir
+		if self.debug:
 			with open(join(gettempdir(), "log", filename), "w") as theFile:
 				theFile.write(content)
