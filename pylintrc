@@ -1,0 +1,10 @@
+[MASTER]
+init-hook="
+    from pylint_venv import inithook
+    inithook()"
+
+[FORMAT]
+indent-string=\t
+
+[MESSAGES CONTROL]
+disable=line-too-long,missing-docstring,too-few-public-methods,invalid-name,bad-continuation,too-many-arguments,too-few-public-methods,star-args,len-as-condition
