@@ -15,7 +15,7 @@ def CheckOutput(items):
 		if item.status == StatusType.CheckedOut and item.isOverdrive is True:
 			overdriveCount += 1
 
-	assert overdriveCount == int(environ["WCCLS_COUNT_OVERDRIVE"])
+	assert overdriveCount == int(environ["WCCLS_COUNT_OVERDRIVE"]), "Mismatch in Overdrive count"
 
 	for status, count in itemsByStatus.items():
 		assert count == int(environ[f"WCCLS_COUNT_{status.name.upper()}"]), f"Mismatch in {status.name} count"

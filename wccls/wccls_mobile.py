@@ -28,7 +28,7 @@ class WcclsMobile:
 			'rememberMe': 'true' # doesn't seem to matter whether we say true or false
 		}
 		response = self.session.post(loginUrl, data=loginParameters)
-		debug("Login reponse: {}".format(response))
+		debug("Login reponse: {response}")
 
 	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
 		td = tr("td")[1] # first td is the renewal checkbox
@@ -54,13 +54,20 @@ class WcclsMobile:
 		warning("Failed to parse: " + allText.strip())
 		return None
 
-	def CheckedOutItems(self): # pylint: disable=too-many-locals
-		items = []
+	def ParseCheckedOutPage(self, pageNumber):
+		response = self.session.get(f"{self.host}/Mobile/MyAccount/ItemsOut?page={pageNumber}", timeout=60)
+		self.DumpDebugFile("itemsout-{pageNumber}.html", response.text)
+		soup = BeautifulSoup(response.content, "html.parser")
 
-		itemsOutUrl = self.host + '/Mobile/MyAccount/ItemsOut'
-		r = self.session.get(itemsOutUrl, timeout=60)
-		self.DumpDebugFile("itemsout-0.html", r.text)
-		soup = BeautifulSoup(r.content, "html.parser")
+		items = []
+		for tr in soup.find_all(lambda e: e.name == "tr" and len(e("td")) != 0):
+			checkedOutItem = self.ParseCheckedOutItem(tr)
+			if checkedOutItem is not None:
+				items.append(checkedOutItem)
+		return soup, items
+
+	def CheckedOutItems(self): # pylint: disable=too-many-locals
+		soup, items = self.ParseCheckedOutPage(0)
 
 		breadcrumbsDiv = soup.find_all('div', id='breadcrumbs')
 		breadcrumbsText = breadcrumbsDiv[0].text
@@ -70,22 +77,10 @@ class WcclsMobile:
 		totalItems = int(totalItemsMatch.group(1))
 		itemsPerPage = 5
 		totalPages = -(-totalItems // itemsPerPage) # round up
-		debug("totalItems={}, totalPages={}".format(totalItems, totalPages))
-
-		for tr in soup.find_all(lambda e: e.name == 'tr' and len(e('td')) != 0):
-			checkedOutItem = self.ParseCheckedOutItem(tr)
-			if checkedOutItem is not None:
-				items.append(checkedOutItem)
-
-		itemsOutWithPageUrl = self.host + '/Mobile/MyAccount/ItemsOut?page={}'
+		debug(f"totalItems={totalItems}, totalPages={totalPages}")
 
 		for page in range(1, totalPages):
-			url = itemsOutWithPageUrl.format(page)
-			r = self.session.get(url, timeout=60)
-			self.DumpDebugFile("itemsout-{}.html".format(page), r.text)
-			soup = BeautifulSoup(r.content, "lxml")
-			for tr in soup.find_all(lambda e: e.name == 'tr' and len(e('td')) != 0):
-				items.append(self.ParseCheckedOutItem(tr))
+			items.extend(self.ParseCheckedOutPage(page)[1])
 
 		# assert(totalItems == len(items))
 		return items
@@ -99,10 +94,10 @@ class WcclsMobile:
 			errorMessage = 'Failed to parse hold. text="{}"'.format(text)
 			error(errorMessage)
 			raise RuntimeError(errorMessage)
+		
 		status = match.group(1)
 		date = match.group(2)
-		listPos = None
-		listSize = None
+		
 		if status == "Pending":
 			return PendingItem(title=title, reservationDate=datetime.strptime(date.strip(), "as of %m/%d/%Y").date())
 
@@ -139,35 +134,37 @@ class WcclsMobile:
 
 		if status == "Unclaimed":
 			assert False, "Unclaimed stuff is now cancelled"
+		
 		error("Unknown status type: " + status + ", text=" + text)
 		return None
 
-	def Holds(self):
-		items = []
-		holdsUrl = self.host + '/Mobile/MyAccount/Holds'
-		r = self.session.get(holdsUrl, timeout=60)
-		self.DumpDebugFile("holds-1.html", r.text)
-		soup = BeautifulSoup(r.content, "lxml")
+	def ParseHoldsPage(self, pageNumber):
+		response = self.session.get(f"{self.host}/Mobile/MyAccount/Holds?page={pageNumber}", timeout=60)
+		self.DumpDebugFile("holds-{pageNumber}.html", response.text)
+		soup = BeautifulSoup(response.content, "html.parser")
 
-		for tr in soup.find_all(lambda e: e.name == 'tr' and len(e('td')) != 0):
-			items.append(self.ParseHold(tr))
+		items = []
+		for tr in soup.find_all(lambda e: e.name == "tr" and len(e("td")) != 0):
+			hold = self.ParseHold(tr)
+			if hold is None:
+				error(f"Failed to parse hold: {tr}")
+				continue
+			items.append(hold)
+		return soup, items
+
+	def Holds(self):
+		soup, items = self.ParseHoldsPage(0)
 
 		footer = soup.find_all('div', class_='list-footer-options')[0].text
 		pages = int(search(r"Page\s+1\s+of\s+(\d+)", footer).group(1))
-		holdsWithPageUrl = self.host + "/Mobile/MyAccount/Holds?page={}"
+
 		for page in range(1, pages):
-			r = self.session.get(holdsWithPageUrl.format(page), timeout=60)
-			self.DumpDebugFile("holds-{}.html".format(page), r.text)
-			soup = BeautifulSoup(r.content, "lxml")
-			for tr in soup.find_all(lambda e: e.name == 'tr' and len(e('td')) != 0):
-				hold = self.ParseHold(tr)
-				if hold is not None:
-					items.append(hold)
-				else:
-					error("Failed to parse hold: " + str(tr))
+			items.extend(self.ParseHoldsPage(page)[1])
+
 		return items
 
 	def DumpDebugFile(self, filename, content):
-		if self.debug:
-			with open(join(gettempdir(), "log", filename), "w") as theFile:
-				theFile.write(content)
+		if not self.debug:
+			return
+		with open(join(gettempdir(), "log", filename), "w") as theFile:
+			theFile.write(content)
