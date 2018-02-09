@@ -13,7 +13,7 @@ setup(name="wccls",
 	author_email="rehan@khwaja.name",
 	url="https://github.com/rkhwaja/wccls",
 	packages=find_packages(),
-	install_requires=["BeautifulSoup4", "requests"],
+	install_requires=["beautifulsoup4", "requests"],
 	classifiers=[
 		"Development Status :: 5 - Production/Stable",
 		"Intended Audience :: Developers",

@@ -5,10 +5,10 @@ from os.path import join
 from re import search
 from tempfile import gettempdir
 
-from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold
-
 from bs4 import BeautifulSoup
 from requests import Session
+
+from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold
 
 class WcclsMobile:
 	def __init__(self, login, password, debug_=False):
@@ -30,20 +30,16 @@ class WcclsMobile:
 		response = self.session.post(loginUrl, data=loginParameters)
 		debug("Login reponse: {}".format(response))
 
-	def ParseCheckedOutItem(self, tr):
+	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
 		td = tr("td")[1] # first td is the renewal checkbox
 		title = td("a")[0].text
-		# debug(f"td: {td}")
 		allText = tr('td')[1].text.strip()[len(title):]
-		# debug(f"Parsing {allText}")
 		splits = allText.split(' renewals leftDue: ')
 		if len(splits) == 2:
 			renewals = int(splits[0])
 			datePlusPossibleOverdueSplits = splits[1].split('\xa0\xa0')
-			# debug(f"Splits: {datePlusPossibleOverdueSplits}")
 			if len(datePlusPossibleOverdueSplits) > 1:
 				debug("Overdue")
-			# debug(f"Date string: {datePlusPossibleOverdueSplits[0]}")
 			dueDate = datetime.strptime(datePlusPossibleOverdueSplits[0], '%m/%d/%Y').date()
 			isOverdrive = td("select")
 			assert isinstance(isOverdrive, list)
@@ -58,7 +54,7 @@ class WcclsMobile:
 		warning("Failed to parse: " + allText.strip())
 		return None
 
-	def CheckedOutItems(self):
+	def CheckedOutItems(self): # pylint: disable=too-many-locals
 		items = []
 
 		itemsOutUrl = self.host + '/Mobile/MyAccount/ItemsOut'
@@ -94,11 +90,9 @@ class WcclsMobile:
 		# assert(totalItems == len(items))
 		return items
 
-	def ParseHold(self, tr):
+	def ParseHold(self, tr): # pylint: disable=no-self-use,too-many-return-statements
 		td1 = tr('td')[1]
 		title = td1.find('a').text
-		# debug("Hold: title=" + title)
-		# debug("td1.text=" + str(td1.text))
 		text = td1.text[len(title):]
 		match = search(r'(Held|Pending|Shipped|Active|Inactive|Cancelled|Unclaimed)\s*\((.*)\)', text)
 		if match is None:
@@ -110,38 +104,40 @@ class WcclsMobile:
 		listPos = None
 		listSize = None
 		if status == "Pending":
-			# debug("Pending: " + text)
 			return PendingItem(title=title, reservationDate=datetime.strptime(date.strip(), "as of %m/%d/%Y").date())
-		elif status == "Shipped":
+
+		if status == "Shipped":
 			date = datetime.now().date() - timedelta(days=int(date.strip()[:-8]))
 			return ShippedItem(title=title, shippedDate=date)
-		elif status == "Active":
+
+		if status == "Active":
 			date = datetime.strptime(date.strip()[6:], '%m/%d/%Y').date()
 			td2 = tr('td')[2]
 			splits = td2.text.strip().split(' Of ')
 			listPos = int(splits[0].strip())
 			listSize = int(splits[1].strip())
 			return ActiveHold(title=title, activationDate=date, queuePosition=listPos, queueSize=listSize)
-		elif status == "Inactive":
+
+		if status == "Inactive":
 			date = datetime.strptime(date.strip()[6:], '%m/%d/%Y').date()
 			return SuspendedHold(title=title, reactivationDate=date)
-		elif status == "Cancelled":
+
+		if status == "Cancelled":
 			date = datetime.strptime(date.strip()[3:], '%m/%d/%Y').date()
 			return CancelledHold(title=title, cancellationDate=date)
-		elif status == "Held":
-			# debug("Held: " + date)
+
+		if status == "Held":
 			if date == "until tomorrow":
 				days = 1
 			elif date == "until today":
 				days = 0
 			else:
 				match = search(r'for (\d+) more day', date)
-				# debug(str(match.group(1)) + ' more days')
 				days = int(match.group(1))
 			date = (datetime.today() + timedelta(days=days)).date()
 			return HeldItem(title=title, expiryDate=date)
-		elif status == "Unclaimed":
-			# debug("Unclaimed: " + date)
+
+		if status == "Unclaimed":
 			assert False, "Unclaimed stuff is now cancelled"
 		error("Unknown status type: " + status + ", text=" + text)
 		return None

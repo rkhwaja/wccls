@@ -1,16 +1,16 @@
 from datetime import datetime, timedelta
-from logging import debug, info
+from logging import debug
 from os.path import join
 from re import search
-
-from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold, UnclaimedHold
 
 from bs4 import BeautifulSoup
 from requests import Session
 
+from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold, UnclaimedHold
+
 class WcclsDesktop:
-	def __init__(self, login, password, debug=False, host='https://catalog.wccls.org'):
-		self.debug = debug
+	def __init__(self, login, password, debug_=False, host='https://catalog.wccls.org'):
+		self.debug = debug_
 		self.host = host
 		self.session = Session()
 		self.Login(login, password)
@@ -34,7 +34,7 @@ class WcclsDesktop:
 		self.SaveDebugFile("logon.html", response.content)
 
 		soup = BeautifulSoup(response.text, "html.parser")
-		
+
 		viewState = soup.find_all(id="__VIEWSTATE")[0]["value"]
 
 		viewStateGenerator = soup.find_all(id="__VIEWSTATEGENERATOR")[0]["value"]
@@ -67,7 +67,7 @@ class WcclsDesktop:
 			with open(join(gettempdir(), "log", filename), "wb") as theFile:
 				theFile.write(content)
 
-	def ParseHoldDate(self, dateString):
+	def ParseHoldDate(self, dateString): # pylint: disable=no-self-use
 		if dateString == "(until tomorrow)":
 			days = 1
 		elif dateString == "(until today)":
@@ -77,17 +77,17 @@ class WcclsDesktop:
 			days = int(match.group(1))
 		return (datetime.today() + timedelta(days=days)).date()
 
-	def ParseShippedDate(self, dateString):
+	def ParseShippedDate(self, dateString): # pylint: disable=no-self-use
 		if dateString == "(yesterday)":
 			days = 1
 		elif dateString == "(today)":
 			days = 0
 		else:
-			match = search("\((\d+) days ago\)", dateString)
+			match = search(r"\((\d+) days ago\)", dateString)
 			days = int(match.group(1))
 		return (datetime.today() - timedelta(days=days)).date()
 
-	def ParseQueueText(self, queueText):
+	def ParseQueueText(self, queueText): # pylint: disable=no-self-use
 		splits = queueText.split(' of ')
 		return (int(splits[0].strip()), int(splits[1].strip()))
 
@@ -102,9 +102,10 @@ class WcclsDesktop:
 		for row in soup.find_all(class_="patrongrid-row") + soup.find_all(class_="patrongrid-alternating-row"):
 			tds = row.find_all("td")
 			renewalsTds = tds[7]
+			assert False, "Overdrive doesn't work"
 			items.append(CheckedOutItem(title=tds[4].span.a.contents[0],
 				dueDate=datetime.strptime(tds[6].span.contents[0], "%m/%d/%Y").date(),
-				renewals=int(tds[7].span.contents[0]) if tds[7].span is not None else None))
+				renewals=int(renewalsTds.span.contents[0]) if renewalsTds.span is not None else None, isOverdrive=False))
 		return items
 
 	def Holds(self):

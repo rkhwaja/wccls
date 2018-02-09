@@ -22,7 +22,7 @@ def CheckOutput(items):
 
 @skip("Can't login to desktop site")
 def test_desktop():
-	wccls = WcclsDesktop(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug=False)
+	wccls = WcclsDesktop(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=False)
 	CheckOutput(wccls.items)
 
 def test_mobile():
@@ -30,5 +30,5 @@ def test_mobile():
 	CheckOutput(wccls.items)
 
 def test_recommended():
-	wccls = Wccls(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug=False)
+	wccls = Wccls(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=False)
 	CheckOutput(wccls.items)
