@@ -11,9 +11,9 @@ from bs4 import BeautifulSoup
 from requests import Session
 
 class WcclsMobile:
-	def __init__(self, login, password, debug=False):
+	def __init__(self, login, password, debug_=False):
 		self.host = "https://catalog.wccls.org"
-		self.debug = debug
+		self.debug = debug_
 		self.session = Session()
 		self.Login(login, password)
 		self.items = self.CheckedOutItems() + self.Holds()
@@ -45,12 +45,15 @@ class WcclsMobile:
 				debug("Overdue")
 			# debug(f"Date string: {datePlusPossibleOverdueSplits[0]}")
 			dueDate = datetime.strptime(datePlusPossibleOverdueSplits[0], '%m/%d/%Y').date()
-			return CheckedOutItem(title, dueDate, renewals)
+			isOverdrive = td("select")
+			assert isinstance(isOverdrive, list)
+			return CheckedOutItem(title, dueDate, renewals, len(isOverdrive) != 0)
 
+		assert False, "Looks like they all say renewals left now"
 		index = allText.find("Due:")
 		if index != -1:
 			dueDate = datetime.strptime(allText[index + 5:], '%m/%d/%Y').date()
-			return CheckedOutItem(title, dueDate, 0)
+			return CheckedOutItem(title, dueDate, 0, False)
 
 		warning("Failed to parse: " + allText.strip())
 		return None
@@ -94,8 +97,8 @@ class WcclsMobile:
 	def ParseHold(self, tr):
 		td1 = tr('td')[1]
 		title = td1.find('a').text
-		debug("Hold: title=" + title)
-		debug("td1.text=" + str(td1.text))
+		# debug("Hold: title=" + title)
+		# debug("td1.text=" + str(td1.text))
 		text = td1.text[len(title):]
 		match = search(r'(Held|Pending|Shipped|Active|Inactive|Cancelled|Unclaimed)\s*\((.*)\)', text)
 		if match is None:
@@ -107,7 +110,7 @@ class WcclsMobile:
 		listPos = None
 		listSize = None
 		if status == "Pending":
-			debug("Pending: " + text)
+			# debug("Pending: " + text)
 			return PendingItem(title=title, reservationDate=datetime.strptime(date.strip(), "as of %m/%d/%Y").date())
 		elif status == "Shipped":
 			date = datetime.now().date() - timedelta(days=int(date.strip()[:-8]))
@@ -126,19 +129,19 @@ class WcclsMobile:
 			date = datetime.strptime(date.strip()[3:], '%m/%d/%Y').date()
 			return CancelledHold(title=title, cancellationDate=date)
 		elif status == "Held":
-			debug("Held: " + date)
+			# debug("Held: " + date)
 			if date == "until tomorrow":
 				days = 1
 			elif date == "until today":
 				days = 0
 			else:
 				match = search(r'for (\d+) more day', date)
-				debug(str(match.group(1)) + ' more days')
+				# debug(str(match.group(1)) + ' more days')
 				days = int(match.group(1))
 			date = (datetime.today() + timedelta(days=days)).date()
 			return HeldItem(title=title, expiryDate=date)
 		elif status == "Unclaimed":
-			debug("Unclaimed: " + date)
+			# debug("Unclaimed: " + date)
 			assert False, "Unclaimed stuff is now cancelled"
 		error("Unknown status type: " + status + ", text=" + text)
 		return None

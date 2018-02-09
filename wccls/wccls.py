@@ -12,13 +12,14 @@ class Item:
 		return "<Item title={}, status={}>".format(self.title, self.status.name)
 
 class CheckedOutItem(Item):
-	def __init__(self, title, dueDate, renewals):
+	def __init__(self, title, dueDate, renewals, isOverdrive):
 		super().__init__(title, StatusType.CheckedOut)
 		self.dueDate = dueDate
 		self.renewals = renewals
+		self.isOverdrive = isOverdrive
 
 	def __repr__(self):
-		return "<CheckedOutItem {}, dueDate={}>".format(super().__repr__(), self.dueDate)
+		return f"<CheckedOutItem {super().__repr__()}, dueDate={self.dueDate}, isOverdrive={self.isOverdrive}>"
 
 class SuspendedHold(Item):
 	def __init__(self, title, reactivationDate):
