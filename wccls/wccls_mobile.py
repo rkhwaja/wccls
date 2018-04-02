@@ -33,7 +33,7 @@ class WcclsMobile:
 	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
 		td = tr("td")[1] # first td is the renewal checkbox
 		title = td("a")[0].text
-		allText = tr('td')[1].text.strip()[len(title):]
+		allText = td.text.strip()[len(title):]
 		splits = allText.split(' renewals leftDue: ')
 		if len(splits) == 2:
 			renewals = int(splits[0])
@@ -45,7 +45,13 @@ class WcclsMobile:
 			assert isinstance(isOverdrive, list)
 			return CheckedOutItem(title, dueDate, renewals, len(isOverdrive) != 0)
 
-		assert False, "Looks like they all say renewals left now"
+		splits = allText.split("\xa0")
+
+		if len(splits) >= 2:
+			dueDate = datetime.strptime(splits[1], '%m/%d/%Y').date()
+			return CheckedOutItem(title, dueDate, 0, True)
+
+		assert False, "Unexpected format"
 		index = allText.find("Due:")
 		if index != -1:
 			dueDate = datetime.strptime(allText[index + 5:], '%m/%d/%Y').date()
