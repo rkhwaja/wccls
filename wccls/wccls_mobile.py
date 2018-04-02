@@ -100,10 +100,10 @@ class WcclsMobile:
 			errorMessage = 'Failed to parse hold. text="{}"'.format(text)
 			error(errorMessage)
 			raise RuntimeError(errorMessage)
-		
+
 		status = match.group(1)
 		date = match.group(2)
-		
+
 		if status == "Pending":
 			return PendingItem(title=title, reservationDate=datetime.strptime(date.strip(), "as of %m/%d/%Y").date())
 
@@ -140,7 +140,7 @@ class WcclsMobile:
 
 		if status == "Unclaimed":
 			assert False, "Unclaimed stuff is now cancelled"
-		
+
 		error("Unknown status type: " + status + ", text=" + text)
 		return None
 
