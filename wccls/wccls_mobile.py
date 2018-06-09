@@ -2,7 +2,7 @@
 from datetime import datetime, timedelta
 from logging import debug, error, warning
 from os.path import join
-from re import search
+from re import match, search
 from tempfile import gettempdir
 
 from bs4 import BeautifulSoup
@@ -31,16 +31,15 @@ class WcclsMobile:
 		debug("Login reponse: {response}")
 
 	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
-		td = tr("td")[1] # first td is the renewal checkbox
-		title = td("a")[0].text
+		td = tr("td")[1] # zeroth td is the renewal checkbox
+		title = td("a")[0].text # title is in the <a> tag
 		allText = td.text.strip()[len(title):]
 		splits = allText.split(' renewals leftDue: ')
 		if len(splits) == 2:
 			renewals = int(splits[0])
-			datePlusPossibleOverdueSplits = splits[1].split('\xa0\xa0')
-			if len(datePlusPossibleOverdueSplits) > 1:
-				debug("Overdue")
-			dueDate = datetime.strptime(datePlusPossibleOverdueSplits[0], '%m/%d/%Y').date()
+			datePlus = splits[1]
+			justDate = match(r"(\d+/\d+/\d{4})", datePlus).group(1)
+			dueDate = datetime.strptime(justDate, '%m/%d/%Y').date()
 			isOverdrive = td("select")
 			assert isinstance(isOverdrive, list)
 			return CheckedOutItem(title, dueDate, renewals, len(isOverdrive) != 0)
