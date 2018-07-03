@@ -1,5 +1,8 @@
 from enum import Enum
 
+class ParseError(Exception):
+	pass
+
 # status types
 StatusType = Enum("StatusType", "Held, Pending, Shipped, Active, Inactive, Cancelled, CheckedOut, Unclaimed")
 

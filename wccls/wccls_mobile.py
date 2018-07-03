@@ -158,13 +158,16 @@ class WcclsMobile:
 		return soup, items
 
 	def Holds(self):
-		soup, items = self.ParseHoldsPage(0)
+		try:
+			soup, items = self.ParseHoldsPage(0)
 
-		footer = soup.find_all('div', class_='list-footer-options')[0].text
-		pages = int(search(r"Page\s+1\s+of\s+(\d+)", footer).group(1))
+			footer = soup.find_all("div", class_="list-footer-options")[0].text
+			pages = int(search(r"Page\s+1\s+of\s+(\d+)", footer).group(1))
 
-		for page in range(1, pages):
-			items.extend(self.ParseHoldsPage(page)[1])
+			for page in range(1, pages):
+				items.extend(self.ParseHoldsPage(page)[1])
+		except IndexError as e:
+			raise ParseError from e
 
 		return items
 
