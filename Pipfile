@@ -19,3 +19,4 @@ requests = "*"
 [dev-packages]
 
 pytest = "*"
+pylint = "*"
