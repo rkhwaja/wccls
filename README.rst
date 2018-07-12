@@ -6,6 +6,7 @@ Usage
 =====
 
 .. image:: https://travis-ci.org/rkhwaja/wccls.svg?branch=master
+   :target: https://travis-ci.org/rkhwaja/wccls
 
 .. code-block:: python
 
