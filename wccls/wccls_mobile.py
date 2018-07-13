@@ -8,7 +8,7 @@ from tempfile import gettempdir
 from bs4 import BeautifulSoup
 from requests import Session
 
-from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold
+from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, ParseError, PendingItem, ShippedItem, SuspendedHold
 
 class WcclsMobile:
 	def __init__(self, login, password, debug_=False):
@@ -28,7 +28,7 @@ class WcclsMobile:
 			'rememberMe': 'true' # doesn't seem to matter whether we say true or false
 		}
 		response = self.session.post(loginUrl, data=loginParameters)
-		debug("Login reponse: {response}")
+		debug("Login reponse: {}".format(response))
 
 	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
 		td = tr("td")[1] # zeroth td is the renewal checkbox
@@ -94,14 +94,14 @@ class WcclsMobile:
 		td1 = tr('td')[1]
 		title = td1.find('a').text
 		text = td1.text[len(title):]
-		match = search(r'(Held|Pending|Shipped|Active|Inactive|Cancelled|Unclaimed)\s*\((.*)\)', text)
-		if match is None:
+		match_ = search(r'(Held|Pending|Shipped|Active|Inactive|Cancelled|Unclaimed)\s*\((.*)\)', text)
+		if match_ is None:
 			errorMessage = 'Failed to parse hold. text="{}"'.format(text)
 			error(errorMessage)
 			raise RuntimeError(errorMessage)
 
-		status = match.group(1)
-		date = match.group(2)
+		status = match_.group(1)
+		date = match_.group(2)
 
 		if status == "Pending":
 			return PendingItem(title=title, reservationDate=datetime.strptime(date.strip(), "as of %m/%d/%Y").date())
@@ -132,8 +132,8 @@ class WcclsMobile:
 			elif date == "until today":
 				days = 0
 			else:
-				match = search(r'for (\d+) more day', date)
-				days = int(match.group(1))
+				match_ = search(r'for (\d+) more day', date)
+				days = int(match_.group(1))
 			date = (datetime.today() + timedelta(days=days)).date()
 			return HeldItem(title=title, expiryDate=date)
 
