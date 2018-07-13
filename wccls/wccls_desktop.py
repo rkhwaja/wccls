@@ -146,7 +146,7 @@ class WcclsDesktop:
 			elif status == "Unclaimed":
 				item = UnclaimedHold(title=title)
 			else:
-				debug("Status: {}, dateInfo: {}".format(status, dateInfo))
+				debug(f"Status: {status}, dateInfo: {dateInfo}")
 				assert False
 			items.append(item)
 		return items

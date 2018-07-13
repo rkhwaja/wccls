@@ -12,7 +12,7 @@ class Item:
 		self.status = status
 
 	def __repr__(self):
-		return "<Item title={}, status={}>".format(self.title, self.status.name)
+		return f"<Item title={self.title}, status={self.status.name}>"
 
 class CheckedOutItem(Item):
 	def __init__(self, title, dueDate, renewals, isOverdrive):
@@ -30,7 +30,7 @@ class SuspendedHold(Item):
 		self.reactivationDate = reactivationDate
 
 	def __repr__(self):
-		return "<SuspendedHold {}, reactivationDate={}>".format(super().__repr__(), self.reactivationDate)
+		return f"<SuspendedHold {super().__repr__()}, reactivationDate={self.reactivationDate}>"
 
 class HeldItem(Item):
 	def __init__(self, title, expiryDate):
@@ -38,7 +38,7 @@ class HeldItem(Item):
 		self.expiryDate = expiryDate
 
 	def __repr__(self):
-		return "<HeldItem {}, expiryDate={}>".format(super().__repr__(), self.expiryDate)
+		return f"<HeldItem {super().__repr__()}, expiryDate={self.expiryDate}>"
 
 class ShippedItem(Item):
 	def __init__(self, title, shippedDate):
@@ -46,7 +46,7 @@ class ShippedItem(Item):
 		self.shippedDate = shippedDate
 
 	def __repr__(self):
-		return "<ShippedItem {}, shippedDate={}>".format(super().__repr__(), self.shippedDate)
+		return f"<ShippedItem {super().__repr__()}, shippedDate={self.shippedDate}>"
 
 class ActiveHold(Item):
 	def __init__(self, title, activationDate, queuePosition, queueSize):
@@ -56,7 +56,7 @@ class ActiveHold(Item):
 		self.queueSize = queueSize
 
 	def __repr__(self):
-		return "<ActiveHold {}, activationDate={}, queuePosition={}, queueSize={}>".format(super().__repr__(), self.activationDate, self.queuePosition, self.queueSize)
+		return f"<ActiveHold {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}>"
 
 class CancelledHold(Item):
 	def __init__(self, title, cancellationDate):
@@ -64,7 +64,7 @@ class CancelledHold(Item):
 		self.cancellationDate = cancellationDate
 
 	def __repr__(self):
-		return "<CancelledHold {}, cancellationDate={}>".format(super().__repr__(), self.cancellationDate)
+		return f"<CancelledHold {super().__repr__()}, cancellationDate={self.cancellationDate}>"
 
 class PendingItem(Item):
 	def __init__(self, title, reservationDate):
@@ -72,7 +72,7 @@ class PendingItem(Item):
 		self.reservationDate = reservationDate
 
 	def __repr__(self):
-		return "<PendingItem {}, reservationDate={}>".format(super().__repr__(), self.reservationDate)
+		return f"<PendingItem {super().__repr__()}, reservationDate={self.reservationDate}>"
 
 class UnclaimedHold(Item):
 	def __init__(self, title):

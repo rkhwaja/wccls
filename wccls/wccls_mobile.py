@@ -28,7 +28,7 @@ class WcclsMobile:
 			'rememberMe': 'true' # doesn't seem to matter whether we say true or false
 		}
 		response = self.session.post(loginUrl, data=loginParameters)
-		debug("Login reponse: {}".format(response))
+		debug(f"Login reponse: {response}")
 
 	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
 		td = tr("td")[1] # zeroth td is the renewal checkbox
@@ -96,7 +96,7 @@ class WcclsMobile:
 		text = td1.text[len(title):]
 		match_ = search(r'(Held|Pending|Shipped|Active|Inactive|Cancelled|Unclaimed)\s*\((.*)\)', text)
 		if match_ is None:
-			errorMessage = 'Failed to parse hold. text="{}"'.format(text)
+			errorMessage = f'Failed to parse hold. text="{text}"'
 			error(errorMessage)
 			raise RuntimeError(errorMessage)
 
