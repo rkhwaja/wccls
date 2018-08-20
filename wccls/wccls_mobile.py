@@ -98,7 +98,7 @@ class WcclsMobile:
 		if match_ is None:
 			errorMessage = f'Failed to parse hold. text="{text}"'
 			error(errorMessage)
-			raise RuntimeError(errorMessage)
+			raise ParseError(errorMessage)
 
 		status = match_.group(1)
 		date = match_.group(2)
@@ -138,10 +138,9 @@ class WcclsMobile:
 			return HeldItem(title=title, expiryDate=date)
 
 		if status == "Unclaimed":
-			assert False, "Unclaimed stuff is now cancelled"
+			raise ParseError("Unclaimed stuff is now cancelled")
 
-		error("Unknown status type: " + status + ", text=" + text)
-		return None
+		raise ParseError(f"Unknown status type: {status}, text={text}")
 
 	def ParseHoldsPage(self, pageNumber):
 		response = self.session.get(f"{self.host}/Mobile/MyAccount/Holds?page={pageNumber}", timeout=60)
@@ -151,9 +150,6 @@ class WcclsMobile:
 		items = []
 		for tr in soup.find_all(lambda e: e.name == "tr" and len(e("td")) != 0):
 			hold = self.ParseHold(tr)
-			if hold is None:
-				error(f"Failed to parse hold: {tr}")
-				continue
 			items.append(hold)
 		return soup, items
 
