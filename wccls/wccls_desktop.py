@@ -8,6 +8,8 @@ from requests import Session
 
 from .wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, PendingItem, ShippedItem, SuspendedHold, UnclaimedHold
 
+__all__ = ["WcclsDesktop"]
+
 class WcclsDesktop:
 	def __init__(self, login, password, debug_=False, host='https://catalog.wccls.org'):
 		self._debug = debug_

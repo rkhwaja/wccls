@@ -10,6 +10,8 @@ from requests import Session
 
 from .wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, ParseError, PendingItem, ShippedItem, SuspendedHold
 
+__all__ = ["WcclsMobile"]
+
 class WcclsMobile:
 	def __init__(self, login, password, debug_=False):
 		self._host = "https://catalog.wccls.org"
