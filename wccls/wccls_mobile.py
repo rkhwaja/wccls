@@ -8,29 +8,29 @@ from tempfile import gettempdir
 from bs4 import BeautifulSoup
 from requests import Session
 
-from wccls.wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, ParseError, PendingItem, ShippedItem, SuspendedHold
+from .wccls import ActiveHold, CancelledHold, CheckedOutItem, HeldItem, ParseError, PendingItem, ShippedItem, SuspendedHold
 
 class WcclsMobile:
 	def __init__(self, login, password, debug_=False):
-		self.host = "https://catalog.wccls.org"
-		self.debug = debug_
-		self.session = Session()
-		self.Login(login, password)
-		self.items = self.CheckedOutItems() + self.Holds()
+		self._host = "https://catalog.wccls.org"
+		self._debug = debug_
+		self._session = Session()
+		self._Login(login, password)
+		self.items = self._CheckedOutItems() + self._Holds()
 
-	def Login(self, login, password):
+	def _Login(self, login, password):
 		# get on this returns the login form, post logs in
-		loginUrl = self.host + '/Mobile/MyAccount/Logon'
+		loginUrl = self._host + '/Mobile/MyAccount/Logon'
 
 		loginParameters = {
 			'barcodeOrUsername': login,
 			'password': password,
 			'rememberMe': 'true' # doesn't seem to matter whether we say true or false
 		}
-		response = self.session.post(loginUrl, data=loginParameters)
+		response = self._session.post(loginUrl, data=loginParameters)
 		debug(f"Login reponse: {response}")
 
-	def ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
+	def _ParseCheckedOutItem(self, tr): # pylint: disable=no-self-use,too-many-locals
 		td = tr("td")[1] # zeroth td is the renewal checkbox
 		title = td("a")[0].text # title is in the <a> tag
 		allText = td.text.strip()[len(title):]
@@ -59,20 +59,20 @@ class WcclsMobile:
 		warning("Failed to parse: " + allText.strip())
 		return None
 
-	def ParseCheckedOutPage(self, pageNumber):
-		response = self.session.get(f"{self.host}/Mobile/MyAccount/ItemsOut?page={pageNumber}", timeout=60)
-		self.DumpDebugFile("itemsout-{pageNumber}.html", response.text)
+	def _ParseCheckedOutPage(self, pageNumber):
+		response = self._session.get(f"{self._host}/Mobile/MyAccount/ItemsOut?page={pageNumber}", timeout=60)
+		self._DumpDebugFile("itemsout-{pageNumber}.html", response.text)
 		soup = BeautifulSoup(response.content, "html.parser")
 
 		items = []
 		for tr in soup.find_all(lambda e: e.name == "tr" and len(e("td")) != 0):
-			checkedOutItem = self.ParseCheckedOutItem(tr)
+			checkedOutItem = self._ParseCheckedOutItem(tr)
 			if checkedOutItem is not None:
 				items.append(checkedOutItem)
 		return soup, items
 
-	def CheckedOutItems(self): # pylint: disable=too-many-locals
-		soup, items = self.ParseCheckedOutPage(0)
+	def _CheckedOutItems(self): # pylint: disable=too-many-locals
+		soup, items = self._ParseCheckedOutPage(0)
 
 		breadcrumbsDiv = soup.find_all('div', id='breadcrumbs')
 		breadcrumbsText = breadcrumbsDiv[0].text
@@ -85,12 +85,12 @@ class WcclsMobile:
 		debug(f"totalItems={totalItems}, totalPages={totalPages}")
 
 		for page in range(1, totalPages):
-			items.extend(self.ParseCheckedOutPage(page)[1])
+			items.extend(self._ParseCheckedOutPage(page)[1])
 
 		# assert(totalItems == len(items))
 		return items
 
-	def ParseHold(self, tr): # pylint: disable=no-self-use,too-many-return-statements
+	def _ParseHold(self, tr): # pylint: disable=no-self-use,too-many-return-statements
 		td1 = tr('td')[1]
 		title = td1.find('a').text
 		text = td1.text[len(title):]
@@ -142,33 +142,33 @@ class WcclsMobile:
 
 		raise ParseError(f"Unknown status type: {status}, text={text}")
 
-	def ParseHoldsPage(self, pageNumber):
-		response = self.session.get(f"{self.host}/Mobile/MyAccount/Holds?page={pageNumber}", timeout=60)
-		self.DumpDebugFile("holds-{pageNumber}.html", response.text)
+	def _ParseHoldsPage(self, pageNumber):
+		response = self._session.get(f"{self._host}/Mobile/MyAccount/Holds?page={pageNumber}", timeout=60)
+		self._DumpDebugFile("holds-{pageNumber}.html", response.text)
 		soup = BeautifulSoup(response.content, "html.parser")
 
 		items = []
 		for tr in soup.find_all(lambda e: e.name == "tr" and len(e("td")) != 0):
-			hold = self.ParseHold(tr)
+			hold = self._ParseHold(tr)
 			items.append(hold)
 		return soup, items
 
-	def Holds(self):
+	def _Holds(self):
 		try:
-			soup, items = self.ParseHoldsPage(0)
+			soup, items = self._ParseHoldsPage(0)
 
 			footer = soup.find_all("div", class_="list-footer-options")[0].text
 			pages = int(search(r"Page\s+1\s+of\s+(\d+)", footer).group(1))
 
 			for page in range(1, pages):
-				items.extend(self.ParseHoldsPage(page)[1])
+				items.extend(self._ParseHoldsPage(page)[1])
 		except IndexError as e:
 			raise ParseError from e
 
 		return items
 
-	def DumpDebugFile(self, filename, content):
-		if not self.debug:
+	def _DumpDebugFile(self, filename, content):
+		if not self._debug:
 			return
 		with open(join(gettempdir(), "log", filename), "w") as theFile:
 			theFile.write(content)
