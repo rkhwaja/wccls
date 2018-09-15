@@ -5,3 +5,4 @@ dist
 .cache
 .pytest_cache
 Pipfile.lock
+.env
