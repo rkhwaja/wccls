@@ -63,7 +63,7 @@ class WcclsMobile:
 
 	def _ParseCheckedOutPage(self, pageNumber):
 		response = self._session.get(f"{self._host}/Mobile/MyAccount/ItemsOut?page={pageNumber}", timeout=60)
-		self._DumpDebugFile("itemsout-{pageNumber}.html", response.text)
+		self._DumpDebugFile(f"itemsout-{pageNumber}.html", response.text)
 		soup = BeautifulSoup(response.content, "html.parser")
 
 		items = []
@@ -94,7 +94,12 @@ class WcclsMobile:
 
 	def _ParseHold(self, tr): # pylint: disable=no-self-use,too-many-return-statements
 		td1 = tr('td')[1]
-		title = td1.find('a').text
+		anchors = td1.find_all('a')
+		title = anchors[0].text
+		if len(anchors) >= 2 and anchors[1].text == 'Check Out':
+			# the desktop site has the expiry date, but not the mobile site
+			return HeldItem(title=title, expiryDate=None)
+
 		text = td1.text[len(title):]
 		match_ = search(r'(Held|Pending|Shipped|Active|Inactive|Cancelled|Unclaimed)\s*\((.*)\)', text)
 		if match_ is None:
@@ -146,7 +151,7 @@ class WcclsMobile:
 
 	def _ParseHoldsPage(self, pageNumber):
 		response = self._session.get(f"{self._host}/Mobile/MyAccount/Holds?page={pageNumber}", timeout=60)
-		self._DumpDebugFile("holds-{pageNumber}.html", response.text)
+		self._DumpDebugFile(f"holds-{pageNumber}.html", response.text)
 		soup = BeautifulSoup(response.content, "html.parser")
 
 		items = []
