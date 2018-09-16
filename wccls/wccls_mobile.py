@@ -92,7 +92,7 @@ class WcclsMobile:
 		# assert(totalItems == len(items))
 		return items
 
-	def _ParseHold(self, tr): # pylint: disable=no-self-use,too-many-return-statements
+	def _ParseHold(self, tr): # pylint: disable=no-self-use,too-many-return-statements,too-many-locals
 		td1 = tr('td')[1]
 		anchors = td1.find_all('a')
 		title = anchors[0].text
