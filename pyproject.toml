@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "wccls"
+author = "Rehan Khwaja"
+author-email = "rehan@khwaja.name"
+home-page = "https://github.com/rkhwaja/wccls"
+classifiers = [
+	"License :: OSI Approved :: MIT License",
+	"Development Status :: 5 - Production/Stable",
+	"Intended Audience :: Developers",
+	"Programming Language :: Python :: 3.6",
+	"Programming Language :: Python :: 3.7"]
+description-file = "README.rst"
+requires-python = ">=3.6"
+dist-name = "wccls"
+requires = [
+	"beautifulsoup4",
+	"requests"
+]
