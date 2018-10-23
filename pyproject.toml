@@ -1,22 +1,27 @@
 [build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
 
-[tool.flit.metadata]
-module = "wccls"
-author = "Rehan Khwaja"
-author-email = "rehan@khwaja.name"
-home-page = "https://github.com/rkhwaja/wccls"
+[tool.poetry]
+name = "wccls"
+version = "1.2.0"
+description = "Scraper for the WCCLS account page"
+authors = ["Rehan Khwaja <rehan@khwaja.name>"]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://github.com/rkhwaja/wccls"
 classifiers = [
 	"License :: OSI Approved :: MIT License",
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
 	"Programming Language :: Python :: 3.6",
 	"Programming Language :: Python :: 3.7"]
-description-file = "README.rst"
-requires-python = ">=3.6"
-dist-name = "wccls"
-requires = [
-	"beautifulsoup4",
-	"requests"
-]
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+beautifulsoup4 = "^4.6"
+requests = "^2.20"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.9"
+pylint = "^2.1"
