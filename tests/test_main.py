@@ -32,3 +32,6 @@ def test_mobile():
 def test_recommended():
 	wccls = Wccls(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=False)
 	CheckOutput(wccls.items)
+
+def test_bibliocommons():
+	wccls = WcclsBiblioCommons(username=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug=True)
