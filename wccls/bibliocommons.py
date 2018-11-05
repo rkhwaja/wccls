@@ -3,7 +3,7 @@ from pprint import pprint
 
 from requests_html import HTMLSession
 
-from .wccls import ActiveHold, CheckedOutItem, HeldItem, SuspendedHold
+from .wccls import ActiveHold, CheckedOutItem, HeldItem, ShippedItem, SuspendedHold
 
 __all__ = ["WcclsBiblioCommons"]
 
@@ -32,34 +32,46 @@ class WcclsBiblioCommons:
 			theFile.write(content)
 
 	def _ParseDate(self, prefix, element):
-		assert element.text.startswith(prefix)
+		assert element.text.startswith(prefix), f"{element.text}"
 		return datetime.strptime(element.text[len(prefix):], "%b %d, %Y").date()
+
+	def _ParseDate2(self, listItem):
+		# parent = listItem.find(".suspended_until_date")
+		# link = parent.find("a")
+		dateAttr = listItem.find("a[data-value]", first=True)
+		print(dateAttr)
+		# text value here seems to have been run through some javascript
+		return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
 
 	def _HeldItems(self):
 		result = []
 		page = self._session.get("https://wccls.bibliocommons.com/holds")
 		self._DumpDebugFile("holds.html", page.content)
-		for listItem in page.html.find(".listItem)"):
-			holdStatusElement = listItem.find(".hold_status_icon")
-			classes = holdStatusElement.attrs["class"].split(" ")
-			if "icon-ok-circled" in classes:
+		for listItem in page.html.find(".listItem"):
+			print(listItem)
+			holdStatusElement = listItem.find(".hold_status", first=True)
+			classes = holdStatusElement.attrs["class"]
+			print(f"classes: {classes}")
+			if "ready_for_pickup" in classes:
 				result.append(HeldItem(
 				title=listItem.find(".title", first=True).text,
-				expiryDate=self._ParseDate("Pickup by: \xa0", listItem.find(".pick_up_date", first=True))))
-			elif "icon-truck" in classes:
+				expiryDate=self._ParseDate("Pickup by: ", listItem.find(".pick_up_date", first=True))))
+			elif "in_transit" in classes:
 				result.append(ShippedItem(
 					title=listItem.find(".title", first=True).text,
 					shippedDate=None)) # need an example
-			elif "icon-minus-circled" in classes:
+			elif "not_yet_available" in classes:
 				result.append(ActiveHold(
 					title=listItem.find(".title", first=True).text,
 					activationDate=None, # need an example
 					queuePosition=None, # need to parse it out of .hold_position
 					queueSize=None)) # need to parse it out of .hold_position
-			elif "icon-pause-circled":
+			elif "suspended":
 				result.append(SuspendedHold(
 					title=listItem.find(".title", first=True).text,
-					reactivationDate=_ParseDate("", listItem.find(".hold_expiry_date"))))
+					reactivationDate=self._ParseDate2(listItem)))
+			else:
+				assert "Unknown"
 
 		return result
 
