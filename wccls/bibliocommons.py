@@ -43,6 +43,18 @@ class WcclsBiblioCommons:
 		# text value here seems to have been run through some javascript
 		return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
 
+	def _ParseDate3(self, listItem):
+		dateAttr = listItem.find(".hold_expiry_date", first=True)
+		return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
+
+	def _ParseHoldPosition(self, listItem):
+		text = listItem.find(".hold_position", first=True).text
+		from re import search
+		matches = search(text, r"#(\d+) on (\d+) cop")
+		assert matches is not None and len(matches) > 0, text
+		match = matches[0]
+		return (match[1], match[2])
+
 	def _HeldItems(self):
 		result = []
 		page = self._session.get("https://wccls.bibliocommons.com/holds")
@@ -59,13 +71,14 @@ class WcclsBiblioCommons:
 			elif "in_transit" in classes:
 				result.append(ShippedItem(
 					title=listItem.find(".title", first=True).text,
-					shippedDate=None)) # need an example
+					shippedDate=None)) # they don't seem to show this anymore
 			elif "not_yet_available" in classes:
+				holdPosition = (None, None) #self._ParseHoldPosition(listItem)
 				result.append(ActiveHold(
 					title=listItem.find(".title", first=True).text,
-					activationDate=None, # need an example
-					queuePosition=None, # need to parse it out of .hold_position
-					queueSize=None)) # need to parse it out of .hold_position
+					activationDate=self._ParseDate3(listItem),
+					queuePosition=holdPosition[0], # need to parse it out of .hold_position
+					queueSize=holdPosition[1])) # need to parse it out of .hold_position
 			elif "suspended":
 				result.append(SuspendedHold(
 					title=listItem.find(".title", first=True).text,
