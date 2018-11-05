@@ -5,7 +5,7 @@ python:
 dist: xenial
 sudo: true
 install:
-- pip install beautifulsoup4 requests
+- pip install beautifulsoup4 requests requests-html
 - pip install --pre pylint astroid
 script:
 - pylint wccls
