@@ -1,5 +1,8 @@
 from datetime import datetime
-from pprint import pprint
+from logging import info
+from os.path import join
+from re import search
+from tempfile import gettempdir
 
 from requests_html import HTMLSession
 
@@ -8,22 +11,21 @@ from .wccls import ActiveHold, CheckedOutItem, HeldItem, ShippedItem, SuspendedH
 __all__ = ["WcclsBiblioCommons"]
 
 class WcclsBiblioCommons:
-	def __init__(self, username, password, debug_=False):
+	def __init__(self, login, password, debug_=False):
 		self._debug = debug_
 		self._session = HTMLSession()
-		self._Login(username, password)
-		self.items = self._CheckedOutItems()
-		# self.items.append(self._HeldItems())
+		self._Login(login, password)
+		self.items = self._CheckedOut() + self._ReadyForPickup() + self._InTransit() + self._NotYetAvailable() + self._Suspended()
 
-	def _Login(self, username, password):
-		loginPage = self._session.get("https://wccls.bibliocommons.com/user/login?destination=%2F")
+	def _Login(self, login, password):
+		loginPage = self._session.get("https://wccls.bibliocommons.com/user/login")
 		loginForm = loginPage.html.find(".loginForm", first=True)
 		formData = {}
 		for input_ in loginForm.find("input"):
 			formData[input_.attrs["name"]] = input_.attrs["value"] if "value" in input_.attrs else ""
 		formData["user_pin"] = password
-		formData["name"] = username
-		loggedInPage = self._session.post(loginForm.attrs["action"], data=formData)
+		formData["name"] = login
+		_ = self._session.post(loginForm.attrs["action"], data=formData)
 
 	def _DumpDebugFile(self, filename, content):
 		if not self._debug:
@@ -31,72 +33,85 @@ class WcclsBiblioCommons:
 		with open(join(gettempdir(), "log", filename), "wb") as theFile:
 			theFile.write(content)
 
-	def _ParseDate(self, prefix, element):
-		assert element.text.startswith(prefix), f"{element.text}"
-		return datetime.strptime(element.text[len(prefix):], "%b %d, %Y").date()
-
-	def _ParseDate2(self, listItem):
-		# parent = listItem.find(".suspended_until_date")
-		# link = parent.find("a")
-		dateAttr = listItem.find("a[data-value]", first=True)
-		print(dateAttr)
-		# text value here seems to have been run through some javascript
-		return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
-
-	def _ParseDate3(self, listItem):
-		dateAttr = listItem.find(".hold_expiry_date", first=True)
-		return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
-
-	def _ParseHoldPosition(self, listItem):
-		text = listItem.find(".hold_position", first=True).text
-		from re import search
-		matches = search(text, r"#(\d+) on (\d+) cop")
-		assert matches is not None and len(matches) > 0, text
-		match = matches[0]
-		return (match[1], match[2])
-
-	def _HeldItems(self):
+	def _Suspended(self):
 		result = []
-		page = self._session.get("https://wccls.bibliocommons.com/holds")
-		self._DumpDebugFile("holds.html", page.content)
+		page = self._session.get("https://wccls.bibliocommons.com/holds/index/suspended")
+		self._DumpDebugFile("suspended.html", page.content)
 		for listItem in page.html.find(".listItem"):
-			print(listItem)
-			holdStatusElement = listItem.find(".hold_status", first=True)
-			classes = holdStatusElement.attrs["class"]
-			print(f"classes: {classes}")
-			if "ready_for_pickup" in classes:
-				result.append(HeldItem(
+			info(listItem)
+			result.append(SuspendedHold(
 				title=listItem.find(".title", first=True).text,
-				expiryDate=self._ParseDate("Pickup by: ", listItem.find(".pick_up_date", first=True))))
-			elif "in_transit" in classes:
-				result.append(ShippedItem(
-					title=listItem.find(".title", first=True).text,
-					shippedDate=None)) # they don't seem to show this anymore
-			elif "not_yet_available" in classes:
-				holdPosition = (None, None) #self._ParseHoldPosition(listItem)
-				result.append(ActiveHold(
-					title=listItem.find(".title", first=True).text,
-					activationDate=self._ParseDate3(listItem),
-					queuePosition=holdPosition[0], # need to parse it out of .hold_position
-					queueSize=holdPosition[1])) # need to parse it out of .hold_position
-			elif "suspended":
-				result.append(SuspendedHold(
-					title=listItem.find(".title", first=True).text,
-					reactivationDate=self._ParseDate2(listItem)))
-			else:
-				assert "Unknown"
+				reactivationDate=_ParseDate2(listItem)))
 
 		return result
 
-	def _CheckedOutItems(self):
+	def _NotYetAvailable(self):
+		result = []
+		page = self._session.get("https://wccls.bibliocommons.com/holds/index/not_yet_available")
+		self._DumpDebugFile("not-yet-available.html", page.content)
+		for listItem in page.html.find(".listItem"):
+			info(listItem)
+			holdInfo = _ParseHoldPosition(listItem)
+			result.append(ActiveHold(
+				title=listItem.find(".title", first=True).text,
+				activationDate=_ParseDate3(listItem),
+				queuePosition=holdInfo[0],
+				queueSize=None, # Not shown on the initial screen anymore
+				copies=holdInfo[1]))
+
+		return result
+
+	def _ReadyForPickup(self):
+		result = []
+		page = self._session.get("https://wccls.bibliocommons.com/holds/index/ready_for_pickup")
+		self._DumpDebugFile("ready-for-pickup.html", page.content)
+		for listItem in page.html.find(".listItem"):
+			info(listItem)
+			result.append(HeldItem(
+				title=listItem.find(".title", first=True).text,
+				expiryDate=_ParseDate("Pickup by: ", listItem.find(".pick_up_date", first=True))))
+
+		return result
+
+	def _InTransit(self):
+		result = []
+		page = self._session.get("https://wccls.bibliocommons.com/holds/index/in_transit")
+		self._DumpDebugFile("in-transit.html", page.content)
+		for listItem in page.html.find(".listItem"):
+			info(listItem)
+			result.append(ShippedItem(
+				title=listItem.find(".title", first=True).text,
+				shippedDate=None)) # they don't seem to show this anymore
+
+		return result
+
+	def _CheckedOut(self):
 		result = []
 		checkedOutUrl = "https://wccls.bibliocommons.com/checkedout"
 		page = self._session.get(checkedOutUrl)
-		self._DumpDebugFile("checked-out-items.html", page.content)
+		self._DumpDebugFile("checked-out.html", page.content)
 		for listItem in page.html.find(".listItem"):
 			result.append(CheckedOutItem(
 				title=listItem.find(".title", first=True).text,
-				dueDate=self._ParseDate("Due on: \xa0", listItem.find(".checkedout_due_date", first=True)),
-				renewals=0, # need an example
+				dueDate=_ParseDate("Due on: \xa0", listItem.find(".checkedout_due_date", first=True)),
+				renewals=None, # need an example
 				isOverdrive=False)) # need an example
 		return result
+
+def _ParseDate(prefix, element):
+	assert element.text.startswith(prefix), f"{element.text}"
+	return datetime.strptime(element.text[len(prefix):], "%b %d, %Y").date()
+
+def _ParseDate2(listItem):
+	dateAttr = listItem.find("a[data-value]", first=True)
+	# text value here seems to have been run through some javascript
+	return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
+
+def _ParseDate3(listItem):
+	dateAttr = listItem.find(".hold_expiry_date", first=True)
+	return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
+
+def _ParseHoldPosition(listItem):
+	text = listItem.find(".hold_position", first=True).text
+	match = search(r"\#(\d+) on (\d+) cop", text)
+	return (match.group(1), match.group(2))

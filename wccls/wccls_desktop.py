@@ -132,7 +132,8 @@ class WcclsDesktop:
 				item = ActiveHold(title=title,
 					activationDate=datetime.strptime(dateInfo, "(since %m/%d/%Y)").date(),
 					queuePosition=queueData[0],
-					queueSize=queueData[1])
+					queueSize=queueData[1],
+					copies=None)
 			elif status == "Shipped":
 				item = ShippedItem(title=title,
 					shippedDate=self._ParseShippedDate(dateInfo))
