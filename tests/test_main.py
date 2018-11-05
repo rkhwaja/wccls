@@ -1,4 +1,4 @@
-#!/usr/bin/env pipenv run
+#!/usr/bin/env python
 
 from logging import info
 from os import environ
