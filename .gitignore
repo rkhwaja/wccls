@@ -7,3 +7,4 @@ dist
 Pipfile.lock
 .env
 .DS_Store
+poetry.lock
