@@ -26,6 +26,7 @@ class CheckedOutItem(Item):
 	def __repr__(self):
 		return f"<CheckedOutItem {super().__repr__()}, dueDate={self.dueDate}, isOverdrive={self.isOverdrive}>"
 
+# The same as a paused hold
 class SuspendedHold(Item):
 	def __init__(self, title, reactivationDate):
 		super().__init__(title, StatusType.Inactive)
@@ -34,6 +35,7 @@ class SuspendedHold(Item):
 	def __repr__(self):
 		return f"<SuspendedHold {super().__repr__()}, reactivationDate={self.reactivationDate}>"
 
+# Being held at the library
 class HeldItem(Item):
 	def __init__(self, title, expiryDate):
 		super().__init__(title, StatusType.Held)
@@ -42,6 +44,7 @@ class HeldItem(Item):
 	def __repr__(self):
 		return f"<HeldItem {super().__repr__()}, expiryDate={self.expiryDate}>"
 
+# Shipping to the library
 class ShippedItem(Item):
 	def __init__(self, title, shippedDate):
 		super().__init__(title, StatusType.Shipped)
@@ -50,16 +53,19 @@ class ShippedItem(Item):
 	def __repr__(self):
 		return f"<ShippedItem {super().__repr__()}, shippedDate={self.shippedDate}>"
 
+# In the queue
 class ActiveHold(Item):
-	def __init__(self, title, activationDate, queuePosition, queueSize):
+	def __init__(self, title, activationDate, queuePosition, queueSize, copies):
 		super().__init__(title, StatusType.Active)
 		self.activationDate = activationDate
 		self.queuePosition = queuePosition
 		self.queueSize = queueSize
+		self.copies = copies
 
 	def __repr__(self):
-		return f"<ActiveHold {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}>"
+		return f"<ActiveHold {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}, copies={self.copies}>"
 
+# Cancelled - not sure if this shows up anymore
 class CancelledHold(Item):
 	def __init__(self, title, cancellationDate):
 		super().__init__(title, StatusType.Cancelled)
@@ -68,6 +74,7 @@ class CancelledHold(Item):
 	def __repr__(self):
 		return f"<CancelledHold {super().__repr__()}, cancellationDate={self.cancellationDate}>"
 
+# This is the state after it's been requested but before it's an ActiveHold
 class PendingItem(Item):
 	def __init__(self, title, reservationDate):
 		super().__init__(title, StatusType.Pending)
@@ -76,6 +83,7 @@ class PendingItem(Item):
 	def __repr__(self):
 		return f"<PendingItem {super().__repr__()}, reservationDate={self.reservationDate}>"
 
+# The hold expired - not sure if this shows up anymore
 class UnclaimedHold(Item):
 	def __init__(self, title):
 		super().__init__(title, StatusType.Unclaimed)

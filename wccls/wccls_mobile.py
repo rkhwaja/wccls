@@ -123,7 +123,7 @@ class WcclsMobile:
 			splits = td2.text.strip().split(' Of ')
 			listPos = int(splits[0].strip())
 			listSize = int(splits[1].strip())
-			return ActiveHold(title=title, activationDate=date, queuePosition=listPos, queueSize=listSize)
+			return ActiveHold(title=title, activationDate=date, queuePosition=listPos, queueSize=listSize, copies=None)
 
 		if status == "Inactive":
 			date = datetime.strptime(date.strip()[6:], '%m/%d/%Y').date()
