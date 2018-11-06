@@ -34,5 +34,5 @@ def test_recommended():
 	CheckOutput(wccls.items)
 
 def test_bibliocommons():
-	wccls = WcclsBiblioCommons(username=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=True)
+	wccls = WcclsBiblioCommons(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=True)
 	CheckOutput(wccls.items)
