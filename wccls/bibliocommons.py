@@ -1,5 +1,5 @@
 from datetime import datetime
-from logging import info
+from logging import debug
 from os.path import join
 from re import search
 from tempfile import gettempdir
@@ -8,17 +8,18 @@ from requests_html import HTMLSession
 
 from .wccls import ActiveHold, CheckedOutItem, HeldItem, ShippedItem, SuspendedHold
 
-__all__ = ["WcclsBiblioCommons"]
+__all__ = ["BiblioCommons", "MultnomahBiblioCommons", "WcclsBiblioCommons"]
 
-class WcclsBiblioCommons:
-	def __init__(self, login, password, debug_=False):
+class BiblioCommons:
+	def __init__(self, subdomain, login, password, debug_=False):
 		self._debug = debug_
+		self._domain = f"https://{subdomain}.bibliocommons.com"
 		self._session = HTMLSession()
 		self._Login(login, password)
 		self.items = self._CheckedOut() + self._ReadyForPickup() + self._InTransit() + self._NotYetAvailable() + self._Suspended()
 
 	def _Login(self, login, password):
-		loginPage = self._session.get("https://wccls.bibliocommons.com/user/login")
+		loginPage = self._session.get(f"{self._domain}/user/login")
 		loginForm = loginPage.html.find(".loginForm", first=True)
 		formData = {}
 		for input_ in loginForm.find("input"):
@@ -35,27 +36,36 @@ class WcclsBiblioCommons:
 
 	def _ParseItems(self, url, dumpfile, parseFunction):
 		result = []
-		page = self._session.get(url)
+		# if there are no items in "ready_for_pickup", for instance, it will redirect back to the holds index, which we don't want
+		page = self._session.get(url, allow_redirects=False)
 		self._DumpDebugFile(dumpfile, page.content)
 		for listItem in page.html.find(".listItem"):
-			info(listItem)
+			debug(listItem)
 			result.append(parseFunction(listItem))
 		return result
 
 	def _Suspended(self):
-		return self._ParseItems("https://wccls.bibliocommons.com/holds/index/suspended", "suspended.html", _ParseSuspended)
+		return self._ParseItems(f"{self._domain}/holds/index/suspended", "suspended.html", _ParseSuspended)
 
 	def _NotYetAvailable(self):
-		return self._ParseItems("https://wccls.bibliocommons.com/holds/index/not_yet_available", "not-yet-available.html", _ParseNotYetAvailable)
+		return self._ParseItems(f"{self._domain}/holds/index/not_yet_available", "not-yet-available.html", _ParseNotYetAvailable)
 
 	def _ReadyForPickup(self):
-		return self._ParseItems("https://wccls.bibliocommons.com/holds/index/ready_for_pickup", "ready-for-pickup.html", _ParseReadyForPickup)
+		return self._ParseItems(f"{self._domain}/holds/index/ready_for_pickup", "ready-for-pickup.html", _ParseReadyForPickup)
 
 	def _InTransit(self):
-		return self._ParseItems("https://wccls.bibliocommons.com/holds/index/in_transit", "in-transit.html", _ParseInTransit)
+		return self._ParseItems(f"{self._domain}/holds/index/in_transit", "in-transit.html", _ParseInTransit)
 
 	def _CheckedOut(self):
-		return self._ParseItems("https://wccls.bibliocommons.com/checkedout", "checked-out.html", _ParseCheckedOut)
+		return self._ParseItems(f"{self._domain}/checkedout", "checked-out.html", _ParseCheckedOut)
+
+class WcclsBiblioCommons(BiblioCommons):
+	def __init__(self, login, password, debug_=False):
+		super().__init__(subdomain="wccls", login=login, password=password, debug_=debug_)
+
+class MultnomahBiblioCommons(BiblioCommons):
+	def __init__(self, login, password, debug_=False):
+		super().__init__(subdomain="multcolib", login=login, password=password, debug_=debug_)
 
 def _ParseSuspended(listItem):
 	return SuspendedHold(

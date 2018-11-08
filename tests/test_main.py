@@ -4,7 +4,7 @@ from logging import info
 from os import environ
 from unittest import skip
 
-from wccls import StatusType, Wccls, WcclsBiblioCommons, WcclsDesktop, WcclsMobile
+from wccls import MultnomahBiblioCommons, StatusType, Wccls, WcclsBiblioCommons, WcclsDesktop, WcclsMobile
 
 def CheckOutput(items):
 	itemsByStatus = {}
@@ -36,3 +36,7 @@ def test_recommended():
 def test_bibliocommons():
 	wccls = WcclsBiblioCommons(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=True)
 	CheckOutput(wccls.items)
+
+def test_multnomah_bibliocommons():
+	library = MultnomahBiblioCommons(login=environ["MULTNOMAH_CARD_NUMBER"], password=environ["MULTNOMAH_PASSWORD"], debug_=True)
+	CheckOutput(library.items)
