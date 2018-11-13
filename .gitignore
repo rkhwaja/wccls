@@ -4,8 +4,8 @@ build
 dist
 .cache
 .pytest_cache
-Pipfile.lock
 .env
 .DS_Store
 poetry.lock
 env.bat
+.idea

@@ -1,6 +1,6 @@
 Overview
 ========
-This is a scraper for the WCCLS account page. It currently seems to work for the Multnomah County library site too and probably other Bibliocommons sites.
+This is a scraper for the WCCLS account page.
 
 Usage
 =====
