@@ -8,10 +8,12 @@ from wccls import MultnomahBiblioCommons, StatusType, Wccls, WcclsBiblioCommons,
 
 def CheckOutput(items):
 	itemsByStatus = {}
+	for status in StatusType:
+		itemsByStatus[status] = 0
 	overdriveCount = 0
 	for item in items:
 		info(item)
-		itemsByStatus[item.status] = itemsByStatus.get(item.status, 0) + 1
+		itemsByStatus[item.status] += 1
 		if item.status == StatusType.CheckedOut and item.isOverdrive is True:
 			overdriveCount += 1
 
