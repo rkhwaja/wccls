@@ -80,7 +80,7 @@ def _ParseNotYetAvailable(listItem):
 	holdInfo = _ParseHoldPosition(listItem)
 	return ActiveHold(
 		title=listItem.find(".title-content", first=True).text,
-		activationDate=_ParseDate2(listItem),
+		activationDate=_ParseDate2(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
 		queuePosition=holdInfo[0],
 		queueSize=None, # Not shown on the initial screen anymore
 		copies=holdInfo[1])
@@ -114,6 +114,8 @@ def _ParseDate(prefix, element):
 
 def _ParseDate2(listItem):
 	dateAttr = listItem.find(".cp-short-formatted-date", first=True)
+	if dateAttr is None:
+		return None
 	# text value here seems to have been run through some javascript
 	return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
 
