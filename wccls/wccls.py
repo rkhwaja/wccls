@@ -24,7 +24,7 @@ class CheckedOutItem(Item):
 		self.isOverdrive = isOverdrive
 
 	def __repr__(self):
-		return f"<CheckedOutItem {super().__repr__()}, dueDate={self.dueDate}, isOverdrive={self.isOverdrive}>"
+		return f"<CheckedOutItem {super().__repr__()}, dueDate={self.dueDate}, renewals={self.renewals}, isOverdrive={self.isOverdrive}>"
 
 # The same as a paused hold
 class SuspendedHold(Item):

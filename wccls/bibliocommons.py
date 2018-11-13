@@ -96,10 +96,16 @@ def _ParseInTransit(listItem):
 		shippedDate=None) # they don't seem to show this anymore
 
 def _ParseCheckedOut(listItem):
+	renewals = 1 # we don't know how many renewals are really left - this just means at least one
+	if listItem.find(".cp-held-copies-count", first=True) is not None:
+		renewals = 0
+	renewCountText = listItem.find(".cp-renew-count span:nth-of-type(2)", first=True)
+	if renewCountText is not None:
+		renewals = 4 - int(renewCountText.text[0])
 	return CheckedOutItem(
 		title=listItem.find(".title-content", first=True).text,
 		dueDate=_ParseDate("", listItem.find(".cp-short-formatted-date", first=True)),
-		renewals=None, # need an example
+		renewals=renewals, # really should be a "renewable" flag
 		isOverdrive=False) # need an example
 
 def _ParseDate(prefix, element):
