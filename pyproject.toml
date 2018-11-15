@@ -19,10 +19,10 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = ">=3.6"
-beautifulsoup4 = "^4.6"
-requests = "^2.20"
 requests-html = "^0.9.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.9"
 pylint = "^2.1"
+beautifulsoup4 = "^4.6"
+requests = "^2.20"
