@@ -88,7 +88,7 @@ def _ParseNotYetAvailable(listItem):
 def _ParseReadyForPickup(listItem):
 	return HeldItem(
 		title=listItem.find(".title-content", first=True).text,
-		expiryDate=_ParseDate("Pickup by: ", listItem.find(".pick_up_date", first=True)))
+		expiryDate=_ParseDate("", listItem.find(".cp-short-formatted-date", first=True)))
 
 def _ParseInTransit(listItem):
 	return ShippedItem(
