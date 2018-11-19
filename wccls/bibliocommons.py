@@ -1,5 +1,4 @@
 from datetime import datetime
-from logging import debug
 from os import makedirs
 from os.path import join
 from re import search
@@ -44,7 +43,6 @@ class BiblioCommons:
 		self._DumpDebugFile(dumpfile, page.content)
 		page.raise_for_status()
 		for listItem in page.html.find(".item-row"):
-			debug(listItem)
 			result.append(parseFunction(listItem))
 		return result
 
