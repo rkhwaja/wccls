@@ -2,6 +2,7 @@
 
 from logging import info
 from os import environ
+from pprint import pformat
 from unittest import skip
 
 from wccls import MultnomahBiblioCommons, StatusType, Wccls, WcclsBiblioCommons, WcclsDesktop, WcclsMobile
@@ -20,7 +21,7 @@ def CheckOutput(items):
 	assert overdriveCount == int(environ["WCCLS_COUNT_OVERDRIVE"]), "Mismatch in Overdrive count"
 
 	for status, count in itemsByStatus.items():
-		assert count == int(environ[f"WCCLS_COUNT_{status.name.upper()}"]), f"Mismatch in {status.name} count"
+		assert count == int(environ[f"WCCLS_COUNT_{status.name.upper()}"]), f"Mismatch in {status.name} count. {pformat(itemsByStatus)}"
 
 @skip("Can't login to desktop site")
 def test_desktop():

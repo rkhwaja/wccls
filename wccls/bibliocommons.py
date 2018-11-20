@@ -69,15 +69,22 @@ class MultnomahBiblioCommons(BiblioCommons):
 	def __init__(self, login, password, debug_=False):
 		super().__init__(subdomain="multcolib", login=login, password=password, debug_=debug_)
 
+def _ParseTitle(listItem):
+	title = listItem.find(".title-content", first=True).text
+	subtitleElement = listItem.find(".cp-subtitle", first=True)
+	if subtitleElement is not None:
+		title += ": " + subtitleElement.text
+	return title
+
 def _ParseSuspended(listItem):
 	return SuspendedHold(
-		title=listItem.find(".title-content", first=True).text,
+		title=_ParseTitle(listItem),
 		reactivationDate=_ParseDate2(listItem))
 
 def _ParseNotYetAvailable(listItem):
 	holdInfo = _ParseHoldPosition(listItem)
 	return ActiveHold(
-		title=listItem.find(".title-content", first=True).text,
+		title=_ParseTitle(listItem),
 		activationDate=_ParseDate2(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
 		queuePosition=holdInfo[0],
 		queueSize=None, # Not shown on the initial screen anymore
@@ -85,12 +92,12 @@ def _ParseNotYetAvailable(listItem):
 
 def _ParseReadyForPickup(listItem):
 	return HeldItem(
-		title=listItem.find(".title-content", first=True).text,
-		expiryDate=_ParseDate("", listItem.find(".cp-short-formatted-date", first=True)))
+		title=_ParseTitle(listItem),
+		expiryDate=_ParseDate(listItem.find(".cp-short-formatted-date", first=True)))
 
 def _ParseInTransit(listItem):
 	return ShippedItem(
-		title=listItem.find(".title-content", first=True).text,
+		title=_ParseTitle(listItem),
 		shippedDate=None) # they don't seem to show this anymore
 
 def _ParseCheckedOut(listItem):
@@ -101,14 +108,13 @@ def _ParseCheckedOut(listItem):
 	if renewCountText is not None:
 		renewals = 4 - int(renewCountText.text[0])
 	return CheckedOutItem(
-		title=listItem.find(".title-content", first=True).text,
-		dueDate=_ParseDate("", listItem.find(".cp-short-formatted-date", first=True)),
+		title=_ParseTitle(listItem),
+		dueDate=_ParseDate(listItem.find(".cp-short-formatted-date", first=True)),
 		renewals=renewals, # really should be a "renewable" flag
 		isOverdrive=False) # need an example
 
-def _ParseDate(prefix, element):
-	assert element.text.startswith(prefix), f"{element.text}"
-	return datetime.strptime(element.text[len(prefix):], "%b %d, %Y").date()
+def _ParseDate(element):
+	return datetime.strptime(element.text, "%b %d, %Y").date()
 
 def _ParseDate2(listItem):
 	dateAttr = listItem.find(".cp-short-formatted-date", first=True)
