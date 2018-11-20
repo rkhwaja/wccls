@@ -2,4 +2,4 @@
 indent-string=\t
 
 [MESSAGES CONTROL]
-disable=line-too-long,missing-docstring,too-few-public-methods,invalid-name,bad-continuation,too-many-arguments,star-args,len-as-condition
+disable=fixme,line-too-long,missing-docstring,too-few-public-methods,invalid-name,bad-continuation,too-many-arguments,star-args,len-as-condition
