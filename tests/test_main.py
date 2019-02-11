@@ -3,9 +3,8 @@
 from logging import info
 from os import environ
 from pprint import pformat
-from unittest import skip
 
-from wccls import MultnomahBiblioCommons, StatusType, Wccls, WcclsBiblioCommons, WcclsDesktop, WcclsMobile
+from wccls import MultnomahBiblioCommons, StatusType, Wccls, WcclsBiblioCommons
 
 def CheckOutput(items):
 	itemsByStatus = {}
@@ -22,15 +21,6 @@ def CheckOutput(items):
 
 	for status, count in itemsByStatus.items():
 		assert count == int(environ[f"WCCLS_COUNT_{status.name.upper()}"]), f"Mismatch in {status.name} count. {pformat(itemsByStatus)}"
-
-@skip("Can't login to desktop site")
-def test_desktop():
-	wccls = WcclsDesktop(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=False)
-	CheckOutput(wccls.items)
-
-def test_mobile():
-	wccls = WcclsMobile(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=False)
-	CheckOutput(wccls.items)
 
 def test_recommended():
 	wccls = Wccls(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=False)
