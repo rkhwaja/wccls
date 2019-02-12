@@ -107,11 +107,14 @@ def _ParseCheckedOut(listItem):
 	renewCountText = listItem.find(".cp-renew-count span:nth-of-type(2)", first=True)
 	if renewCountText is not None:
 		renewals = 4 - int(renewCountText.text[0])
+	isOverdrive = False
+	if listItem.find(".cp-checked-out-reading-links", first=True) is not None:
+		isOverdrive = True
 	return CheckedOutItem(
 		title=_ParseTitle(listItem),
 		dueDate=_ParseDate(listItem.find(".cp-short-formatted-date", first=True)),
 		renewals=renewals, # really should be a "renewable" flag
-		isOverdrive=False) # need an example
+		isOverdrive=isOverdrive)
 
 def _ParseDate(element):
 	return datetime.strptime(element.text, "%b %d, %Y").date()
