@@ -9,3 +9,4 @@ dist
 poetry.lock
 env.bat
 .idea
+.venv
