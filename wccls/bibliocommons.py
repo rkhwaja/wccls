@@ -15,21 +15,23 @@ class BiblioCommons:
 		self._debug = debug_
 		self._domain = f"https://{subdomain}.bibliocommons.com"
 		self._session = HTMLSession()
-		self._Login(login, password)
-		self.items = self._CheckedOut() + self._ReadyForPickup() + self._InTransit() + self._NotYetAvailable() + self._Suspended()
-
-	def _Login(self, login, password):
 		try:
-			loginPage = self._session.get(f"{self._domain}/user/login")
-			loginForm = loginPage.html.find(".loginForm", first=True)
-			formData = {}
-			for input_ in loginForm.find("input"):
-				formData[input_.attrs["name"]] = input_.attrs["value"] if "value" in input_.attrs else ""
-			formData["user_pin"] = password
-			formData["name"] = login
-			_ = self._session.post(loginForm.attrs["action"], data=formData)
+			self._Login(login, password)
+			self.items = self._CheckedOut() + self._ReadyForPickup() + self._InTransit() + self._NotYetAvailable() + self._Suspended()
+		except ValueError as e:
+			raise ParseError from e
 		except AttributeError as e:
 			raise ParseError from e
+
+	def _Login(self, login, password):
+		loginPage = self._session.get(f"{self._domain}/user/login")
+		loginForm = loginPage.html.find(".loginForm", first=True)
+		formData = {}
+		for input_ in loginForm.find("input"):
+			formData[input_.attrs["name"]] = input_.attrs["value"] if "value" in input_.attrs else ""
+		formData["user_pin"] = password
+		formData["name"] = login
+		_ = self._session.post(loginForm.attrs["action"], data=formData)
 
 	def _DumpDebugFile(self, filename, content):
 		if not self._debug:
