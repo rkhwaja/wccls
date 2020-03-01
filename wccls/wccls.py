@@ -41,9 +41,10 @@ class SuspendedHold(Item):
 
 # Being held at the library
 class HeldItem(Item):
-	def __init__(self, title, expiryDate):
+	def __init__(self, title, expiryDate, isOverdrive):
 		super().__init__(title, StatusType.Held)
 		self.expiryDate = expiryDate
+		self.isOverdrive = isOverdrive
 
 	def __repr__(self):
 		return f"<HeldItem {super().__repr__()}, expiryDate={self.expiryDate}>"

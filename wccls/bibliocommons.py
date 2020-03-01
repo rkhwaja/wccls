@@ -84,13 +84,13 @@ def _ParseTitle(listItem):
 def _ParseSuspended(listItem):
 	return SuspendedHold(
 		title=_ParseTitle(listItem),
-		reactivationDate=_ParseDate2(listItem))
+		reactivationDate=_ParseDate(listItem))
 
 def _ParseNotYetAvailable(listItem):
 	holdInfo = _ParseHoldPosition(listItem)
 	return ActiveHold(
 		title=_ParseTitle(listItem),
-		activationDate=_ParseDate2(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
+		activationDate=_ParseDate(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
 		queuePosition=holdInfo[0],
 		queueSize=None, # Not shown on the initial screen anymore
 		copies=holdInfo[1])
@@ -98,7 +98,8 @@ def _ParseNotYetAvailable(listItem):
 def _ParseReadyForPickup(listItem):
 	return HeldItem(
 		title=_ParseTitle(listItem),
-		expiryDate=_ParseDate(listItem.find(".cp-short-formatted-date", first=True)))
+		expiryDate=_ParseDate(listItem),
+		isOverdrive=_ParseFormatInfo(listItem))
 
 def _ParseInTransit(listItem):
 	return ShippedItem(
@@ -112,19 +113,21 @@ def _ParseCheckedOut(listItem):
 	renewCountText = listItem.find(".cp-renew-count span:nth-of-type(2)", first=True)
 	if renewCountText is not None:
 		renewals = 4 - int(renewCountText.text[0])
-	isOverdrive = False
-	if listItem.find(".cp-checked-out-reading-links", first=True) is not None:
-		isOverdrive = True
 	return CheckedOutItem(
 		title=_ParseTitle(listItem),
-		dueDate=_ParseDate(listItem.find(".cp-short-formatted-date", first=True)),
+		dueDate=_ParseDate(listItem),
 		renewals=renewals, # really should be a "renewable" flag
-		isOverdrive=isOverdrive)
+		isOverdrive=_ParseFormatInfo(listItem))
 
-def _ParseDate(element):
-	return datetime.strptime(element.text, "%b %d, %Y").date()
+def _ParseFormatInfo(element):
+	formatIndicator = element.find(".cp-format-indicator", first=True)
+	if formatIndicator is None:
+		return False
+	if formatIndicator.text == "Downloadable Audiobook":
+		return True
+	return False
 
-def _ParseDate2(listItem):
+def _ParseDate(listItem):
 	dateAttr = listItem.find(".cp-short-formatted-date", first=True)
 	if dateAttr is None:
 		return None
