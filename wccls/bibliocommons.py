@@ -123,7 +123,7 @@ def _ParseFormatInfo(element):
 	formatIndicator = element.find(".cp-format-indicator", first=True)
 	if formatIndicator is None:
 		return False
-	if formatIndicator.text == "Downloadable Audiobook":
+	if formatIndicator.text in ["Downloadable Audiobook", "eBook"]:
 		return True
 	return False
 
