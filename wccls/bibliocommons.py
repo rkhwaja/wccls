@@ -70,7 +70,7 @@ class WcclsBiblioCommons(BiblioCommons):
 	def __init__(self, login, password, debug_=False):
 		super().__init__(subdomain="wccls", login=login, password=password, debug_=debug_)
 
-class MultnomahBiblioCommons(BiblioCommons):
+class MultCoLibBiblioCommons(BiblioCommons):
 	def __init__(self, login, password, debug_=False):
 		super().__init__(subdomain="multcolib", login=login, password=password, debug_=debug_)
 

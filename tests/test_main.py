@@ -30,6 +30,6 @@ def test_wccls():
 	library = WcclsBiblioCommons(login=environ["WCCLS_CARD_NUMBER"], password=environ["WCCLS_PASSWORD"], debug_=True)
 	CheckOutput(library.items, "WCCLS")
 
-def test_multnomah():
-	library = MultnomahBiblioCommons(login=environ["MULTNOMAH_CARD_NUMBER"], password=environ["MULTNOMAH_PASSWORD"], debug_=True)
-	CheckOutput(library.items, "MULTNOMAH")
+def test_multcolib():
+	library = MultCoLibBiblioCommons(login=environ["MULTCOLIB_CARD_NUMBER"], password=environ["MULTCOLIB_PASSWORD"], debug_=True)
+	CheckOutput(library.items, "MULTCOLIB")
