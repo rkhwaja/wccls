@@ -8,7 +8,7 @@ from requests_html import HTMLSession
 
 from .wccls import ActiveHold, CheckedOutItem, HeldItem, ParseError, ShippedItem, SuspendedHold
 
-__all__ = ["BiblioCommons", "MultnomahBiblioCommons", "WcclsBiblioCommons"]
+__all__ = ["BiblioCommons", "MultCoLibBiblioCommons", "WcclsBiblioCommons"]
 
 class BiblioCommons:
 	def __init__(self, subdomain, login, password, debug_=False):

@@ -6,7 +6,8 @@ python:
 dist: xenial
 sudo: true
 install:
-- pip install beautifulsoup4 requests requests-html
-- pip install --pre pylint astroid
+- pip install poetry
+- poetry config virtualenvs.create false
+- poetry install
 script:
 - pylint wccls
