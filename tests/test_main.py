@@ -4,7 +4,7 @@ from logging import info
 from os import environ
 from pprint import pformat
 
-from wccls import MultCoLibBiblioCommons, StatusType, Wccls, WcclsBiblioCommons
+from wccls import MultCoLibBiblioCommons, StatusType, WcclsBiblioCommons
 
 def CheckOutput(items, prefix):
 	itemsByStatus = {}
