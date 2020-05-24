@@ -10,4 +10,4 @@ install:
 - poetry config virtualenvs.create false
 - poetry install
 script:
-- pylint wccls
+- pylint wccls tests
