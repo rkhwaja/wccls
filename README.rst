@@ -5,8 +5,7 @@ This is a scraper for the WCCLS account page.
 Usage
 =====
 
-.. image:: https://travis-ci.org/rkhwaja/wccls.svg?branch=master
-   :target: https://travis-ci.org/rkhwaja/wccls
+.. image:: https://github.com/rkhwaja/wccls/workflows/ci/badge.svg
 
 .. code-block:: python
 
