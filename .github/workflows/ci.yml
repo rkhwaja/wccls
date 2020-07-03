@@ -32,4 +32,4 @@ jobs:
         poetry install
     - name: pylint
       run: |
-        pylint wccls tests
+        pylint --load-plugins pylint_quotes wccls tests
