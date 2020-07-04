@@ -8,7 +8,7 @@ version = "1.4.1"
 description = "Scraper for the WCCLS account page"
 authors = ["Rehan Khwaja <rehan@khwaja.name>"]
 license = "MIT"
-readme = "README.rst"
+readme = "README.md"
 homepage = "https://github.com/rkhwaja/wccls"
 classifiers = [
 	"License :: OSI Approved :: MIT License",
