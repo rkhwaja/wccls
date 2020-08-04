@@ -32,6 +32,35 @@ jobs:
         pip install poetry
         poetry config virtualenvs.create false
         poetry install
-    - name: pylint
+    - name: Lint
       run: |
         pylint --load-plugins pylint_quotes wccls tests
+    - name: Tests
+      env:
+        WCCLS_CARD_NUMBER: WCCLS_CARD_NUMBER
+        WCCLS_PASSWORD: WCCLS_PASSWORD
+        WCCLS_COUNT_CHECKEDOUT: 3
+        WCCLS_COUNT_CHECKEDOUT_OVERDRIVE: 0
+        WCCLS_COUNT_HELD: 0
+        WCCLS_COUNT_HELD_OVERDRIVE: 0
+        WCCLS_COUNT_SHIPPED: 0
+        WCCLS_COUNT_ACTIVE: 4
+        WCCLS_COUNT_INACTIVE: 6
+        WCCLS_COUNT_PENDING: 0
+        WCCLS_COUNT_CANCELLED: 0
+        WCCLS_COUNT_UNCLAIMED: 0
+        MULTCOLIB_CARD_NUMBER: MULTCOLIB_CARD_NUMBER
+        MULTCOLIB_PASSWORD: MULTCOLIB_PASSWORD
+        MULTCOLIB_COUNT_CHECKEDOUT: 0
+        MULTCOLIB_COUNT_CHECKEDOUT_OVERDRIVE: 0
+        MULTCOLIB_COUNT_HELD: 0
+        MULTCOLIB_COUNT_HELD_OVERDRIVE: 0
+        MULTCOLIB_COUNT_SHIPPED: 0
+        MULTCOLIB_COUNT_ACTIVE: 0
+        MULTCOLIB_COUNT_INACTIVE: 0
+        MULTCOLIB_COUNT_PENDING: 0
+        MULTCOLIB_COUNT_CANCELLED: 0
+        MULTCOLIB_COUNT_UNCLAIMED: 0
+        SCRUB_EMAIL: SCRUB_EMAIL
+      run: |
+        pytest --vcr-record=none
