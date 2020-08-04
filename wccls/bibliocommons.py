@@ -6,9 +6,7 @@ from tempfile import gettempdir
 
 from requests_html import HTMLSession
 
-from .wccls import ActiveHold, CheckedOutItem, HeldItem, ParseError, ShippedItem, SuspendedHold
-
-__all__ = ["BiblioCommons", "MultCoLibBiblioCommons", "WcclsBiblioCommons"]
+from .wccls import HoldNotReady, Checkout, HoldReady, ParseError, HoldInTransit, HoldPaused
 
 class BiblioCommons:
 	def __init__(self, subdomain, login, password, debug_=False):
@@ -82,27 +80,29 @@ def _ParseTitle(listItem):
 	return title
 
 def _ParseSuspended(listItem):
-	return SuspendedHold(
+	return HoldPaused(
 		title=_ParseTitle(listItem),
-		reactivationDate=_ParseDate(listItem))
+		reactivationDate=_ParseDate(listItem),
+		isDigital=_ParseFormatInfo(listItem))
 
 def _ParseNotYetAvailable(listItem):
 	holdInfo = _ParseHoldPosition(listItem)
-	return ActiveHold(
+	return HoldNotReady(
 		title=_ParseTitle(listItem),
 		activationDate=_ParseDate(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
 		queuePosition=holdInfo[0],
 		queueSize=None, # Not shown on the initial screen anymore
-		copies=holdInfo[1])
+		copies=holdInfo[1],
+		isDigital=_ParseFormatInfo(listItem))
 
 def _ParseReadyForPickup(listItem):
-	return HeldItem(
+	return HoldReady(
 		title=_ParseTitle(listItem),
 		expiryDate=_ParseDate(listItem),
-		isOverdrive=_ParseFormatInfo(listItem))
+		isDigital=_ParseFormatInfo(listItem))
 
 def _ParseInTransit(listItem):
-	return ShippedItem(
+	return HoldInTransit(
 		title=_ParseTitle(listItem),
 		shippedDate=None) # they don't seem to show this anymore
 
@@ -113,11 +113,11 @@ def _ParseCheckedOut(listItem):
 	renewCountText = listItem.find(".cp-renew-count span:nth-of-type(2)", first=True)
 	if renewCountText is not None:
 		renewals = 4 - int(renewCountText.text[0])
-	return CheckedOutItem(
+	return Checkout(
 		title=_ParseTitle(listItem),
 		dueDate=_ParseDate(listItem),
 		renewals=renewals, # really should be a "renewable" flag
-		isOverdrive=_ParseFormatInfo(listItem))
+		isDigital=_ParseFormatInfo(listItem))
 
 def _ParseFormatInfo(element):
 	formatIndicator = element.find(".cp-format-indicator", first=True)
