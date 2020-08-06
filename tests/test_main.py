@@ -9,24 +9,25 @@ from pytest import mark
 from wccls import MultCoLibBiblioCommons, StatusType, WcclsBiblioCommons
 
 def CheckOutput(items, prefix):
-	itemsByStatus = {}
+	actualCount = {}
+	actualDigitalCount = {}
+	expectedCount = {}
+	expectedDigitalCount = {}
 	for status in StatusType:
-		itemsByStatus[status] = 0
-	checkedOutOverdriveCount = 0
-	heldOverdriveCount = 0
+		actualCount[status] = 0
+		actualDigitalCount[status] = 0
+		countString = environ[f"{prefix}_COUNT_{status.name.upper()}"].split("/")
+		expectedCount[status] = int(countString[0])
+		expectedDigitalCount[status] = int(countString[1])
 	for item in items:
 		info(item)
-		itemsByStatus[item.status] += 1
-		if item.status == StatusType.CheckedOut and item.isOverdrive is True:
-			checkedOutOverdriveCount += 1
-		if item.status == StatusType.Held and item.isOverdrive is True:
-			heldOverdriveCount += 1
+		actualCount[item.status] += 1
+		if item.isDigital is True:
+			actualDigitalCount[item.status] += 1
 
-	assert checkedOutOverdriveCount == int(environ[f"{prefix}_COUNT_CHECKEDOUT_OVERDRIVE"]), "Mismatch in CheckedOut Overdrive count"
-	assert heldOverdriveCount == int(environ[f"{prefix}_COUNT_HELD_OVERDRIVE"]), "Mismatch in Held Overdrive count"
-
-	for status, count in itemsByStatus.items():
-		assert count == int(environ[f"{prefix}_COUNT_{status.name.upper()}"]), f"Mismatch in {status.name} count. {pformat(itemsByStatus)}"
+	for status in StatusType:
+		assert actualCount[status] == expectedCount[status], f"Mismatch in {status.name} count. {pformat(actualCount)}"
+		assert actualDigitalCount[status] == expectedDigitalCount[status], f"Mismatch in {status.name} count. {pformat(actualDigitalCount)}"
 
 def ScrubStrings(stringReplacementPairs):
 	def BeforeRecordResponse(response):

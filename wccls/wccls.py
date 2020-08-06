@@ -1,94 +1,77 @@
 from enum import Enum
 
-__all__ = ["ParseError", "StatusType", "Item", "CheckedOutItem", "SuspendedHold", "HeldItem", "ShippedItem", "ActiveHold", "CancelledHold", "PendingItem", "UnclaimedHold"]
-
 class ParseError(Exception):
 	pass
 
-# status types
-StatusType = Enum("StatusType", "Held, Pending, Shipped, Active, Inactive, Cancelled, CheckedOut, Unclaimed")
+StatusType = Enum("StatusType", [])
+
+def _AddStatusType(name):
+	global StatusType # pylint: disable=global-statement
+	names = [x.name for x in StatusType]
+	names.append(name)
+	StatusType = Enum("StatusType", names)
 
 class Item:
-	def __init__(self, title, status):
+	def __init__(self, title, isDigital):
 		self.title = title
-		self.status = status
+		global StatusType # pylint: disable=global-statement
+		self.status = StatusType[self.__class__.__name__]
+		self.isDigital = isDigital
 
 	def __repr__(self):
-		return f"<Item title={self.title}, status={self.status.name}>"
+		return f"<Item title={self.title}, isDigital={self.isDigital}>"
 
-class CheckedOutItem(Item):
-	def __init__(self, title, dueDate, renewals, isOverdrive):
-		super().__init__(title, StatusType.CheckedOut)
+	@classmethod
+	def __init_subclass__(cls, *args, **kwargs): # pylint: disable=unused-argument
+		_AddStatusType(cls.__name__)
+
+class Checkout(Item):
+	def __init__(self, title, dueDate, renewals, isDigital):
+		super().__init__(title, isDigital)
 		self.dueDate = dueDate
-		self.renewals = renewals
-		self.isOverdrive = isOverdrive
+		self._renewals = renewals
 
 	@property
 	def renewable(self):
-		return not self.isOverdrive and self.renewals > 0
+		return not self.isDigital and self._renewals > 0
 
 	def __repr__(self):
-		return f"<CheckedOutItem {super().__repr__()}, dueDate={self.dueDate}, renewals={self.renewals}, isOverdrive={self.isOverdrive}>"
+		return f"<Checkout {super().__repr__()}, dueDate={self.dueDate}, renewals={self._renewals}>"
 
-# The same as a paused hold
-class SuspendedHold(Item):
-	def __init__(self, title, reactivationDate):
-		super().__init__(title, StatusType.Inactive)
+class HoldPaused(Item):
+	def __init__(self, title, reactivationDate, isDigital):
+		super().__init__(title, isDigital)
 		self.reactivationDate = reactivationDate
 
 	def __repr__(self):
-		return f"<SuspendedHold {super().__repr__()}, reactivationDate={self.reactivationDate}>"
+		return f"<HoldPaused {super().__repr__()}, reactivationDate={self.reactivationDate}>"
 
 # Being held at the library
-class HeldItem(Item):
-	def __init__(self, title, expiryDate, isOverdrive):
-		super().__init__(title, StatusType.Held)
+class HoldReady(Item):
+	def __init__(self, title, expiryDate, isDigital):
+		super().__init__(title, isDigital)
 		self.expiryDate = expiryDate
-		self.isOverdrive = isOverdrive
 
 	def __repr__(self):
-		return f"<HeldItem {super().__repr__()}, expiryDate={self.expiryDate}>"
+		return f"<HoldReady {super().__repr__()}, expiryDate={self.expiryDate}>"
 
 # Shipping to the library
-class ShippedItem(Item):
+class HoldInTransit(Item):
 	def __init__(self, title, shippedDate):
-		super().__init__(title, StatusType.Shipped)
+		super().__init__(title, False)
 		self.shippedDate = shippedDate
 
 	def __repr__(self):
-		return f"<ShippedItem {super().__repr__()}, shippedDate={self.shippedDate}>"
+		return f"<HoldInTransit {super().__repr__()}, shippedDate={self.shippedDate}>"
 
 # In the queue
-class ActiveHold(Item):
-	def __init__(self, title, activationDate, queuePosition, queueSize, copies):
-		super().__init__(title, StatusType.Active)
+class HoldNotReady(Item):
+	def __init__(self, title, activationDate, queuePosition, queueSize, copies, isDigital):
+		super().__init__(title, isDigital)
 		self.activationDate = activationDate
 		self.queuePosition = queuePosition
 		self.queueSize = queueSize
 		self.copies = copies
 
 	def __repr__(self):
-		return f"<ActiveHold {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}, copies={self.copies}>"
-
-# Cancelled - not sure if this shows up anymore
-class CancelledHold(Item):
-	def __init__(self, title, cancellationDate):
-		super().__init__(title, StatusType.Cancelled)
-		self.cancellationDate = cancellationDate
-
-	def __repr__(self):
-		return f"<CancelledHold {super().__repr__()}, cancellationDate={self.cancellationDate}>"
-
-# This is the state after it's been requested but before it's an ActiveHold
-class PendingItem(Item):
-	def __init__(self, title, reservationDate):
-		super().__init__(title, StatusType.Pending)
-		self.reservationDate = reservationDate
-
-	def __repr__(self):
-		return f"<PendingItem {super().__repr__()}, reservationDate={self.reservationDate}>"
-
-# The hold expired - not sure if this shows up anymore
-class UnclaimedHold(Item):
-	def __init__(self, title):
-		super().__init__(title, StatusType.Unclaimed)
+		return f"<HoldNotReady {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}, copies={self.copies}>"
