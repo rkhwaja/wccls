@@ -53,4 +53,9 @@ jobs:
         MULTCOLIB_COUNT_HOLDPAUSED: 0/0
         SCRUB_EMAIL: SCRUB_EMAIL
       run: |
-        pytest --vcr-record=none
+        pytest --vcr-record=none --cov=wccls
+        coverage xml
+    - name: Coverage
+      uses: codecov/codecov-action@v1.0.7
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
