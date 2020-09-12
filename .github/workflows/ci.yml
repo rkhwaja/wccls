@@ -34,7 +34,7 @@ jobs:
         poetry install
     - name: Lint
       run: |
-        pylint --load-plugins pylint_quotes wccls tests
+        pylint wccls tests
     - name: Tests
       env:
         WCCLS_CARD_NUMBER: WCCLS_CARD_NUMBER
