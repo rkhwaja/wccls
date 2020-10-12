@@ -11,7 +11,7 @@ from .wccls import HoldNotReady, Checkout, HoldReady, ParseError, HoldInTransit,
 class BiblioCommons:
 	def __init__(self, subdomain, login, password, debug_=False):
 		self._debug = debug_
-		self._domain = f"https://{subdomain}.bibliocommons.com"
+		self._domain = f'https://{subdomain}.bibliocommons.com'
 		self._session = HTMLSession()
 		try:
 			self._Login(login, password)
@@ -22,21 +22,21 @@ class BiblioCommons:
 			raise ParseError from e
 
 	def _Login(self, login, password):
-		loginPage = self._session.get(f"{self._domain}/user/login")
-		loginForm = loginPage.html.find(".loginForm", first=True)
+		loginPage = self._session.get(f'{self._domain}/user/login')
+		loginForm = loginPage.html.find('.loginForm', first=True)
 		formData = {}
-		for input_ in loginForm.find("input"):
-			formData[input_.attrs["name"]] = input_.attrs["value"] if "value" in input_.attrs else ""
-		formData["user_pin"] = password
-		formData["name"] = login
-		_ = self._session.post(loginForm.attrs["action"], data=formData)
+		for input_ in loginForm.find('input'):
+			formData[input_.attrs['name']] = input_.attrs['value'] if 'value' in input_.attrs else ''
+		formData['user_pin'] = password
+		formData['name'] = login
+		_ = self._session.post(loginForm.attrs['action'], data=formData)
 
 	def _DumpDebugFile(self, filename, content):
 		if not self._debug:
 			return
-		directory = join(gettempdir(), "log", "wccls")
+		directory = join(gettempdir(), 'log', 'wccls')
 		makedirs(directory, exist_ok=True)
-		with open(join(directory, filename), "wb") as theFile:
+		with open(join(directory, filename), 'wb') as theFile:
 			theFile.write(content)
 
 	def _ParseItems(self, url, dumpfile, parseFunction):
@@ -45,38 +45,38 @@ class BiblioCommons:
 		page = self._session.get(url, allow_redirects=False)
 		self._DumpDebugFile(dumpfile, page.content)
 		page.raise_for_status()
-		for listItem in page.html.find(".item-row"):
+		for listItem in page.html.find('.item-row'):
 			result.append(parseFunction(listItem))
 		return result
 
 	def _Suspended(self):
-		return self._ParseItems(f"{self._domain}/v2/holds/suspended", "suspended.html", _ParseSuspended)
+		return self._ParseItems(f'{self._domain}/v2/holds/suspended', 'suspended.html', _ParseSuspended)
 
 	def _NotYetAvailable(self):
-		return self._ParseItems(f"{self._domain}/v2/holds/not_yet_available", "not-yet-available.html", _ParseNotYetAvailable)
+		return self._ParseItems(f'{self._domain}/v2/holds/not_yet_available', 'not-yet-available.html', _ParseNotYetAvailable)
 
 	def _ReadyForPickup(self):
-		return self._ParseItems(f"{self._domain}/v2/holds/ready_for_pickup", "ready-for-pickup.html", _ParseReadyForPickup)
+		return self._ParseItems(f'{self._domain}/v2/holds/ready_for_pickup', 'ready-for-pickup.html', _ParseReadyForPickup)
 
 	def _InTransit(self):
-		return self._ParseItems(f"{self._domain}/v2/holds/in_transit", "in-transit.html", _ParseInTransit)
+		return self._ParseItems(f'{self._domain}/v2/holds/in_transit', 'in-transit.html', _ParseInTransit)
 
 	def _CheckedOut(self):
-		return self._ParseItems(f"{self._domain}/v2/checkedout", "checked-out.html", _ParseCheckedOut)
+		return self._ParseItems(f'{self._domain}/v2/checkedout', 'checked-out.html', _ParseCheckedOut)
 
 class WcclsBiblioCommons(BiblioCommons):
 	def __init__(self, login, password, debug_=False):
-		super().__init__(subdomain="wccls", login=login, password=password, debug_=debug_)
+		super().__init__(subdomain='wccls', login=login, password=password, debug_=debug_)
 
 class MultCoLibBiblioCommons(BiblioCommons):
 	def __init__(self, login, password, debug_=False):
-		super().__init__(subdomain="multcolib", login=login, password=password, debug_=debug_)
+		super().__init__(subdomain='multcolib', login=login, password=password, debug_=debug_)
 
 def _ParseTitle(listItem):
-	title = listItem.find(".title-content", first=True).text
-	subtitleElement = listItem.find(".cp-subtitle", first=True)
+	title = listItem.find('.title-content', first=True).text
+	subtitleElement = listItem.find('.cp-subtitle', first=True)
 	if subtitleElement is not None:
-		title += ": " + subtitleElement.text
+		title += ': ' + subtitleElement.text
 	return title
 
 def _ParseSuspended(listItem):
@@ -108,9 +108,9 @@ def _ParseInTransit(listItem):
 
 def _ParseCheckedOut(listItem):
 	renewals = 1 # we don't know how many renewals are really left - this just means at least one
-	if listItem.find(".cp-held-copies-count", first=True) is not None:
+	if listItem.find('.cp-held-copies-count', first=True) is not None:
 		renewals = 0
-	renewCountText = listItem.find(".cp-renew-count span:nth-of-type(2)", first=True)
+	renewCountText = listItem.find('.cp-renew-count span:nth-of-type(2)', first=True)
 	if renewCountText is not None:
 		renewals = 4 - int(renewCountText.text[0])
 	return Checkout(
@@ -120,21 +120,21 @@ def _ParseCheckedOut(listItem):
 		isDigital=_ParseFormatInfo(listItem))
 
 def _ParseFormatInfo(element):
-	formatIndicator = element.find(".cp-format-indicator", first=True)
+	formatIndicator = element.find('.cp-format-indicator', first=True)
 	if formatIndicator is None:
 		return False
-	if formatIndicator.text in ["Downloadable Audiobook", "eBook"]:
+	if formatIndicator.text in ['Downloadable Audiobook', 'eBook']:
 		return True
 	return False
 
 def _ParseDate(listItem):
-	dateAttr = listItem.find(".cp-short-formatted-date", first=True)
+	dateAttr = listItem.find('.cp-short-formatted-date', first=True)
 	if dateAttr is None:
 		return None
 	# text value here seems to have been run through some javascript
-	return datetime.strptime(dateAttr.text, "%b %d, %Y").date()
+	return datetime.strptime(dateAttr.text, '%b %d, %Y').date()
 
 def _ParseHoldPosition(listItem):
-	text = listItem.find(".cp-hold-position", first=True).text
-	match = search(r"\#(\d+) on (\d+) cop", text)
+	text = listItem.find('.cp-hold-position', first=True).text
+	match = search(r'\#(\d+) on (\d+) cop', text)
 	return (match.group(1), match.group(2))
