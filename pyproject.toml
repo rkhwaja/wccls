@@ -36,8 +36,8 @@ load-plugins = "pylint_quotes"
 
 [tool.pylint.format]
 indent-string = "\t"
-string-quote = "double-avoid-escape"
-triple-quote = "double"
+string-quote = "single-avoid-escape"
+triple-quote = "single"
 
 [tool.pylint.messages_control]
 disable = [

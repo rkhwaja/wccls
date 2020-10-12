@@ -3,13 +3,13 @@ from enum import Enum
 class ParseError(Exception):
 	pass
 
-StatusType = Enum("StatusType", [])
+StatusType = Enum('StatusType', [])
 
 def _AddStatusType(name):
 	global StatusType # pylint: disable=global-statement
 	names = [x.name for x in StatusType]
 	names.append(name)
-	StatusType = Enum("StatusType", names)
+	StatusType = Enum('StatusType', names)
 
 class Item:
 	def __init__(self, title, isDigital):
@@ -19,7 +19,7 @@ class Item:
 		self.isDigital = isDigital
 
 	def __repr__(self):
-		return f"<Item title={self.title}, isDigital={self.isDigital}>"
+		return f'<Item title={self.title}, isDigital={self.isDigital}>'
 
 	@classmethod
 	def __init_subclass__(cls, *args, **kwargs): # pylint: disable=unused-argument
@@ -36,7 +36,7 @@ class Checkout(Item):
 		return not self.isDigital and self._renewals > 0
 
 	def __repr__(self):
-		return f"<Checkout {super().__repr__()}, dueDate={self.dueDate}, renewals={self._renewals}>"
+		return f'<Checkout {super().__repr__()}, dueDate={self.dueDate}, renewals={self._renewals}>'
 
 class HoldPaused(Item):
 	def __init__(self, title, reactivationDate, isDigital):
@@ -44,7 +44,7 @@ class HoldPaused(Item):
 		self.reactivationDate = reactivationDate
 
 	def __repr__(self):
-		return f"<HoldPaused {super().__repr__()}, reactivationDate={self.reactivationDate}>"
+		return f'<HoldPaused {super().__repr__()}, reactivationDate={self.reactivationDate}>'
 
 # Being held at the library
 class HoldReady(Item):
@@ -53,7 +53,7 @@ class HoldReady(Item):
 		self.expiryDate = expiryDate
 
 	def __repr__(self):
-		return f"<HoldReady {super().__repr__()}, expiryDate={self.expiryDate}>"
+		return f'<HoldReady {super().__repr__()}, expiryDate={self.expiryDate}>'
 
 # Shipping to the library
 class HoldInTransit(Item):
@@ -62,7 +62,7 @@ class HoldInTransit(Item):
 		self.shippedDate = shippedDate
 
 	def __repr__(self):
-		return f"<HoldInTransit {super().__repr__()}, shippedDate={self.shippedDate}>"
+		return f'<HoldInTransit {super().__repr__()}, shippedDate={self.shippedDate}>'
 
 # In the queue
 class HoldNotReady(Item):
@@ -74,4 +74,4 @@ class HoldNotReady(Item):
 		self.copies = copies
 
 	def __repr__(self):
-		return f"<HoldNotReady {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}, copies={self.copies}>"
+		return f'<HoldNotReady {super().__repr__()}, activationDate={self.activationDate}, queuePosition={self.queuePosition}, queueSize={self.queueSize}, copies={self.copies}>'
