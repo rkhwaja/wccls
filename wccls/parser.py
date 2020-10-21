@@ -19,7 +19,7 @@ class Request:
 	allowRedirects: bool
 
 def _MakeSoup(response):
-	return BeautifulSoup(response, 'lxml')
+	return BeautifulSoup(response, 'html.parser')
 
 class Parser:
 	def __init__(self, subdomain, login, password):
