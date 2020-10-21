@@ -11,3 +11,14 @@ wccls = WcclsBiblioCommons(login=card_number_or_username, password=password)
 for item in wccls.items:
     print(item)
 ```
+
+# Tests
+
+## Run against the live website
+
+- Set the environment variables to show what the expected counts are for the various categories
+
+- Run
+```bash
+pytest
+```
