@@ -1,13 +1,13 @@
 # Overview
 
-This is a scraper for the WCCLS account page.
+This is a read-only scraper for the [WCCLS](https://wccls.bibliocommons.com) account page.
 
 # Usage
 
 ![image](https://github.com/rkhwaja/wccls/workflows/ci/badge.svg) [![codecov](https://codecov.io/gh/rkhwaja/wccls/branch/master/graph/badge.svg)](https://codecov.io/gh/rkhwaja/wccls)
 
 ``` python
-wccls = Wccls(login=cardNumber, password=password)
+wccls = WcclsBiblioCommons(login=card_number_or_username, password=password)
 for item in wccls.items:
     print(item)
 ```
