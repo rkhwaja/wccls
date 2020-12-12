@@ -1,6 +1,6 @@
 # Overview
 
-This is a read-only scraper for the [WCCLS](https://wccls.bibliocommons.com) account page.
+This is a read-only scraper for the [WCCLS](https://wccls.bibliocommons.com) account page. It also works for the [Multnomah County Bibliocommons site](https://multcolib.bibliocommons.com)
 
 # Usage
 
