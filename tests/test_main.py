@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from logging import info
 from os import environ
 from pprint import pformat
 
@@ -20,14 +19,17 @@ def CheckOutput(items, prefix):
 		expectedCount[status] = int(countString[0])
 		expectedDigitalCount[status] = int(countString[1])
 	for item in items:
-		info(item)
 		actualCount[item.status] += 1
 		if item.isDigital is True:
 			actualDigitalCount[item.status] += 1
+		attributesNotNone = ['dueDate', 'reactivationDate', 'expiryDate', 'shippedDate', 'activationDate', 'queuePosition', 'copies']
+		for attribute in attributesNotNone:
+			if hasattr(item, attribute):
+				assert getattr(item, attribute) is not None, f"{item} {attribute} didn't parse correctly"
 
 	for status in StatusType:
-		assert actualCount[status] == expectedCount[status], f'Mismatch in {status.name} count. {pformat(actualCount)}'
-		assert actualDigitalCount[status] == expectedDigitalCount[status], f'Mismatch in {status.name} count. {pformat(actualDigitalCount)}'
+		assert actualCount[status] == expectedCount[status], f'Mismatch in {status.name} count. {pformat(actualCount)}\n{pformat(items)}'
+		assert actualDigitalCount[status] == expectedDigitalCount[status], f'Mismatch in {status.name} digital count. {pformat(actualDigitalCount)}\n{pformat(items)}'
 
 def ScrubStrings(stringReplacementPairs):
 	def BeforeRecordResponse(response):
@@ -49,7 +51,7 @@ def ScrubStrings(stringReplacementPairs):
 		(environ['WCCLS_CARD_NUMBER'], 'WCCLS_CARD_NUMBER'),
 		(environ['SCRUB_EMAIL'], 'SCRUBBED_EMAIL')]))
 def test_wccls():
-	library = WcclsBiblioCommons(login=environ['WCCLS_CARD_NUMBER'], password=environ['WCCLS_PASSWORD'], debug_=True)
+	library = WcclsBiblioCommons(login=environ['WCCLS_CARD_NUMBER'], password=environ['WCCLS_PASSWORD'], debug_=False)
 	CheckOutput(library.items, 'WCCLS')
 
 @mark.vcr(
@@ -60,5 +62,5 @@ def test_wccls():
 		(environ['MULTCOLIB_CARD_NUMBER'], 'MULTCOLIB_CARD_NUMBER'),
 		(environ['SCRUB_EMAIL'], 'SCRUBBED_EMAIL')]))
 def test_multcolib():
-	library = MultCoLibBiblioCommons(login=environ['MULTCOLIB_CARD_NUMBER'], password=environ['MULTCOLIB_PASSWORD'], debug_=True)
+	library = MultCoLibBiblioCommons(login=environ['MULTCOLIB_CARD_NUMBER'], password=environ['MULTCOLIB_PASSWORD'], debug_=False)
 	CheckOutput(library.items, 'MULTCOLIB')

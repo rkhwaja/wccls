@@ -11,3 +11,14 @@ wccls = WcclsBiblioCommons(login=card_number_or_username, password=password)
 for item in wccls.items:
     print(item)
 ```
+
+# Running tests
+To record new cassettes
+``` python
+pytest --vcr-record=all
+```
+
+To replay existing cassettes
+``` python
+pytest --vcr-record=none
+```
