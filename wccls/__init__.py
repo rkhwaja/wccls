@@ -1,4 +1,4 @@
-from .wccls import * # pylint: disable=wildcard-import
-from .bibliocommons import * # pylint: disable=wildcard-import
+from .wccls import *
+from .bibliocommons import *
 
 Wccls = WcclsBiblioCommons
