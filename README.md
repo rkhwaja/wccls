@@ -13,12 +13,22 @@ for item in wccls.items:
 ```
 
 # Running tests
-To record new cassettes
+
+## Run against the live website
+
+- Set the environment variables to show what the expected counts are for the various categories
+
+- Run
+```bash
+pytest
+```
+
+## To record new cassettes
 ``` python
 pytest --vcr-record=all
 ```
 
-To replay existing cassettes
+## To replay existing cassettes
 ``` python
 pytest --vcr-record=none
 ```
