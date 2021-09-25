@@ -2,7 +2,7 @@ from os import makedirs
 from os.path import join
 from tempfile import gettempdir
 
-from requests import Session
+from httpx import Client
 
 from .parser import Parser
 from .wccls import ParseError
@@ -11,7 +11,7 @@ class BiblioCommons:
 	def __init__(self, subdomain, login, password, debug_=False):
 		self._debug = debug_
 		self._parser = Parser(subdomain, login, password)
-		session = Session()
+		session = Client()
 		try:
 			reqs = self._parser.Receive(None, None)
 			while len(reqs) > 0:
@@ -25,9 +25,9 @@ class BiblioCommons:
 
 	def _DoRequest(self, session, request):
 		if request.verb == 'GET':
-			response = session.get(request.url, allow_redirects=request.allowRedirects)
+			response = session.get(request.url, follow_redirects=request.allowRedirects)
 		elif request.verb == 'POST':
-			response = session.post(request.url, data=request.data, allow_redirects=request.allowRedirects)
+			response = session.post(request.url, data=request.data, follow_redirects=request.allowRedirects)
 		else:
 			assert False, f'Unexpected request: {request}'
 		response.raise_for_status()

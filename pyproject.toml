@@ -25,10 +25,7 @@ classifiers = [
 python = ">=3.6"
 dataclasses = { version = ">=0.8", python = "~3.6" }
 beautifulsoup4 = ">=4.9.3"
-requests = ">=2.25.1"
-urllib3 = [
-	{ version = ">=1.26", python = ">=3.10,<4" }
-]
+httpx = {version = "*", allow-prereleases = true}
 
 [tool.poetry.dev-dependencies]
 pytest = ">=3.9"
