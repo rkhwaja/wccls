@@ -5,23 +5,18 @@ from tempfile import gettempdir
 from requests import Session
 
 from .parser import Parser
-from .wccls import Item, ParseError
+from .wccls import Item
 
 class BiblioCommons:
 	def __init__(self, subdomain: str, login: str, password: str, debug_: bool=False):
 		self._debug = debug_
 		self._parser = Parser(subdomain, login, password)
 		session = Session()
-		try:
-			reqs = self._parser.Receive(None, None)
-			while len(reqs) > 0:
-				req = reqs.pop()
-				resp = self._DoRequest(session, req)
-				reqs.extend(self._parser.Receive(req.url, resp))
-		except ValueError as e:
-			raise ParseError from e
-		except AttributeError as e:
-			raise ParseError from e
+		reqs = self._parser.Receive(None, None)
+		while len(reqs) > 0:
+			req = reqs.pop()
+			resp = self._DoRequest(session, req)
+			reqs.extend(self._parser.Receive(req.url, resp))
 
 	def _DoRequest(self, session, request):
 		if request.verb == 'GET':

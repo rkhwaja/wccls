@@ -19,7 +19,7 @@ FormatType = Enum('Format', ['DownloadableAudiobook', 'eBook', 'Book', 'DVD', 'B
 class Item:
 	title: str
 	isDigital: bool
-	format: str
+	format: FormatType
 
 	@property
 	def status(self) -> StatusType:
