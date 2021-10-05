@@ -33,13 +33,18 @@ def CheckOutput(items, prefix):
 
 def ScrubStrings(stringReplacementPairs):
 	def BeforeRecordResponse(response):
-		for string, replacement in stringReplacementPairs:
-			response['body']['string'] = response['body']['string'].replace(string.encode(), replacement.encode())
-			if 'headers' in response and 'Set-Cookie' in response['headers']:
-				cookies = []
-				for cookie in response['headers']['Set-Cookie']:
-					cookies.append(cookie.replace(string, replacement))
-				response['headers']['Set-Cookie'] = cookies
+		from logging import info
+		info(type(response))
+		info(list(response.keys()))
+		# info(response['body'])
+		if 'body' in response:
+			for string, replacement in stringReplacementPairs:
+				response['body']['string'] = response['body']['string'].replace(string.encode(), replacement.encode())
+				if 'headers' in response and 'Set-Cookie' in response['headers']:
+					cookies = []
+					for cookie in response['headers']['Set-Cookie']:
+						cookies.append(cookie.replace(string, replacement))
+					response['headers']['Set-Cookie'] = cookies
 		return response
 	return BeforeRecordResponse
 
