@@ -5,10 +5,10 @@ from tempfile import gettempdir
 from requests import Session
 
 from .parser import Parser
-from .wccls import ParseError
+from .wccls import Item, ParseError
 
 class BiblioCommons:
-	def __init__(self, subdomain, login, password, debug_=False):
+	def __init__(self, subdomain: str, login: str, password: str, debug_: bool=False):
 		self._debug = debug_
 		self._parser = Parser(subdomain, login, password)
 		session = Session()
@@ -35,7 +35,7 @@ class BiblioCommons:
 		return response.text
 
 	@property
-	def items(self):
+	def items(self) -> list[Item]:
 		return self._parser.items
 
 	def _DumpDebugFile(self, filename, text):
@@ -47,9 +47,9 @@ class BiblioCommons:
 			theFile.write(text)
 
 class WcclsBiblioCommons(BiblioCommons):
-	def __init__(self, login, password, debug_=False):
+	def __init__(self, login: str, password: str, debug_:bool=False):
 		super().__init__(subdomain='wccls', login=login, password=password, debug_=debug_)
 
 class MultCoLibBiblioCommons(BiblioCommons):
-	def __init__(self, login, password, debug_=False):
+	def __init__(self, login: str, password: str, debug_:bool=False):
 		super().__init__(subdomain='multcolib', login=login, password=password, debug_=debug_)
