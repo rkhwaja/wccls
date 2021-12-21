@@ -35,6 +35,7 @@ jobs:
     - name: Lint
       run: |
         pylint wccls tests
+        pyright
     - name: Tests
       run: |
         pytest --cov=wccls

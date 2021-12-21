@@ -66,3 +66,5 @@ disable = [
 	"too-few-public-methods",
 	"too-many-arguments"
 ]
+
+[tool.pyright]

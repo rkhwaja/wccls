@@ -1,8 +1,9 @@
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date, datetime
 from functools import partial
 from logging import getLogger
 from re import search
+from typing import Optional
 
 from bs4 import BeautifulSoup
 
@@ -15,7 +16,7 @@ _log = getLogger(__name__)
 class Request:
 	verb: str
 	url: str
-	data: dict
+	data: Optional[dict]
 	allowRedirects: bool
 
 def _MakeSoup(response):
@@ -97,14 +98,14 @@ def _ParseSuspended(listItem):
 		format=format_)
 
 def _ParseNotYetAvailable(listItem):
-	holdInfo = _ParseHoldPosition(listItem)
+	queuePosition, copies = _ParseHoldPosition(listItem)
 	format_ = _ParseFormatInfo(listItem)
 	return HoldNotReady(
 		title=_ParseTitle(listItem),
-		activationDate=_ParseDate(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
-		queuePosition=holdInfo[0],
-		queueSize=None, # Not shown on the initial screen anymore
-		copies=holdInfo[1],
+		expiryDate=_ParseDate(listItem),
+		queuePosition=queuePosition,
+		queueSize=None, # Not shown on the initial screen anymore for non-Overdrive items
+		copies=copies,
 		isDigital=_IsDigital(format_),
 		format=format_)
 
@@ -121,8 +122,7 @@ def _ParseInTransit(listItem):
 	return HoldInTransit(
 		title=_ParseTitle(listItem),
 		isDigital=_IsDigital(format_),
-		format=format_,
-		shippedDate=None) # they don't seem to show this anymore
+		format=format_)
 
 def _ParseRenewalCount(listItem):
 	# if there are holds, there will be no renewals
@@ -133,6 +133,8 @@ def _ParseRenewalCount(listItem):
 	renewCountElement = listItem.find(class_='cp-renew-count')
 	if renewCountElement is not None:
 		match = search(r'Renewed (\d+) time', renewCountElement.text)
+		if match is None:
+			raise ParseError(f'Failed to parse renewal count: {renewCountElement.text}')
 		return 4 - int(match.group(1))
 
 	return 1 # we don't know how many renewals are really left - this just means at least one
@@ -163,14 +165,16 @@ def _ParseFormatInfo(element):
 	}
 	return formatLookup[formatIndicator.text]
 
-def _ParseDate(listItem):
+def _ParseDate(listItem) -> date:
 	dateAttr = listItem.find_all(class_='cp-short-formatted-date')[0]
 	if dateAttr is None:
-		return None
+		raise ParseError(f'Failed to find date: {listItem}')
 	# text value here seems to have been run through some javascript
 	return datetime.strptime(dateAttr.text, '%b %d, %Y').date()
 
 def _ParseHoldPosition(listItem):
 	text = listItem.find_all(class_='cp-hold-position')[0].text
 	match = search(r'\#(\d+) on (\d+) cop', text)
-	return (match.group(1), match.group(2))
+	if match is None:
+		raise ParseError(f'Failed to parse hold position for {text}')
+	return (int(match.group(1)), int(match.group(2)))

@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from datetime import date
 from enum import Enum
+from typing import Optional
 
 class ParseError(Exception):
 	pass
@@ -50,12 +51,11 @@ class HoldReady(Item):
 @dataclass
 class HoldInTransit(Item):
 	"""Shipping to the library"""
-	shippedDate: date
 
 @dataclass
 class HoldNotReady(Item):
 	"""In the queue"""
-	activationDate: date
+	expiryDate: date
 	queuePosition: int
-	queueSize: int
+	queueSize: Optional[int] # queue size isn't always displayed on the summary list
 	copies: int
