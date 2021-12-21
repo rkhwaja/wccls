@@ -38,10 +38,13 @@ dev-dependencies = [
     "pytest-asyncio>=0.16.0",
     "poethepoet>=0.16.4",
     "ruff>=0.6.3",
+    "pyright>=1.1.380",
 ]
 
 [tool.poe.tasks]
 lint = "ruff check src tests"
+type-check = "pyright"
+ci = ["lint", "type-check"]
 
 [tool.poe.tasks.test]
 shell = """
@@ -61,6 +64,8 @@ lint.select = ["ALL"]
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
 multiline-quotes = "single"
+
+[tool.pyright]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
