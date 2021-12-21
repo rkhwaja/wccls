@@ -31,6 +31,7 @@ jobs:
     - name: Lint
       run: |
         uv run poe lint
+        uv run poe type-check
     - name: Tests
       run: |
         uv run python -c "import wccls"
