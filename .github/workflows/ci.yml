@@ -34,6 +34,7 @@ jobs:
     - name: Lint
       run: |
         poe lint
+        pyright
     - name: Tests
       run: |
         if python --version | grep -q 'Python 3.12' ; then
