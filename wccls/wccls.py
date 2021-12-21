@@ -13,10 +13,13 @@ def _AddStatusType(name):
 	names.append(name)
 	StatusType = Enum('StatusType', names)
 
+FormatType = Enum('Format', ['DownloadableAudiobook', 'eBook', 'Book', 'DVD', 'BluRay', 'GraphicNovel'])
+
 @dataclass
 class Item:
 	title: str
 	isDigital: bool
+	format: str
 
 	@property
 	def status(self) -> StatusType:
