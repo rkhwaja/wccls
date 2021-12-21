@@ -6,7 +6,7 @@ from re import search
 
 from bs4 import BeautifulSoup
 
-from .wccls import HoldNotReady, Checkout, HoldReady, ParseError, HoldInTransit, HoldPaused
+from .wccls import Checkout, FormatType, HoldInTransit, HoldNotReady, HoldPaused, HoldReady, ParseError
 
 log = getLogger('bibliocommons')
 
@@ -89,30 +89,39 @@ def _ParseTitle(listItem):
 	return title
 
 def _ParseSuspended(listItem):
+	format_ = _ParseFormatInfo(listItem)
 	return HoldPaused(
 		title=_ParseTitle(listItem),
 		reactivationDate=_ParseDate(listItem),
-		isDigital=_ParseFormatInfo(listItem))
+		isDigital=_IsDigital(format_),
+		format=format_)
 
 def _ParseNotYetAvailable(listItem):
 	holdInfo = _ParseHoldPosition(listItem)
+	format_ = _ParseFormatInfo(listItem)
 	return HoldNotReady(
 		title=_ParseTitle(listItem),
 		activationDate=_ParseDate(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
 		queuePosition=holdInfo[0],
 		queueSize=None, # Not shown on the initial screen anymore
 		copies=holdInfo[1],
-		isDigital=_ParseFormatInfo(listItem))
+		isDigital=_IsDigital(format_),
+		format=format_)
 
 def _ParseReadyForPickup(listItem):
+	format_ = _ParseFormatInfo(listItem)
 	return HoldReady(
 		title=_ParseTitle(listItem),
 		expiryDate=_ParseDate(listItem),
-		isDigital=_ParseFormatInfo(listItem))
+		isDigital=_IsDigital(format_),
+		format=format_)
 
 def _ParseInTransit(listItem):
+	format_ = _ParseFormatInfo(listItem)
 	return HoldInTransit(
 		title=_ParseTitle(listItem),
+		isDigital=_IsDigital(format_),
+		format=format_,
 		shippedDate=None) # they don't seem to show this anymore
 
 def _ParseRenewalCount(listItem):
@@ -129,19 +138,30 @@ def _ParseRenewalCount(listItem):
 	return 1 # we don't know how many renewals are really left - this just means at least one
 
 def _ParseCheckedOut(listItem):
+	format_ = _ParseFormatInfo(listItem)
 	return Checkout(
 		title=_ParseTitle(listItem),
 		dueDate=_ParseDate(listItem),
 		renewals=_ParseRenewalCount(listItem), # really should be a "renewable" flag
-		isDigital=_ParseFormatInfo(listItem))
+		isDigital=_IsDigital(format_),
+		format=format_)
+
+def _IsDigital(format_):
+	return format_ in [FormatType.eBook, FormatType.DownloadableAudiobook]
 
 def _ParseFormatInfo(element):
 	formatIndicator = element.find(class_='cp-format-indicator')
 	if formatIndicator is None:
 		return False
-	if formatIndicator.text in ['Downloadable Audiobook', 'eBook']:
-		return True
-	return False
+	formatLookup = {
+		'Downloadable Audiobook': FormatType.DownloadableAudiobook,
+		'eBook': FormatType.eBook,
+		'Book': FormatType.Book,
+		'DVD': FormatType.DVD,
+		'Blu-ray Disc': FormatType.BluRay,
+		'Graphic Novel': FormatType.GraphicNovel
+	}
+	return formatLookup[formatIndicator.text]
 
 def _ParseDate(listItem):
 	dateAttr = listItem.find_all(class_='cp-short-formatted-date')[0]
