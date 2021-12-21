@@ -61,5 +61,7 @@ lint.select = ["ALL"]
 inline-quotes = "single"
 multiline-quotes = "single"
 
+[tool.pyright]
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
