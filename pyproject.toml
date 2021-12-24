@@ -19,7 +19,7 @@ classifiers = [
 	]
 
 [tool.poetry.dependencies]
-python = ">=3.9"
+python = ">=3.9,<4.0"
 beautifulsoup4 = ">=4.9.3"
 requests = ">=2.25.1"
 urllib3 = [
@@ -28,13 +28,27 @@ urllib3 = [
 
 [tool.poetry.dev-dependencies]
 pytest = ">=3.9"
-pylint = ">=2.6.2"
+pylint = ">=2.11" # need at least this for all the extensions
 pylint-quotes = ">=0.2.1"
 pytest-cov = ">=2.10.1"
 pytest-vcr = ">=1.0.2"
 
 [tool.pylint.master]
-load-plugins = "pylint_quotes"
+load-plugins = [
+	"pylint_quotes",
+	"pylint.extensions.code_style",
+	"pylint.extensions.confusing_elif",
+	"pylint.extensions.bad_builtin",
+	"pylint.extensions.bad_builtin",
+	"pylint.extensions.mccabe",
+	"pylint.extensions.check_elif",
+	"pylint.extensions.redefined_variable_type",
+	"pylint.extensions.overlapping_exceptions",
+	"pylint.extensions.empty_comment",
+	"pylint.extensions.set_membership",
+	# "pylint.extensions.while_used",
+	]
+enable="useless-suppression"
 
 [tool.pylint.format]
 indent-string = "\t"
@@ -43,6 +57,7 @@ triple-quote = "single"
 
 [tool.pylint.messages_control]
 disable = [
+	"consider-using-assignment-expr",
 	"fixme",
 	"invalid-name",
 	"line-too-long",
