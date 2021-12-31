@@ -1,0 +1,60 @@
+[
+	{
+		"title": "Project Hail Mary: A Novel",
+		"isDigital": false,
+		"format": "Format.Book",
+		"reactivationDate": "2022-01-01",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "One Billion Americans: The Case for Thinking Bigger",
+		"isDigital": true,
+		"format": "Format.eBook",
+		"reactivationDate": "2022-01-01",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Nine Nasty Words: English in the Gutter : Then, Now, and Forever",
+		"isDigital": true,
+		"format": "Format.eBook",
+		"reactivationDate": "2022-01-02",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Shadows in Flight",
+		"isDigital": true,
+		"format": "Format.DownloadableAudiobook",
+		"reactivationDate": "2022-01-02",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Zombieland: Double Tap",
+		"isDigital": false,
+		"format": "Format.DVD",
+		"reactivationDate": "2023-01-01",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Little Woods",
+		"isDigital": false,
+		"format": "Format.DVD",
+		"reactivationDate": "2023-01-01",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Ender's Game: Ender Wiggin Series, Book 1",
+		"isDigital": true,
+		"format": "Format.DownloadableAudiobook",
+		"dueDate": "2022-01-03",
+		"renewals": 1,
+		"status": "StatusType.Checkout"
+	},
+	{
+		"title": "The Great Destroyers",
+		"isDigital": false,
+		"format": "Format.Book",
+		"dueDate": "2022-01-12",
+		"renewals": 2,
+		"status": "StatusType.Checkout"
+	}
+]
