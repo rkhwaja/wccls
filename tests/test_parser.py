@@ -85,7 +85,7 @@ class SaveToFileWrapper(BaseWrapper):
 			f.write(responseText)
 		return responseText
 
-def test_wccls(collect):
+def testWcclsParser(collect):
 	if collect == 'save':
 		wrapper = SaveToFileWrapper('wccls', environ['WCCLS_CARD_NUMBER'], environ['WCCLS_PASSWORD'])
 	elif collect == 'test':
