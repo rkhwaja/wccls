@@ -16,7 +16,7 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false      
+      fail-fast: false
       matrix:
         python-version: [3.9, "3.10"]
 
@@ -36,24 +36,8 @@ jobs:
       run: |
         pylint wccls tests
     - name: Tests
-      env:
-        WCCLS_CARD_NUMBER: WCCLS_CARD_NUMBER
-        WCCLS_PASSWORD: WCCLS_PASSWORD
-        WCCLS_COUNT_CHECKOUT: 3/0
-        WCCLS_COUNT_HOLDREADY: 0/0
-        WCCLS_COUNT_HOLDINTRANSIT: 0/0
-        WCCLS_COUNT_HOLDNOTREADY: 4/3
-        WCCLS_COUNT_HOLDPAUSED: 6/0
-        MULTCOLIB_CARD_NUMBER: MULTCOLIB_CARD_NUMBER
-        MULTCOLIB_PASSWORD: MULTCOLIB_PASSWORD
-        MULTCOLIB_COUNT_CHECKOUT: 0/0
-        MULTCOLIB_COUNT_HOLDREADY: 0/0
-        MULTCOLIB_COUNT_HOLDINTRANSIT: 0/0
-        MULTCOLIB_COUNT_HOLDNOTREADY: 0/0
-        MULTCOLIB_COUNT_HOLDPAUSED: 0/0
-        SCRUB_EMAIL: SCRUB_EMAIL
       run: |
-        pytest --vcr-record=none --cov=wccls
+        pytest --cov=wccls
         coverage xml
     - name: Coverage
       uses: codecov/codecov-action@v2.1.0

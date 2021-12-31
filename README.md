@@ -23,12 +23,13 @@ for item in wccls.items:
 pytest
 ```
 
-## To record new cassettes
+## To record new test data
+Set SCRUB_EMAIL, WCCLS_CARD_NUMBER, WCCLS_PASSWORD environment variables
 ``` python
-pytest --vcr-record=all
+pytest --collect=save
 ```
 
-## To replay existing cassettes
+## To test existing test data
 ``` python
-pytest --vcr-record=none
+pytest
 ```
