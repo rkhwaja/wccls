@@ -1,50 +1,53 @@
-from os import makedirs
-from os.path import join
-from tempfile import gettempdir
+from typing import List
 
+from aiohttp import ClientSession
 from requests import Session
 
 from .parser import Parser
 from .wccls import Item
 
-class BiblioCommons:
-	def __init__(self, subdomain: str, login: str, password: str, debug_: bool=False):
-		self._debug = debug_
-		self._parser = Parser(subdomain, login, password)
-		session = Session()
-		reqs = self._parser.Receive(None, None)
+def _DoRequestSync(session, request):
+	if request.verb == 'GET':
+		response = session.get(request.url, allow_redirects=request.allowRedirects)
+	elif request.verb == 'POST':
+		response = session.post(request.url, data=request.data, allow_redirects=request.allowRedirects)
+	else:
+		assert False, f'Unexpected request: {request}'
+	response.raise_for_status()
+	return response.text
+
+async def _DoRequestAsync(session, request):
+	if request.verb == 'GET':
+		async with session.get(request.url, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
+			return await resp.text()
+	elif request.verb == 'POST':
+		async with session.post(request.url, data=request.data, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
+			return await resp.text()
+	else:
+		assert False, f'Unexpected request: {request}'
+
+def BiblioCommons(subdomain: str, login: str, password: str) -> List[Item]:
+	parser = Parser(subdomain, login, password)
+	with Session() as session:
+		reqs = parser.Receive(None, None)
 		while len(reqs) > 0:
 			req = reqs.pop()
-			resp = self._DoRequest(session, req)
-			reqs.extend(self._parser.Receive(req.url, resp))
+			resp = _DoRequestSync(session, req)
+			reqs.extend(parser.Receive(req.url, resp))
+	return parser.items
 
-	def _DoRequest(self, session, request):
-		if request.verb == 'GET':
-			response = session.get(request.url, allow_redirects=request.allowRedirects)
-		elif request.verb == 'POST':
-			response = session.post(request.url, data=request.data, allow_redirects=request.allowRedirects)
-		else:
-			assert False, f'Unexpected request: {request}'
-		response.raise_for_status()
-		self._DumpDebugFile('any.html', response.content)
-		return response.text
+async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[Item]:
+	parser = Parser(subdomain, login, password)
+	async with ClientSession() as session:
+		reqs = parser.Receive(None, None)
+		while len(reqs) > 0:
+			req = reqs.pop()
+			response = await _DoRequestAsync(session, req)
+			reqs.extend(parser.Receive(req.url, response))
+		return parser.items
 
-	@property
-	def items(self) -> list[Item]:
-		return self._parser.items
+Wccls = lambda login, password: BiblioCommons('wccls', login, password)
+MultCoLib = lambda login, password: BiblioCommons('multcolib', login, password)
 
-	def _DumpDebugFile(self, filename, text):
-		if not self._debug:
-			return
-		directory = join(gettempdir(), 'log', 'wccls')
-		makedirs(directory, exist_ok=True)
-		with open(join(directory, filename), 'wb') as theFile:
-			theFile.write(text)
-
-class WcclsBiblioCommons(BiblioCommons):
-	def __init__(self, login: str, password: str, debug_:bool=False):
-		super().__init__(subdomain='wccls', login=login, password=password, debug_=debug_)
-
-class MultCoLibBiblioCommons(BiblioCommons):
-	def __init__(self, login: str, password: str, debug_:bool=False):
-		super().__init__(subdomain='multcolib', login=login, password=password, debug_=debug_)
+WcclsAsync = lambda login, password: BiblioCommonsAsync('wccls', login, password)
+MultCoLibAsync = lambda login, password: BiblioCommonsAsync('multcolib', login, password)

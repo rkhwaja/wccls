@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "wccls"
-version = "2.2.0"
+version = "3.0.0"
 description = "Scraper for the WCCLS account page"
 authors = ["Rehan Khwaja <rehan@khwaja.name>"]
 license = "MIT"
@@ -25,12 +25,14 @@ requests = ">=2.25.1"
 urllib3 = [
 	{ version = ">=1.26", python = ">=3.10,<4" }
 ]
+aiohttp = ">=3.8.1"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=3.9"
 pylint = ">=2.11" # need at least this for all the extensions
 pylint-quotes = ">=0.2.1"
 pytest-cov = ">=2.10.1"
+pytest-asyncio = ">=0.16.0"
 
 [tool.pylint.master]
 load-plugins = [

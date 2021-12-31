@@ -7,8 +7,13 @@ This is a read-only scraper for the [WCCLS](https://wccls.bibliocommons.com) acc
 ![image](https://github.com/rkhwaja/wccls/workflows/ci/badge.svg) [![codecov](https://codecov.io/gh/rkhwaja/wccls/branch/master/graph/badge.svg)](https://codecov.io/gh/rkhwaja/wccls)
 
 ``` python
-wccls = WcclsBiblioCommons(login=card_number_or_username, password=password)
-for item in wccls.items:
+from wccls import Wccls, WcclsAsync
+items = Wccls(login=card_number_or_username, password=password)
+for item in items:
+    print(item)
+
+items = await WcclsAsync(login=card_number_or_username, password=password)
+for item in items:
     print(item)
 ```
 
