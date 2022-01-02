@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 from .wccls import Checkout, FormatType, HoldInTransit, HoldNotReady, HoldPaused, HoldReady, ParseError
 
-log = getLogger('bibliocommons')
+_log = getLogger(__name__)
 
 # These are like the events in the sansio manifesto
 @dataclass
@@ -172,6 +172,5 @@ def _ParseDate(listItem):
 
 def _ParseHoldPosition(listItem):
 	text = listItem.find_all(class_='cp-hold-position')[0].text
-	# log.info(text)
 	match = search(r'\#(\d+) on (\d+) cop', text)
 	return (match.group(1), match.group(2))
