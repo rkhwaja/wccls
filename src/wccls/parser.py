@@ -71,7 +71,7 @@ class Parser:
 		formData['user_pin'] = self._password
 		formData['name'] = self._login
 		loginAction = loginForm.attrs['action']
-		return [self._PostRequest(loginAction, formData, False, self._ProcessLoginAction)]
+		return [self._PostRequest(loginAction, formData, True, self._ProcessLoginAction)]
 
 	def _ProcessItems(self, ParseFunction, response):
 		soup = _MakeSoup(response)

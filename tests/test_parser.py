@@ -5,7 +5,7 @@ from os import environ
 from json import dump, load, JSONEncoder
 from pathlib import Path
 
-from requests import Session
+from httpx import Client
 
 from wccls import Checkout, FormatType, HoldNotReady, HoldPaused, HoldReady, Item, Parser, StatusType
 
@@ -72,16 +72,16 @@ class CompareWrapper(BaseWrapper):
 
 class SaveToFileWrapper(BaseWrapper):
 	def __init__(self, subdomain, fileset, login, password):
-		self._session = Session() # we need this initialized before we're called back on _DoRequest
+		self._session = Client() # we need this initialized before we're called back on _DoRequest
 		super().__init__(subdomain, fileset, login, password)
 		with open(self._rootPath / 'output.json', 'w', encoding='utf-8') as f:
 			dump(self.items, f, cls=ItemJsonEncoder, indent='\t')
 
 	def _DoRequest(self, request):
 		if request.verb == 'GET':
-			response = self._session.get(request.url, allow_redirects=request.allowRedirects)
+			response = self._session.get(request.url, follow_redirects=request.allowRedirects)
 		elif request.verb == 'POST':
-			response = self._session.post(request.url, data=request.data, allow_redirects=request.allowRedirects)
+			response = self._session.post(request.url, data=request.data, follow_redirects=request.allowRedirects)
 		else:
 			assert False, f'Unexpected request: {request}'
 		response.raise_for_status()

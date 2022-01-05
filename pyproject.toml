@@ -21,9 +21,7 @@ classifiers = [
 ]
 dependencies = [
     "beautifulsoup4>=4.9.3",
-    "requests>=2.25.1",
-    "urllib3>=1.26 ; python_full_version >= '3.10'",
-    "aiohttp>=3.9",
+    "httpx>=0.24.1",
 ]
 
 [project.urls]
@@ -91,3 +89,4 @@ multiline-quotes = "single"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+asyncio_mode = "auto"
