@@ -26,11 +26,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 beautifulsoup4 = ">=4.9.3"
-requests = ">=2.25.1"
-urllib3 = [
-	{ version = ">=1.26", python = ">=3.10,<4" }
-]
-aiohttp = { version = ">=3.9" }
+httpx = ">=0.24.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.1"
@@ -63,3 +59,4 @@ multiline-quotes = "single"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+asyncio_mode = "auto"
