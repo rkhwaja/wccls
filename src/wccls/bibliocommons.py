@@ -1,16 +1,15 @@
 from __future__ import annotations
 
-from aiohttp import ClientSession
-from requests import Session
+from httpx import AsyncClient, Client
 
 from .parser import Parser
 from .item_types import Item
 
 def _DoRequestSync(session, request):
 	if request.verb == 'GET':
-		response = session.get(request.url, allow_redirects=request.allowRedirects)
+		response = session.get(request.url, follow_redirects=request.allowRedirects)
 	elif request.verb == 'POST':
-		response = session.post(request.url, data=request.data, allow_redirects=request.allowRedirects)
+		response = session.post(request.url, data=request.data, follow_redirects=request.allowRedirects)
 	else:
 		assert False, f'Unexpected request: {request}'
 	response.raise_for_status()
@@ -18,17 +17,19 @@ def _DoRequestSync(session, request):
 
 async def _DoRequestAsync(session, request):
 	if request.verb == 'GET':
-		async with session.get(request.url, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
-			return await resp.text()
+		resp = await session.get(request.url, follow_redirects=request.allowRedirects)
+		resp.raise_for_status()
+		return resp.text
 	if request.verb == 'POST':
-		async with session.post(request.url, data=request.data, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
-			return await resp.text()
+		resp = await session.post(request.url, data=request.data, follow_redirects=request.allowRedirects)
+		resp.raise_for_status()
+		return resp.text
 	assert False, f'Unexpected request: {request}'
 
 def BiblioCommons(subdomain: str, login: str, password: str) -> list[Item]:
 	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
-	with Session() as session:
+	with Client() as session:
 		reqs = parser.Receive(None, None)
 		while len(reqs) > 0:
 			req = reqs.pop()
@@ -39,7 +40,7 @@ def BiblioCommons(subdomain: str, login: str, password: str) -> list[Item]:
 async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> list[Item]:
 	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
-	async with ClientSession() as session:
+	async with AsyncClient() as session:
 		reqs = parser.Receive(None, None)
 		while len(reqs) > 0:
 			req = reqs.pop()
