@@ -35,6 +35,9 @@ def ItemObjectHook(o):
 		return HoldPaused(o['title'], o['isDigital'], o['format'], o['reactivationDate'])
 	return o
 
+def FilenameFromRequest(request):
+	return request.url.split('/')[-1].replace('?', '_')
+
 class BaseWrapper(ABC):
 	def __init__(self, subdomain, login, password):
 		self._rootPath = Path('tests') / subdomain
@@ -58,7 +61,7 @@ class CompareWrapper(BaseWrapper):
 			self.expectedItems = load(f, object_hook=ItemObjectHook)
 
 	def _DoRequest(self, request):
-		path = self._rootPath / request.url.split('/')[-1]
+		path = self._rootPath / FilenameFromRequest(request)
 		with open(path, 'r', encoding='utf-8') as f:
 			return f.read()
 
@@ -70,7 +73,6 @@ class SaveToFileWrapper(BaseWrapper):
 			dump(self.items, f, cls=ItemJsonEncoder, indent='\t')
 
 	def _DoRequest(self, request):
-		path = self._rootPath / request.url.split('/')[-1]
 		if request.verb == 'GET':
 			response = self._session.get(request.url, allow_redirects=request.allowRedirects)
 		elif request.verb == 'POST':
@@ -81,7 +83,7 @@ class SaveToFileWrapper(BaseWrapper):
 		responseText = response.text.replace(environ['SCRUB_EMAIL'], 'SCRUBBED_EMAIL')
 		responseText = responseText.replace(environ['WCCLS_CARD_NUMBER'], 'WCCLS_CARD_NUMBER')
 		responseText = responseText.replace(environ['MULTCOLIB_CARD_NUMBER'], 'MULTCOLIB_CARD_NUMBER')
-		with open(path, 'w', encoding='utf-8') as f:
+		with open(self._rootPath / FilenameFromRequest(request), 'w', encoding='utf-8') as f:
 			f.write(responseText)
 		return responseText
 
