@@ -34,10 +34,10 @@ jobs:
         poetry install
     - name: Lint
       run: |
-        pylint wccls tests
+        pylint src/wccls tests
     - name: Tests
       run: |
-        pytest --cov=wccls
+        pytest --cov=src/wccls
         coverage xml
     - name: Coverage
       uses: codecov/codecov-action@v2.1.0
