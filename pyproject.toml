@@ -17,6 +17,9 @@ classifiers = [
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10"
 	]
+packages = [
+    { include = "wccls", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
@@ -28,7 +31,7 @@ urllib3 = [
 aiohttp = ">=3.8.1"
 
 [tool.poetry.dev-dependencies]
-pytest = ">=3.9"
+pytest = ">=7.1"
 pylint = ">=2.11" # need at least this for all the extensions
 pylint-quotes = ">=0.2.1"
 pytest-cov = ">=2.10.1"
@@ -66,3 +69,6 @@ disable = [
 	"too-few-public-methods",
 	"too-many-arguments"
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
