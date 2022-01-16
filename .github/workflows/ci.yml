@@ -27,7 +27,9 @@ jobs:
     - name: Set up Python ${{ matrix.python-version }}
       run: uv python install ${{ matrix.python-version }}
     - name: Dependencies
-      run: uv sync --no-cache
+      run: |
+        uv sync --no-cache
+        poe build
     - name: Lint
       run: |
         uv run poe lint
