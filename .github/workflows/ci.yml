@@ -32,11 +32,13 @@ jobs:
         pip install poetry
         poetry config virtualenvs.create false
         poetry install
+        poetry build
     - name: Lint
       run: |
         pylint wccls tests
     - name: Tests
       run: |
+        pip install `ls dist/*.whl`
         pytest --cov=wccls
         coverage xml
     - name: Coverage
