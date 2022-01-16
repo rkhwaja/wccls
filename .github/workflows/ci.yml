@@ -28,7 +28,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
         activate-environment: true
     - name: Dependencies
-      run: uv sync --no-cache
+      run: |
+        uv sync --no-cache
+        poe build
     - name: Lint
       run: |
         poe lint
