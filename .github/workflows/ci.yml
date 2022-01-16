@@ -31,6 +31,7 @@ jobs:
     - name: Dependencies
       run: |
         uv sync --no-cache
+        poe build
     - name: Lint
       run: |
         uv run poe lint
