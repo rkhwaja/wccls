@@ -41,6 +41,8 @@ class Parser:
 			raise ParseError from e
 		except AttributeError as e:
 			raise ParseError from e
+		except KeyError as e:
+			raise ParseError from e
 
 	def _GetRequest(self, url, allowRedirects, function):
 		self._handlers[url] = function
