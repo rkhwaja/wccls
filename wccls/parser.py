@@ -159,7 +159,8 @@ def _ParseFormatInfo(element):
 		'Book': FormatType.Book,
 		'DVD': FormatType.DVD,
 		'Blu-ray Disc': FormatType.BluRay,
-		'Graphic Novel': FormatType.GraphicNovel
+		'Graphic Novel': FormatType.GraphicNovel,
+		'3-D Object': FormatType.Object3D
 	}
 	return formatLookup[formatIndicator.text]
 
