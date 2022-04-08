@@ -36,10 +36,6 @@ class Checkout(Item):
 	dueDate: date
 	renewals: int
 
-	@property
-	def renewable(self):
-		return not self.isDigital and self.renewals > 0
-
 @dataclass
 class HoldPaused(Item):
 	"""Paused hold"""
