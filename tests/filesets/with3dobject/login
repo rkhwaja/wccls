@@ -1,0 +1,1543 @@
+<!-- APPLICATION LAYOUT -->
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#" lang="en-US">
+<head>
+  <!-- Data Layer -->
+<script>
+  window.dataLayer = window.dataLayer || [{"bc.siteId":"OR-WCCLS","bc.libraryId":143,"bc.localBranch":null,"bc.shortName":"WCCLS","bc.longName":"Washington County Cooperative Library Services","bc.domain":"wccls","bc.externalGaId":"UA-3058328-17","bc.externalCoreGAId":"UA-3058328-17","bc.gaCrossDomainNames":[],"bc.gaCrossDomainEnabled":false,"bc.cmsEnabled":false,"bc.cmsUrl":"http://bibliocms.com/","bc.crazyEggId":"00178067","bc.allowGoogleAdFeatures":false,"bc.externalEventsGAId":null,"bc.product":"core","bc.branch":null,"bc.version":"Version 9.6.1 Last updated 2022/03/11 12:19 [cor-liv-app02]"}];
+</script>
+<!-- end Data Layer -->
+<!-- Start Google Tag Manager-->
+<script>(function(w,d,s,l,i)
+{
+  w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  
+  var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  
+  j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer', 'GTM-TDPBXX');</script> 
+<!-- End Google Tag Manager -->
+
+<!-- Google Analytics (analytics.js) -->
+<script>
+  if (!window.ga) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  }
+
+  window.BCGoogleAnalytics={_initialized:!1,config:{},default_tracker:null,init:function(a){if(this._initialized)throw new Error("BCGoogleAnalytics has already been initialized.");if(this.config=a||{},this.config.core&&this.config.core.trackingId){var i=this.config.core.name?this.config.core.name+".set":"set";ga("create",this.config.core),ga(i,"language",this.config.core.language),ga(i,"transport","beacon"),this.config.library&&!this.config.library.allowAdFeatures&&ga(i,"allowAdFeatures",!1)}if(this.config.library&&this.config.library.trackingId){var e=this.config.library.name+".set";ga("create",this.config.library),ga(e,"language",this.config.library.language),ga(e,"transport","beacon"),this.config.library.allowAdFeatures||ga(e,"allowAdFeatures",!1)}ga(function(a){BCGoogleAnalytics.default_tracker=a}),this._initialized=!0},getCoreTracker:function(){if(ga.getByName){var a=this.config.core||{};return a.name?ga.getByName(a.name):this.default_tracker}return null},getLibraryTracker:function(){var a=this.config.library||{};return ga.getByName&&a.name?ga.getByName(a.name):null},send:function(){var a=[].slice.call(arguments);a.unshift(!1),BCGoogleAnalytics._send.apply(this,a)},sendAll:function(){var a=[].slice.call(arguments);a.unshift(!0),BCGoogleAnalytics._send.apply(this,a)},_send:function(){var a=[].slice.call(arguments),i=a.shift();ga(function(){var e=[];BCGoogleAnalytics.getCoreTracker()&&e.push(BCGoogleAnalytics.getCoreTracker()),i&&BCGoogleAnalytics.getLibraryTracker()&&e.push(BCGoogleAnalytics.getLibraryTracker()),e.forEach(function(i){i.send.apply(i,a)})})}};
+  function push_gtm_events(a){window.dataLayer&&a.events&&a.events.length&&a.events.forEach(function(a){for(var e=["gtmCategory","gtmAction","gtmLabel","gtmValue"],t=0;t<e.length;t++)a.payload.hasOwnProperty(e[t])||(a.payload[e[t]]=void 0);window.dataLayer.push({event:a.event,payload:a.payload})})}
+
+
+  var core_ga_config = {"language":"en-us","trackingId":"UA-12552489-1","cookieDomain":"auto","cookieFlags":"SameSite=None; Secure"}
+
+// Start WCCLS Google Analytics property, library-managed account 
+  var library_ga_config = null, ga_autolink_domains = null;
+    library_ga_config = {"name":"b","language":"en-us","trackingId":"UA-3058328-17","cookieDomain":"auto","cookieFlags":"SameSite=None; Secure"}
+
+
+// End WCCLS Google Analytics property, library-managed account 
+
+
+  BCGoogleAnalytics.init({ core:core_ga_config, library:library_ga_config });
+
+    if (ga_autolink_domains && ga_autolink_domains.length) {
+      ga(library_ga_config.name + '.require', 'linker');
+      ga(library_ga_config.name + '.linker:autoLink', ga_autolink_domains, false, true);
+    }
+
+    BCGoogleAnalytics.sendAll('pageview');
+    push_gtm_events({'events': [{ 'event': 'bc.pageView', 'payload': {} }] });
+</script>
+<!-- End Google Analytics -->
+
+
+
+<!-- NEW RELIC -->
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Library",
+    "url": "https://wccls.bibliocommons.com/",
+    "name": "Washington County Cooperative Library Services",
+    "logo": "https://cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1649340211432",
+    "image": "https://cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1649340211432"
+  }
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var registered_messages = [];
+  var controller_js = '//cor-cdn-static.bibliocommons.com/assets/controllers/session-d0aca3286d65eeb43d5e00ca7f3d8e32.js';
+</script>
+
+<script type="text/javascript">
+  document.write("<style type=\"text/css\">.hide_on_script{display:none;}</style>");
+    var event_query = ""
+</script>
+
+
+
+<title data-analytics="session">Log In | Washington County Cooperative Library Services | BiblioCommons</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="App-Version" content="Version 9.6.1 Last updated 2022/03/11 12:19 [cor-liv-app02]">
+<meta name="format-detection" content="telephone=no">
+
+  <meta name="google-site-verification" content="XP15EF9-Mx4nKTFwmhzJkL6q7mc-CuNVTmbkg8MnZRU" />
+
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" name="csrf-token" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:site_name" content="Washington County Cooperative Library Services">
+<meta property="og:url" content="https://wccls.bibliocommons.com/user/login?destination=%2Fuser_dashboard">
+<meta property="fb:app_id" content="821053187955346">
+
+  <meta name="twitter:site" content="@wccls">
+  <meta name="twitter:creator" content="@wccls">
+
+  <meta property="title" content="Log In | Washington County Cooperative Library Services | BiblioCommons">
+  <meta property="og:title" content="Log In | Washington County Cooperative Library Services | BiblioCommons">
+  <meta name="twitter:title" content="Log In | Washington County Cooperative Library Services | BiblioCommons">
+
+
+  <meta name="description" content="Explore Washington County Cooperative Library Services. New titles, recently rated, and recently tagged by the library community.">
+  <meta name="og:description" content="Explore Washington County Cooperative Library Services. New titles, recently rated, and recently tagged by the library community.">
+  <meta name="twitter:description" content="Explore Washington County Cooperative Library Services. New titles, recently rated, and recently tagged by the library community.">
+
+  <meta name="twitter:card" content="summary">
+
+
+
+
+  <link href="//cor-cdn-static.bibliocommons.com/assets/bc_base-7458b34fb4de9be11818e405e123b860.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="//cor-cdn-static.bibliocommons.com/assets/core-9bc965911a52514b40e04f7f6e1a3d67.css" media="screen" rel="stylesheet" type="text/css" />
+  
+  
+
+  <link href="//cor-cdn-static.bibliocommons.com/assets/controllers/session-d64750f199c2bd27fd47e6758652b573.css" media="screen" rel="stylesheet" type="text/css" />
+  
+  <link href="//cor-liv-cdn-static.bibliocommons.com/dynamic_stylesheet/OR-WCCLS/library_branding.css?1649340211432" media="all" rel="stylesheet" type="text/css" />
+  <link href="//cor-liv-cdn-static.bibliocommons.com/dynamic_stylesheet/OR-WCCLS/stylesheet.css?1649340211432" media="all" rel="stylesheet" type="text/css" />
+
+  <!--[if lt IE 9]><link href="//cor-cdn-static.bibliocommons.com/assets/deprecated/context/core/IE-223cce97d2a1ab4365e01eb4070abbb7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if IE 8]><link href="//cor-cdn-static.bibliocommons.com/assets/deprecated/context/core/IE8-6423c920b2af42d04525fdd61d76a9ee.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if IE 9]><link href="//cor-cdn-static.bibliocommons.com/assets/deprecated/context/core/ie9-f9eebad232c8e6d89bc517dc1c34ab40.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+
+
+<script type="text/javascript" charset="utf-8">
+  var registered_messages = [];
+</script>
+
+  <script type="text/javascript">
+    
+var AUTH_TOKEN = "OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=";
+var BC_USER_ID = 0;
+var BC_LIBRARY_ID = 143;
+var BC_USERNAME = "";
+var BC_MD5_USER = "";
+var at_local_branch = "";
+var USER_PRESENT = "false";
+var current_time = "Fri, 08 Apr 2022 05:06:09 GMT";
+var j_callback = "";
+var SEND_FORMS = true;
+var CURRENT_LOCALE = "en-US";
+
+var back_to_link_page_id = "";
+
+
+var AUTH_RULES = {
+  is_program_agency: false,
+  recently_returned_enabled: true,
+  registration_requires_user_segments: false,
+  digital_service_enabled: true,
+  show_barcodeless_if_login_fail: false,
+  reminder_messaging_enabled: false,
+  numeric_password_required: false,
+  confirm_password: true,
+  supported_registration_types: ["ILS_BACKED"],
+  required_fields: ["barcode", "user_pin", "first_name", "last_name", "location_city", "location_name", "user_name", "password", "confirm_password", "accept_terms", "user_zip_code", "user_grade"],
+  reminder_types: [],
+  default_page: 'dashboard',
+  restricted_age_limit: 13,
+  password_min_length: 4,
+  password_max_length: 16,
+  pre_registration_account_linking: false,
+  pre_registration_matching: false,
+  restrict_free_text_entry: true
+};
+
+var READING_TIME_LAST_NUDGE = false;
+
+var USER_HAS_NEW_BADGES = false;
+var DOE_LOGIN_REDIRECT = false;
+
+
+
+
+/* Localization */
+var less = "Show less";
+var more = "Show more";
+var sSearch =  "Search entries:";
+var sLengthMenu = "Display _MENU_ records per page";
+var sZeroRecords =  "Nothing found";
+var sInfo = "Showing _START_ to _END_ of _TOTAL_ records";
+var sInfoEmpty = "Showing 0 to 0 of 0 records";
+var sInfoFiltered = "(filtered from _MAX_ total records)";
+var sNext = "Next";
+var sPrevious = "Previous";
+var od_localizations = {
+    fetch_message: "Checking Availability...",
+    wait_message: "Please wait, other requests are pending.",
+    request_available: "Check availability",
+    digital_request: "Place hold",
+    checkout: "Available for checkout"
+}
+var DISABLE_MSG = "If you edit the query directly, the form below will be disabled.";
+var ADDED = '<i aria-hidden="true" class=" icon-ok"></i> Added to...';
+var CLOSETEXT = "Close";
+var START_DATE = "Pick a start date.";
+var DONE_BUTTON =  "Done";
+var END_DATE = "Suspend End Date";
+var START_DATE = "Suspend Start Date";
+var YOUR_USERNAME_IS = "Your username is:";
+var localized_validator_messages = {
+  accept_terms: {
+    required: "You must accept the terms."
+  }
+  , user_name:{
+    remote:  "Someone already has that username",
+    matchesPattern: "Your username can contain only letters, numbers, or underscores (no spaces). It cannot contain numbers only."
+  }
+  , validExactPwd: "Your password must be {0} characters in length"
+  , validExactPin: "Your PIN must be {0} numeric digits"
+  , required: "This field is required."
+  , remote: "Please fix this field."
+  , email: "Please enter a valid email address."
+  , multiemail: "Please enter valid email address(es)."
+  , url: "Please enter a valid URL."
+  , date: "Please enter a valid date."
+  , dateISO: "Please enter a valid date (ISO)."
+  , number: "Please enter a valid number."
+  , digits: "Please enter only digits."
+  , creditcard: "Please enter a valid credit card number."
+  , equalTo: "Please enter the same value again."
+  , accept: "Please enter a value with a valid extension."
+  , maxlength: "Please enter no more than {0} characters."
+  , minlength: "Please enter at least {0} characters."
+  , rangelength: "Please enter a value between {0} and {1} characters long."
+  , range: "Please enter a value between {0} and {1}."
+  , max: "Please enter a value less than or equal to {0}."
+  , min: "Please enter a value greater than or equal to {0}."
+  , filteredPhone: "Please enter a valid 10-digit North American phone number."
+  , s4pYearRange: "Please enter a 4-digit year from 1901 to {0}"
+  , reportDateRange: "This date is outside the maximum range of 3 months."
+  , badgesAgeRange: "Minimum age cannot be more than max age."
+  , badgesCode: "Text, numbers, underscores and hashtags only please. Code must have at least 2 characters."
+  , twitterusername: "Twitter username cannot contain spaces or symbols."
+  , suggested_purchases_select_reason: "Please select a reason."
+};
+
+var BCLang = {
+  more: "More",
+  like: "Like",
+  likes: "likes",
+  liked: "Liked",
+  unlike: "Unlike",
+  unliked: "unliked",
+  list: "List",
+  lists: "Lists",
+  title: "Title",
+  titles: "Titles",
+  library: "library",
+  libraries: "libraries",
+  person: "person",
+  people: "people",
+  show_more: "Show More",
+  loading: "Loading...",
+  buttons: {
+    save: "Save",
+    cancel: "Cancel"
+  },
+  errors_and_messages: {
+    errors: "An error occurred and your request could not be completed. Please try again later",
+    preferred_location_selected: "This location has been selected.",
+    covers_copied: "Jacket cover images copied to clipboard."
+  },
+  user_profile: {
+    duplicate_label: "You have entered a duplicate label",
+    user_added: "User added"
+  },
+  color: "color",
+  animal: "animal",
+  reg_color_picked: "picked color",
+  reg_animal_picked: "picked animal",
+  reg_confirm_tos: "Confirm your acceptance of the terms and conditions",
+  something_went_wrong: "Something went wrong, please try later.",
+  help_bubble: {
+    borrowing_select_items: {
+      text: "Switch to manage multiple items from here...",
+      title: "You will be able to select and manage items of all status types."
+    },
+    borrowing_summary: {
+      title: "Your borrowing summary menu can be accessed from here"
+    },
+    checkedout_ratings: {
+      text: "Titles you rate are automatically added to your Completed Shelf, and default to the privacy setting of your shelf.<br><a data-js=\"help_popout\" href=\"https://help.bibliocommons.com/045faq/040faq-my-shelves\">Learn more<\/a>",
+      title: "Rate or add titles to your Shelves"
+    },
+    borrowing_summary_view: {
+      text: "Your items are grouped by status when 2 or more status types exist. You can manage your items in groups, or...",
+      title: "This is your summary view"
+    },
+    holds_shelves: {
+      text: "Shelves allow you to keep a reference to the items you have borrowed or wish to borrow. You can add and move items to your For Later, In Progress, or Completed Shelf, and you can keep them private or public.<br><a data-js=\"help_popout\" href=\"https://help.bibliocommons.com/045faq/040faq-my-shelves\">Learn more<\/a>",
+      title: "Add items to your Shelves"
+    },
+    borrowing_faqs: {
+      text: "You can access the FAQs or take this tour from here."
+    },
+    next_text: "OK, Next",
+    close_text: "OK, Got it.",
+    borrowing_batch_actions: {
+      title: "Select the items you want to manage, and then choose the action you want to take from here"
+    },
+    borrowing_individual_actions: {
+      title: "Access individual item actions from here"
+    }
+  }
+};
+
+var HELP_BUBBLES = {};
+
+var bc_feature = {};
+bc_feature['CirculationPopularity'] = true;
+bc_feature['RecentCommentsCarousel'] = false;
+bc_feature['ReaderAssetBuild'] = false;
+bc_feature['ReaderConsolidatedMenu'] = false;
+bc_feature['ReaderEcwImageFix'] = false;
+bc_feature['ReaderForceDownload'] = false;
+bc_feature['ReaderForceDownloadReadPage'] = false;
+bc_feature['ReaderNativeLogout'] = false;
+bc_feature['ReaderStartupScreen'] = false;
+bc_feature['ReaderSafariHomescreen'] = false;
+bc_feature['ResponsiveShelves'] = false;
+bc_feature['ResponsiveShelvesOptIn'] = false;
+bc_feature['RevisedFrbrRatingFacet'] = false;
+bc_feature['MyConversations'] = false;
+bc_feature['UseAcquisitionCoreStub'] = false;
+bc_feature['RemoveFooterPartials'] = false;
+bc_feature['LikingLibraryBreakdown'] = false;
+bc_feature['ShowOclcIds'] = false;
+bc_feature['SaveUserInfoForReporting'] = false;
+bc_feature['BootstrapPopovers'] = false;
+bc_feature['CheckedOutOUTStatus'] = true;
+bc_feature['EHoldingsStatus'] = false;
+bc_feature['BorrowingWidgetCaching'] = false;
+bc_feature['WrapLegacyWithBootstrap'] = true;
+bc_feature['NerfListCarousel'] = true;
+bc_feature['ItemFormatPicker'] = true;
+bc_feature['NerfShelves'] = true;
+bc_feature['NerfShelvesOptIn'] = true;
+bc_feature['NerfBorrowing'] = true;
+bc_feature['NerfBorrowingOptIn'] = true;
+bc_feature['HoldsWhileYouWaitRecommendations'] = false;
+bc_feature['BatchAddToShelf'] = false;
+bc_feature['ReactPrivacyToggle'] = false;
+bc_feature['ReactCommentEditor'] = false;
+bc_feature['ReactSummaryEditor'] = false;
+bc_feature['ReactQuotationEditor'] = false;
+bc_feature['ReactContentAdvisoryEditor'] = false;
+bc_feature['SecurityDarkRelease'] = false;
+bc_feature['ReactAgeSuitibilityEditor'] = false;
+bc_feature['CopyListCoversButton'] = true;
+bc_feature['ThreeWayAccountLinking'] = false;
+bc_feature['SearchBoosting'] = false;
+
+var THIRD_PARTY_RECOMMENDATIONS = {};
+  THIRD_PARTY_RECOMMENDATIONS['novelist'] = {"apikey":"s9281609.main.novselbib:dGJyMOPY8Uu0q7cA","maxitems":5,"maxisbns":5};
+
+var is_responsive_registration = true;
+
+var frbr_enabled = false
+
+    
+  if (typeof console == "undefined" || typeof console.debug == "undefined") var console = { log: function() {}, warn: function() {}, info: function() {}, error: function() {}  }; 
+    console.debug = function() {};
+      
+  document.write("<style type=\"text/css\">.hide_on_script{display:none;}</style>");
+
+  var auto_suggest_enabled = true;
+  var open_dropdown = "";
+  var open_popup = "";
+  var open_editor = "";
+  var open_details = "";
+  var selected_items = [];
+  var open_tip = "";
+  var help_win = false;
+
+  var fines_popup_width = 750;
+  var fines_popup_height = 600;
+
+  var renew_enabled = true;
+  var registrar = {
+    hooks: {},
+    handlers: {},
+    remove_hook: function(type){
+      this.hooks[type] = [];
+    },
+    add_hook: function(type, o) {
+      if (typeof(o) == "string") o = {element: o};
+      if (this.hooks[type] == undefined) {
+       this.hooks[type] = [];
+      }
+      this.hooks[type].push(o);
+      if (this.handlers[type] != undefined) {
+       for (var i=0; i < this.handlers[type].length; i++) {
+         this.inform_handler(this.handlers[type][i], o);
+       };
+      }
+    },
+    add_handler: function(types, handler, opts) {
+      if (typeof(types) != "object") {
+       types = [types];
+      }
+      
+      if (opts == undefined) {
+       opts = {delay: 0};
+      }
+           
+      for (var i=0; i < types.length; i++) {
+       var type = types[i];
+       if (this.handlers[type] == undefined) {
+         this.handlers[type] = [];
+       }
+       var h = {handler: handler, opts: opts};
+       this.handlers[type].push(h);
+       if (this.hooks[type] != undefined) {
+         var hook_length = this.hooks[type].length;
+         if (hook_length > 0) {
+          if (h.opts.delay != 0) {
+            this.chained_inform_handler(0, h, type);
+          } else {
+            for (var i=0; i < this.hooks[type].length; i++) {
+             this.inform_handler(h, this.hooks[type][i]);
+            }
+          }
+         }
+       }
+      };
+    },
+    chained_inform_handler: function(idx, h, type) {
+      if (idx < this.hooks[type].length) {
+        registrar.inform_handler(h, this.hooks[type][idx]);
+        setTimeout(function() { registrar.chained_inform_handler(idx+1, h, type); }, h.opts.delay);
+      }
+    },
+    inform_handler: function(h, hook) {
+      h.handler(hook);
+    }
+  };
+  
+  registrar.add_handler("dropdown", function(o) {
+    var hover = false;
+    if (o.hover != undefined && o.hover != null) hover = o.hover;
+    if (!o.hover && o.trigger) document.getElementById(o.trigger).onclick = function(){return false;};
+  });
+  
+     var DOAUTH = true;
+   
+  HAS_SCHOOLS = false
+
+var CHECK_FOR_BADGES = false;
+
+
+var CMS_ENABLED = false;
+var CMS_URL = "";
+
+var images_path_location = /assets/;
+
+  </script>
+
+<script type="text/javascript">
+  if (typeof console == "undefined" || typeof console.debug == "undefined") var console = { log: function() {}, warn: function() {}, info: function() {}, error: function() {} };
+  console.debug = function() {};
+</script>
+
+<script type="text/javascript">
+    var messages = [];
+</script>
+
+<link href="//cor-cdn-static.bibliocommons.com/assets/print-fb42783833d8fede559cd8b19f911dd8.css" media="print" rel="stylesheet" type="text/css" />
+
+
+
+
+
+<link rel="shortcut icon" href="/images/OR-WCCLS/favicon.ico"/>
+
+</head>
+
+<body id="context_core" class='lt_responsive two_col '>
+
+<div class="screen_reader_navigation" role="navigation">
+  
+  <a class="hidden-xs hidden-sm screen_reader_nav" href="#header_main_nav" data-js="skip_to_main_nav">
+    Skip to main navigation
+  </a>
+  <a class="hidden-lg hidden-md screen_reader_nav" href="#header_main_nav" data-js="header_nav_xs_trigger" data-target = "header-main-nav">
+    Skip to main navigation
+  </a>
+    <a class="hidden-xs hidden-sm screen_reader_nav" href="#desktop_search_form" data-js="skip_to_search_field">
+      Skip to search
+    </a>
+  <a class="hidden-lg hidden-md screen_reader_nav" href="#mobile_search_form" data-js="header_search_xs_trigger">
+    Skip to search
+  </a>
+
+  <a class="screen_reader_nav" href="#content-start" data-js="skip_to_content_start">
+    Skip to content
+  </a>
+</div>
+<div id="ct_session" data-test-id="session_page" class="view_medium">
+
+      
+    
+<script type="text/javascript">
+  window.BCHeaderConfig = {"is_externally_rendered":false,"initial_state":{},"core_base_url":"https://wccls.bibliocommons.com/","web_base_url":null,"domain":"wccls","messages":{"ada_suggestions_below":"Suggestions below."},"analytics":{"auto_suggest_category":"v2-search-autosuggest","auto_suggest_click_event":"bc.searchAutoSuggestClick","link_click_action":"v2-link-click"}};
+</script>
+
+
+<div class="cp_header_wrapper">
+  <div class="cp_header" data-js="cp_header" testid="header" data-responsive="true">
+
+    <div class="cp_header_biblio_bar">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12">
+          <div class="pull-left">
+            <div class="hidden-xs">
+  <a href="javascript:void(0);" aria-expanded="false" class="biblio_bar_link language_dropdown_trigger dropdown-toggle hide_trigger_icon" data-toggle="dropdown" id="biblio_language_trigger" lang="en-US" testid="selected_language">
+    <svg aria-hidden="true" class="svg_icon " focusable="false" height="12" viewBox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.994 0C2.682 0 0 2.688 0 6C0 9.312 2.682 12 5.994 12C9.312 12 12 9.312 12 6C12 2.688 9.312 0 5.994 0ZM10.152 3.6H8.382C8.19 2.85 7.914 2.13 7.554 1.464C8.658 1.842 9.576 2.61 10.152 3.6ZM6 1.224C6.498 1.944 6.888 2.742 7.146 3.6H4.854C5.112 2.742 5.502 1.944 6 1.224ZM1.356 7.2C1.26 6.816 1.2 6.414 1.2 6C1.2 5.586 1.26 5.184 1.356 4.8H3.384C3.336 5.196 3.3 5.592 3.3 6C3.3 6.408 3.336 6.804 3.384 7.2H1.356ZM1.848 8.4H3.618C3.81 9.15 4.086 9.87 4.446 10.536C3.342 10.158 2.424 9.396 1.848 8.4ZM3.618 3.6H1.848C2.424 2.604 3.342 1.842 4.446 1.464C4.086 2.13 3.81 2.85 3.618 3.6ZM6 10.776C5.502 10.056 5.112 9.258 4.854 8.4H7.146C6.888 9.258 6.498 10.056 6 10.776ZM7.404 7.2H4.596C4.542 6.804 4.5 6.408 4.5 6C4.5 5.592 4.542 5.19 4.596 4.8H7.404C7.458 5.19 7.5 5.592 7.5 6C7.5 6.408 7.458 6.804 7.404 7.2ZM7.554 10.536C7.914 9.87 8.19 9.15 8.382 8.4H10.152C9.576 9.39 8.658 10.158 7.554 10.536ZM8.616 7.2C8.664 6.804 8.7 6.408 8.7 6C8.7 5.592 8.664 5.196 8.616 4.8H10.644C10.74 5.184 10.8 5.586 10.8 6C10.8 6.414 10.74 6.816 10.644 7.2H8.616Z" />
+</svg>
+<span aria-hidden="true">English</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="English, collapsed" data-text-expanded="English, expanded">English, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a>  <ul class="dropdown-menu biblio_languages"
+      aria-labelledby="biblio_language_trigger"
+      testid="list_of_langs">
+      <li><a href="/info/switch_language?external=false&amp;selected_language=es-ES" class="" lang="es-ES">Español</a></li>
+  </ul>
+</div>
+
+<a href="#language-switcher-overlay"
+   class="biblio_bar_link visible-xs language_overlay_trigger"
+   data-js="language_overlay_trigger"
+   data-target="language_switcher_overlay"
+   testid="language_trigger">
+  <svg aria-hidden="true" class="svg_icon " focusable="false" height="12" viewBox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.994 0C2.682 0 0 2.688 0 6C0 9.312 2.682 12 5.994 12C9.312 12 12 9.312 12 6C12 2.688 9.312 0 5.994 0ZM10.152 3.6H8.382C8.19 2.85 7.914 2.13 7.554 1.464C8.658 1.842 9.576 2.61 10.152 3.6ZM6 1.224C6.498 1.944 6.888 2.742 7.146 3.6H4.854C5.112 2.742 5.502 1.944 6 1.224ZM1.356 7.2C1.26 6.816 1.2 6.414 1.2 6C1.2 5.586 1.26 5.184 1.356 4.8H3.384C3.336 5.196 3.3 5.592 3.3 6C3.3 6.408 3.336 6.804 3.384 7.2H1.356ZM1.848 8.4H3.618C3.81 9.15 4.086 9.87 4.446 10.536C3.342 10.158 2.424 9.396 1.848 8.4ZM3.618 3.6H1.848C2.424 2.604 3.342 1.842 4.446 1.464C4.086 2.13 3.81 2.85 3.618 3.6ZM6 10.776C5.502 10.056 5.112 9.258 4.854 8.4H7.146C6.888 9.258 6.498 10.056 6 10.776ZM7.404 7.2H4.596C4.542 6.804 4.5 6.408 4.5 6C4.5 5.592 4.542 5.19 4.596 4.8H7.404C7.458 5.19 7.5 5.592 7.5 6C7.5 6.408 7.458 6.804 7.404 7.2ZM7.554 10.536C7.914 9.87 8.19 9.15 8.382 8.4H10.152C9.576 9.39 8.658 10.158 7.554 10.536ZM8.616 7.2C8.664 6.804 8.7 6.408 8.7 6C8.7 5.592 8.664 5.196 8.616 4.8H10.644C10.74 5.184 10.8 5.586 10.8 6C10.8 6.414 10.74 6.816 10.644 7.2H8.616Z" />
+</svg>
+  <span class="sr-only">
+    Select language, opens an overlay
+  </span>
+</a>
+
+<script type="text/html" data-js="language_switcher_overlay">
+  <div class="language_switcher_overlay">
+    <h3>Select language</h3>
+    <ul>
+        <li><a href="/info/switch_language?external=false&amp;selected_language=es-ES" class="" lang="es-ES">Español</a></li>
+    </ul>
+  </div>
+</script>
+
+          </div>
+
+        <div class="pull-left visible-xs help_location_links_xs">
+          <a href="https://help.bibliocommons.com"
+   class="biblio_bar_link header_help_link"
+   data-js="header_help_link"
+   data-target="header_help_dropdown_menu"
+   data-ga-category="header_help_link"
+   data-ga-label="Help Link"
+   testid="link_help">
+  <i aria-hidden="true" class=" icon-help-circled"></i>
+  <span class="hidden-xs" aria-hidden="true">Help</span>
+  <span class="sr-only">Help, opens a new window</span>
+</a>
+
+        </div>
+
+        <div class="pull-right header_biblio_bar_right" >
+          <div class="hidden-xs help_location_links" >
+
+              <a href="https://help.bibliocommons.com"
+   class="biblio_bar_link header_help_link"
+   data-js="header_help_link"
+   data-target="header_help_dropdown_menu"
+   data-ga-category="header_help_link"
+   data-ga-label="Help Link"
+   testid="link_help">
+  <i aria-hidden="true" class=" icon-help-circled"></i>
+  <span class="hidden-xs" aria-hidden="true">Help</span>
+  <span class="sr-only">Help, opens a new window</span>
+</a>
+
+          </div>
+          <!-- begin BCNAV -->
+<div data-js="bc_my_account_nav" class="bc_my_account_nav">
+  <!-- Template: t_biblionav_admin_nav -->
+<div class="admin_nav hidden"
+     data-js="biblionav_admin_nav"
+     testid="admin_nav">
+  <a href="#" aria-expanded="false" class="biblio_bar_link admin_nav_trigger dropdown-toggle hide_trigger_icon" data-js="admin_nav_trigger" data-toggle="dropdown" id="admin_nav_trigger" testid="admin_nav_trigger">
+    <svg aria-hidden="false" class="svg_icon " focusable="false" height="14" viewBox="0 0 30 32" width="14" xmlns="http://www.w3.org/2000/svg">
+  <title>Admin</title>
+<path d="M6.848 26.272q0-0.448-0.32-0.8t-0.8-0.32-0.8 0.32-0.352 0.8 0.352 0.8 0.8 0.352 0.8-0.352 0.32-0.8zM18.368 18.784l-12.192 12.192q-0.672 0.64-1.6 0.64t-1.632-0.64l-1.888-1.952q-0.672-0.64-0.672-1.6 0-0.928 0.672-1.632l12.16-12.16q0.704 1.76 2.048 3.104t3.104 2.048zM29.696 11.008q0 0.704-0.416 1.888-0.864 2.4-2.944 3.904t-4.608 1.472q-3.328 0-5.664-2.336t-2.336-5.664 2.336-5.632 5.664-2.368q1.024 0 2.144 0.32t1.92 0.832q0.288 0.192 0.288 0.48t-0.288 0.512l-5.216 3.008v4l3.456 1.92q0.064-0.064 1.408-0.864t2.4-1.44 1.28-0.64q0.256 0 0.416 0.16t0.16 0.448z"></path>
+</svg>
+<span aria-hidden="true" class="hidden-sm hidden-xs">Admin</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Admin, collapsed" data-text-expanded="Admin, expanded">Admin, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a>
+  <ul class="dropdown-menu admin_nav_menu"
+      data-js="admin_nav_menu"
+      aria-labelledby="admin_nav_trigger">
+  </ul>
+</div>
+
+<script id="t_biblionav_admin_nav" type="x-handlebars-template">
+  {{#if admin_nav.length}}
+    <li aria-hidden="true" class="dropdown-header">
+      Library
+    </li>
+
+    {{#each admin_nav}}
+      <li aria-hidden="true">
+        <a href="{{link}}" testid="biblionav_admin_{{locals.testid}}">{{title}}</a>
+      </li>
+    {{/each}}
+  {{/if}}
+
+  {{#if bcadmin_nav.length}}
+    <li aria-hidden="true" class="divider"></li>
+
+    <li aria-hidden="true" class="dropdown-header">
+      BC Admin
+    </li>
+
+    {{#each bcadmin_nav}}
+      <li aria-hidden="true">
+        <a href="{{link}}" testid="biblionav_admin_{{locals.testid}}">{{title}}</a>
+      </li>
+    {{/each}}
+  {{/if}}
+</script>
+
+
+  <div class="biblio_bar_my_account">
+    <a href="javascript:void(0);"
+       class="dropdown-toggle my_account_toggle biblio_bar_link hide_trigger_icon "
+       data-test-id="user_state_logged_out"
+       id="biblionav_account_trigger"
+       data-js="biblionav_account_trigger"
+       data-toggle="dropdown"
+       aria-haspopup="true"
+       aria-expanded="false">
+        <!-- Template: t_biblionav_account_trigger -->
+          <span data-test-id="biblio-bar-login">
+            Log In / My WCCLS
+          </span>
+    </a>
+
+    <ul class="dropdown-menu biblionav_my_account"
+        data-js="biblionav_my_account"
+        aria-labelledby="biblionav_account_trigger">
+
+      <!-- Template - t_biblionav_my_account_user_info -->
+      <li class="info" data-js="biblionav_my_account_user_info">
+        <a href="https://wccls.bibliocommons.com/user/login" class="btn btn-transactional btn-block log_in_btn" data-ga-category="biblionav_my_account_login" data-js="header_login_link" testid="biblionav_login">Log In / Register</a>
+      </li>
+
+
+        <li aria-hidden="true" role="presentation" class="divider"></li>
+
+
+          <li>
+            <a href="https://wccls.bibliocommons.com/dashboard/user_dashboard" class=" " data-ga-category="biblionav_my_account_dashboard" testid="biblionav_mylibrary">My Library Dashboard</a>
+</li>
+        <li aria-hidden="true" role="presentation" class="divider"></li>
+
+          <li class="dropdown-header">My Borrowing</li>
+
+          <li>
+            <a href="https://wccls.bibliocommons.com/checkedout" class=" indented" data-ga-category="biblionav_my_account_checkedout" testid="biblionav_checkedout">Checked Out</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/holds" class=" indented" data-ga-category="biblionav_my_account_holds" testid="biblionav_holds">On Hold</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/recentlyreturned" class="hidden indented" data-ga-category="biblionav_my_account_recentlyreturned" data-js="borrowing_history_menu_item" testid="biblionav_borrowing_history">Borrowing History</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/fines" class=" indented" data-ga-category="biblionav_my_account_fines" testid="biblionav_fines">Fees</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/v2/interlibraryloans" class=" indented" data-ga-category="biblionav_my_account_nav_item">ILL Requests</a>
+</li>
+        <li aria-hidden="true" role="presentation" class="divider"></li>
+
+          <li class="dropdown-header">My Collections</li>
+
+          <li>
+            <a href="https://wccls.bibliocommons.com/collection/show/my/library/for_later" class=" indented" data-ga-category="biblionav_my_account_shelves_future" testid="biblionav_shelves_future">For Later Shelf</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/collection/show/my/library/completed" class=" indented" data-ga-category="biblionav_my_account_shelves_past" testid="biblionav_shelves_past">Completed Shelf</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/collection/show/my/library/in_progress" class=" indented" data-ga-category="biblionav_my_account_shelves_present" testid="biblionav_shelves_present">In Progress Shelf</a>
+</li>          <li>
+            <a href="https://wccls.bibliocommons.com/lists/show/mine" class=" indented" data-ga-category="biblionav_my_account_lists" testid="biblionav_lists">Lists</a>
+</li>
+        <li aria-hidden="true" role="presentation" class="divider"></li>
+
+
+          <li>
+            <a href="https://wccls.bibliocommons.com/user_profile/me" class=" " data-ga-category="biblionav_my_account_myprofile" testid="biblionav_myprofile">My Profile</a>
+</li>
+        <li aria-hidden="true" role="presentation" class="divider"></li>
+
+
+          <li>
+            <a href="https://wccls.bibliocommons.com/account" class=" " data-ga-category="biblionav_my_account_mysettings" testid="biblionav_mysettings">My Settings</a>
+</li>
+      <!-- Template: t_biblionav_account_selector -->
+      <li data-js='biblionav_account_selector'></li>
+      
+    </ul>
+  </div>
+
+
+</div>
+<!-- end BCNAV -->
+
+<script id="t_biblionav_divider" type="x-handlebars-template">
+  <li aria-hidden="true" role="presentation" class="divider" data-js="divider_{{divider_name}}"></li>
+</script>
+
+<script id="t_biblionav_account_trigger" type="x-handlebars-template">
+  {{#if logged_in}}
+    <div class="cp_user_avatar sm home_patron" testid="user_avatar_{{user_id}}">
+      {{#if user_avatar}}
+        <img src="{{user_avatar}}" class="img-circle" alt="">
+      {{else}}
+        <div class="img-circle initial"><span aria-hidden="true">{{user_initial}}</span></div>
+      {{/if}}
+    </div>
+    <span class="hidden-xs user_identity_name" aria-hidden= "true">{{user_name}}</span>
+    <span class="sr-only hidden-xs" data-js="sr-only-dropdown-toggle" data-text-collapsed="User {{user_name}}." data-text-expanded="User {{user_name}}.">User {{user_name}}.</span>
+    <span class="sr-only visible-xs" data-js="sr-only-dropdown-toggle" data-text-collapsed="For {{user_name}}. Double-tap to expand." data-text-expanded="Menu for {{user_name}} shows pop-up">For {{user_name}}. Double-tap to expand.</span>
+  {{else}}
+    <span aria-hidden= "true" class="my_account_label">Log In / My WCCLS</span>
+    <span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="User Log In / My WCCLS." data-text-expanded="User Log In / My WCCLS.">User Log In / My WCCLS.</span>
+  {{/if}}
+
+  <span class="icon-arrow" aria-hidden="true"></span>
+</script>
+
+<script id="t_biblionav_my_account_user_info" type="x-handlebars-template">
+  <li class="info" data-js="biblionav_my_account_user_info">
+    {{#if logged_in}}
+      <div class="pull-left">
+        <div class="my-account"><b>My Account</b></div>
+      </div>
+      <div class="pull-right notification-buttons">
+        <a href="https://wccls.bibliocommons.com/user_profile/me/notification_feed" class="btn btn-default btn-flat" data-ga-category="biblionav_my_account_notifications" testid="biblionav_notifications">
+            <i aria-hidden="true" class=" icon-bell"></i>
+            {{#if unread_notifications}}
+              <span class="badge" aria-hidden="true">{{unread_notifications}}</span>
+              <span class="sr-only">
+                {{unread_notifications}} notifications
+              </span>
+            {{else}}
+              <span class="sr-only">Notifications</span>
+            {{/if}}
+</a>        
+        <a href="https://wccls.bibliocommons.com/account/personal_information" class="btn btn-default btn-flat" data-ga-category="biblionav_my_account_mysettings" data-ga-label="Settings Icon" testid="biblionav_mysettings">
+          <i aria-hidden="true" class=" icon-cog"></i>
+          <span class="sr-only">My Settings</span>
+</a>      </div>
+      <a href="https://wccls.bibliocommons.com/user/logout" class="btn btn-transactional btn-block log_out_btn" data-ga-category="biblionav_my_account_logout" testid="biblionav_logout">Log Out</a>
+    {{else}}
+      <a href="https://wccls.bibliocommons.com/user/login" class="btn btn-transactional btn-block log_in_btn" data-ga-category="biblionav_my_account_login" data-js="header_login_link" testid="biblionav_login">Log In / Register</a>
+    {{/if}}
+  </li>
+</script>
+
+<script id="t_biblionav_account_selector" type="x-handlebars-template">
+  <ul>
+    <li aria-hidden="true" role="presentation" class="divider"></li>
+    <li aria-hidden="true" role="presentation" class="dropdown-header">
+      Switch Library Account
+    </li>
+    {{#each accounts}}
+      <li>
+        <a href="https://{{link}}"
+           class="indented"
+           data-js="switch_linked_library"
+           data-host="{{link}}"
+           data-ga-category="biblionav_my_account_switch_account"
+           testid="biblionav_multiaccount_lib_{{text}}">
+          {{text}} <i aria-hidden="true" class=" icon-right"></i>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</script>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /.cp_header_biblio_bar -->
+
+
+    <div class="header_main">
+      <div class="client_and_search" data-test-id="header-desktop-search">
+  <div class="container">
+    <div class="pull-left cp_header_client_area">
+  <div class="pull-left logo">
+    <a href="https://www.wccls.org/"><picture><source media="(max-width: 991px)" sizes="64px" srcset="//cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/mobile_logo.png?1649340211432" /><img alt="Washington County Cooperative Library Services" src="//cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1649340211432" title="" /></picture></a>
+  </div>
+
+  <div class="pull-left visible-xs-block visible-sm-block xs_icon_triggers">
+    <a href="#" aria-label="Main navigation" data-ga-category="mobile_header_main_nav" data-ga-label="Mobile Main Nav" data-js="header_nav_xs_trigger" data-main-nav="true" data-target="header-main-nav" id="header_nav_xs_trigger" role="button"><i aria-hidden="true" class=" icon-menu"></i><span class="sr-only">Main navigation</span></a>
+
+  </div>
+</div>
+
+    <div class="visible-xs-block visible-sm-block xs_icon_triggers">
+      <a href="#" aria-label="Open search form" class="header_search_xs" data-icon-off="icon-cancel" data-icon-on="icon-search" data-js="header_search_xs_trigger" role="button"><i aria-hidden="true" class=" icon-search"></i><span class="sr-only">Open search form</span></a>
+    </div>
+
+    <div class="hidden-xs hidden-sm header_collapsible_search_wrapper">
+
+      <div class="header_search_wrapper header_search_wrapper_desktop header_search_catalogue" data-js="header_search_wrapper header_search_wrapper_desktop">
+        <div class="cp_header_search" id="header_search" data-js="header_search">
+          <div>
+              <div class="pull-left">
+                <span class="connector" aria-hidden="true">Search the</span>
+                <div class="bootstrap-select-wrapper" data-test-id="header-other-search-options"><select aria-label="Search alternatives" class=" selectpicker form-control" data-dropup-auto="false" data-js="header_search_target" data-style="btn-flat btn-default" id="searchOpt" name="searchOpt" testid="search_scope"><option value="catalogue" data-action="https://wccls.bibliocommons.com/search" data-query-field="q">Catalog</option>
+<option value="events" data-action="https://wccls.bibliocommons.com/events/search/q=__QUERY__" data-query-field="">Events</option></select></div>
+
+              </div>
+
+            <form action="https://wccls.bibliocommons.com/search" class="collapsible_search_form" data-js="header_search_form desktop_search_form" id="desktop_search_form" name="desktop_search_form">
+              <div class="pull-left">
+                    <div data-js="header_target_search_options" data-target="catalogue">
+                      <div class="form-group">
+  <span class="connector" aria-hidden="true">
+    by
+  </span>
+  <!-- begin SEARCH TYPE -->
+<div class="bootstrap-select-wrapper" data-test-id="header-search-type-dropdown"><select aria-label="Search type" class="form-control selectpicker form-control" data-dropup-auto="false" data-js="search_type" data-style="btn-flat btn-default" id="search_filter_id_4eh4im3ufndfg5nmu68ks7tfpn" name="t" testid="search_filter"><option value="smart">Keyword</option>
+<option value="title">Title</option>
+<option value="author">Author</option>
+<option value="subject">Subject</option>
+<option value="series">Series</option>
+<option value="tag">Tag</option>
+<option value="userlist">List</option>
+<option value="user">User</option></select></div>
+
+<input data-js="search_category" id="search_category_id_1icf7bklb5cuoarfi2s9djqcqs" name="search_category" testid="search_category" type="hidden" value="keyword" />
+<!-- end SEARCH TYPE-->
+</div>
+
+
+
+
+</div>              </div>
+
+              <!-- begin SEARCH INPUT -->
+
+  <div class="input-group header_search_box">
+
+    <label class="sr-only" for="search_box_id_5998limj0evvnfcdl6f7hojmsl">Enter search query</label>
+    
+    <span class="main_search_input_wrapper" data-js="main_search_input_wrapper">
+      <input aria-activedescendant="" aria-autocomplete="both" aria-expanded="false" aria-owns="header_auto_suggest_id_1j6bbe65thdn6o9pdpcuj5pjj" autocomplete="off" class="form-control main_search_input text" data-js="main_search_input" id="search_box_id_5998limj0evvnfcdl6f7hojmsl" maxlength="1000" name="q" testid="main_search_input" type="search" />
+      <span class="header_search_filter_lock form-control-feedback" data-js="search_filter_locked" aria-hidden="true">
+        <svg aria-hidden="true" class="svg_icon " focusable="false" height="14" style="transform: rotate(-45deg);" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8.5 0l-1.5 1.5 1.5 1.5-3.5 4h-3.5l2.75 2.75-4.25 5.635v0.615h0.615l5.635-4.25 2.75 2.75v-3.5l4-3.5 1.5 1.5 1.5-1.5-7.5-7.5zM7 8.5l-1-1 3.5-3.5 1 1-3.5 3.5z" />
+</svg>
+      </span>
+
+      <button class="btn btn-link header_search_clear_button" data-js="header_search_clear_button" type="button">
+        <div class="sr-only">
+          Clear Text
+        </div>
+        <svg aria-hidden="true" class="svg_icon svg_close_icon" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2" height="16" x="6.964" y="-.036" fill="currentColor" transform="rotate(45 7.964 7.964)"/>
+  <rect width="2" height="16" x="6.964" y="-.036" fill="currentColor" transform="scale(-1 1) rotate(45 0 -11.263)"/>
+</svg>
+</button>
+        <div data-js="header_auto_suggest" class="cp_header_auto_suggest hidden">
+  <div data-js="auto_suggest_aria_messages" class="sr-only" role="alert" aria-live="polite" aria-atomic="false"></div>
+  <ul id="header_auto_suggest_id_1j6bbe65thdn6o9pdpcuj5pjj" data-js="suggestion-menu" class="dropdown-menu" role="listbox"></ul>
+
+  <div class="hidden">
+    <svg aria-hidden="true" class="suggestion-skeleton-icon pulse" data-js="suggestion_skeleton_svg" focusable="false" height="14" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 10" width="14" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="currentColor" width="2000" height="10"></rect>
+</svg>
+  </div>
+</div>
+
+
+    </span>
+
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-primary btn-flat">
+        <i aria-hidden="true" class=" icon-search"></i>
+        <span class="sr-only">Search</span>
+      </button>
+    </span>
+  </div>
+
+<!-- end SEARCH INPUT -->
+
+</form>          </div>
+
+          <div class="pull-right small adv_search">
+            <a href="https://wccls.bibliocommons.com/user/saved_searches" class="hidden" data-ga-category="header_saved_searches" data-js="save_search_overlay" testid="link_savedsearches">Saved Searches</a>
+
+            <a href="https://wccls.bibliocommons.com/search" test_id="link_advancedsearch">Advanced Search</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.client_and_search -->
+
+<div class="clearfix header_search_wrapper search_wrapper_xs header_search_catalogue" data-js="header_search_wrapper header_search_wrapper_xs" data-test-id="header-mobile-search">
+  <div class="col-xs-12">
+    <div class="cp_header_search"  data-js="header_search">
+      <h2 data-js="header_search_title" class="header_search_title" tabindex="-1">
+        Search
+      </h2>
+
+        <div class="form-group">
+          <div class="bootstrap-select-wrapper" data-test-id="header-other-search-options"><select aria-label="Search alternatives" class=" selectpicker form-control" data-dropup-auto="false" data-js="header_search_target" data-style="btn-flat btn-default" id="searchOpt" name="searchOpt" testid="search_scope"><option value="catalogue" data-action="https://wccls.bibliocommons.com/search" data-query-field="q">Catalog</option>
+<option value="events" data-action="https://wccls.bibliocommons.com/events/search/q=__QUERY__" data-query-field="">Events</option></select></div>
+
+        </div>
+
+      <form accept-charset="UTF-8" action="https://wccls.bibliocommons.com/search" data-js="header_search_form mobile_search_form" id="mobile_search_form" method="get" name="mobile_search_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+            <div data-js="header_target_search_options" data-target="catalogue">
+              <div class="form-group">
+  <span class="connector" aria-hidden="true">
+    by
+  </span>
+  <!-- begin SEARCH TYPE -->
+<div class="bootstrap-select-wrapper" data-test-id="header-search-type-dropdown"><select aria-label="Search type" class="form-control selectpicker form-control" data-dropup-auto="false" data-js="search_type" data-style="btn-flat btn-default" id="search_filter_id_7rumc0kuu81pnv2kqsf9t3ks0n" name="t" testid="search_filter"><option value="smart">Keyword</option>
+<option value="title">Title</option>
+<option value="author">Author</option>
+<option value="subject">Subject</option>
+<option value="series">Series</option>
+<option value="tag">Tag</option>
+<option value="userlist">List</option>
+<option value="user">User</option></select></div>
+
+<input data-js="search_category" id="search_category_id_n5kgrom62etned9s4evpm97ka" name="search_category" testid="search_category" type="hidden" value="keyword" />
+<!-- end SEARCH TYPE-->
+</div>
+
+
+
+
+</div>
+        <div class="form-group">
+          <!-- begin SEARCH INPUT -->
+
+  <div class="input-group header_search_box">
+
+    <label class="sr-only" for="search_box_id_5bss4i3tfqp1d6cn533jgm80nn">Enter search query</label>
+    
+    <span class="main_search_input_wrapper" data-js="main_search_input_wrapper">
+      <input aria-activedescendant="" aria-autocomplete="both" aria-expanded="false" aria-owns="header_auto_suggest_id_4uc5vuokb0rbhl8e2ecfu0go1j" autocomplete="off" class="form-control main_search_input text" data-js="main_search_input" id="search_box_id_5bss4i3tfqp1d6cn533jgm80nn" maxlength="1000" name="q" testid="main_search_input" type="search" />
+      <span class="header_search_filter_lock form-control-feedback" data-js="search_filter_locked" aria-hidden="true">
+        <svg aria-hidden="true" class="svg_icon " focusable="false" height="14" style="transform: rotate(-45deg);" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8.5 0l-1.5 1.5 1.5 1.5-3.5 4h-3.5l2.75 2.75-4.25 5.635v0.615h0.615l5.635-4.25 2.75 2.75v-3.5l4-3.5 1.5 1.5 1.5-1.5-7.5-7.5zM7 8.5l-1-1 3.5-3.5 1 1-3.5 3.5z" />
+</svg>
+      </span>
+
+      <button class="btn btn-link header_search_clear_button" data-js="header_search_clear_button" type="button">
+        <div class="sr-only">
+          Clear Text
+        </div>
+        <svg aria-hidden="true" class="svg_icon svg_close_icon" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2" height="16" x="6.964" y="-.036" fill="currentColor" transform="rotate(45 7.964 7.964)"/>
+  <rect width="2" height="16" x="6.964" y="-.036" fill="currentColor" transform="scale(-1 1) rotate(45 0 -11.263)"/>
+</svg>
+</button>
+        <div data-js="header_auto_suggest" class="cp_header_auto_suggest hidden">
+  <div data-js="auto_suggest_aria_messages" class="sr-only" role="alert" aria-live="polite" aria-atomic="false"></div>
+  <ul id="header_auto_suggest_id_4uc5vuokb0rbhl8e2ecfu0go1j" data-js="suggestion-menu" class="dropdown-menu" role="listbox"></ul>
+
+  <div class="hidden">
+    <svg aria-hidden="true" class="suggestion-skeleton-icon pulse" data-js="suggestion_skeleton_svg" focusable="false" height="14" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 10" width="14" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="currentColor" width="2000" height="10"></rect>
+</svg>
+  </div>
+</div>
+
+
+    </span>
+
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-primary btn-flat">
+        <i aria-hidden="true" class=" icon-search"></i>
+        <span class="sr-only">Search</span>
+      </button>
+    </span>
+  </div>
+
+<!-- end SEARCH INPUT -->
+
+        </div>
+</form>
+      <div class="form-group pull-right adv_search">
+        <a href="https://wccls.bibliocommons.com/user/saved_searches" class="hidden" data-ga-category="header_saved_searches" data-js="save_search_overlay" testid="link_savedsearches">Saved Searches</a>
+
+        <a href="https://wccls.bibliocommons.com/search" test_id="link_advancedsearch">Advanced Search</a>
+
+      </div>
+    </div>
+    <!-- /.cp_header_search -->
+  </div>
+</div>
+
+      <div class="navbar yamm navbar-default hidden-xs hidden-sm cp_header_nav" data-js="header-top-nav">
+  <div class="container">
+    <nav class="navbar-collapse collapse col-md-12">
+      <ul class="nav navbar-nav header_main_nav"
+          id="header_main_nav" 
+          aria-haspopup="true"
+          data-js="header-main-nav">
+
+        <li class='desktop mobile'><a href="https://wccls.bibliocommons.com/" data-ga-category="header_top_level_nav" data-ga-label="Home">Home</a></li><li class='dropdown desktop mobile header_nav_explore' data-js='header_nav_explore' data-ga-category='header_top_level_nav' data-ga-label='Explore' data-ga-event='show'><a href="#explore_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Explore</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Explore, collapsed" data-text-expanded="Explore, expanded">Explore, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/recent_arrivals" data-ga-category="header_sub_level_nav" data-ga-label="New Titles - Explore">New Titles</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/awards" data-ga-category="header_sub_level_nav" data-ga-label="Awards - Explore">Awards</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/bestsellers" data-ga-category="header_sub_level_nav" data-ga-label="Bestsellers - Explore">Bestsellers</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/featured_lists/languages" data-ga-category="header_sub_level_nav" data-ga-label="World Languages - Explore">World Languages</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Locations' data-ga-event='show'><a href="#locations_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Locations</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Locations, collapsed" data-text-expanded="Locations, expanded">Locations, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/your_libraries" data-ga-category="header_sub_level_nav" data-ga-label="Library Map and Hours - Locations">Library Map and Hours</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/aloha" data-ga-category="header_sub_level_nav" data-ga-label="Aloha Community Library - Locations">Aloha Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/banks" data-ga-category="header_sub_level_nav" data-ga-label="Banks Public Library - Locations">Banks Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/beaverton" data-ga-category="header_sub_level_nav" data-ga-label="Beaverton City Library Main - Locations">Beaverton City Library Main</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/beavertonmurrayscholls" data-ga-category="header_sub_level_nav" data-ga-label="Beaverton City Library Murray Scholls - Locations">Beaverton City Library Murray Scholls</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cedarmillbethany" data-ga-category="header_sub_level_nav" data-ga-label="Bethany Library - Locations">Bethany Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cedarmill" data-ga-category="header_sub_level_nav" data-ga-label="Cedar Mill Library - Locations">Cedar Mill Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cornelius" data-ga-category="header_sub_level_nav" data-ga-label="Cornelius Public Library - Locations">Cornelius Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/forestgrove" data-ga-category="header_sub_level_nav" data-ga-label="Forest Grove City Library - Locations">Forest Grove City Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/gardenhome" data-ga-category="header_sub_level_nav" data-ga-label="Garden Home Community Library - Locations">Garden Home Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/hillsborobrookwood" data-ga-category="header_sub_level_nav" data-ga-label="Hillsboro Public Library Brookwood - Locations">Hillsboro Public Library Brookwood</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/hillsboroshutepark" data-ga-category="header_sub_level_nav" data-ga-label="Hillsboro Public Library Shute Park - Locations">Hillsboro Public Library Shute Park</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/northplains" data-ga-category="header_sub_level_nav" data-ga-label="North Plains Public Library - Locations">North Plains Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/sherwood" data-ga-category="header_sub_level_nav" data-ga-label="Sherwood Public Library - Locations">Sherwood Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/tigard" data-ga-category="header_sub_level_nav" data-ga-label="Tigard Public Library - Locations">Tigard Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/tualatin" data-ga-category="header_sub_level_nav" data-ga-label="Tualatin Public Library - Locations">Tualatin Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/westslope" data-ga-category="header_sub_level_nav" data-ga-label="West Slope Community Library - Locations">West Slope Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/dates-closed" data-ga-category="header_sub_level_nav" data-ga-label="Upcoming Library Closures - Locations">Upcoming Library Closures</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Library Card' data-ga-event='show'><a href="#library_card_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Library Card</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Library Card, collapsed" data-text-expanded="Library Card, expanded">Library Card, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/online-card" data-ga-category="header_sub_level_nav" data-ga-label="Get a card - Library Card">Get a card</a></li><li class='desktop mobile'><a href="https://www.wccls.org/borrowing-policies" data-ga-category="header_sub_level_nav" data-ga-label="Borrowing information - Library Card">Borrowing information</a></li><li class='desktop mobile'><a href="https://www.wccls.org/about-catalog" data-ga-category="header_sub_level_nav" data-ga-label="Use the catalog - Library Card">Use the catalog</a></li><li class='desktop mobile'><a href="https://www.wccls.org/account-reminders" data-ga-category="header_sub_level_nav" data-ga-label="Get reminders - Library Card">Get reminders</a></li><li class='desktop mobile'><a href="https://www.wccls.org/how-place-hold-specific-issue" data-ga-category="header_sub_level_nav" data-ga-label="Holds on magazines - Library Card">Holds on magazines</a></li><li class='desktop mobile'><a href="https://www.wccls.org/how-cancel-holds" data-ga-category="header_sub_level_nav" data-ga-label="Cancel a hold - Library Card">Cancel a hold</a></li><li class='desktop mobile'><a href="https://www.wccls.org/library-card-faq" data-ga-category="header_sub_level_nav" data-ga-label="Library card f.a.q. - Library Card">Library card f.a.q.</a></li><li class='desktop mobile'><a href="https://www.wccls.org/pay-account-charges-online" data-ga-category="header_sub_level_nav" data-ga-label="Pay fees - Library Card">Pay fees</a></li><li class='desktop mobile'><a href="https://www.wccls.org/culturalpass" data-ga-category="header_sub_level_nav" data-ga-label="Cultural Pass to Adventure - Library Card">Cultural Pass to Adventure</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Events' data-ga-event='show'><a href="#events_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Events</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Events, collapsed" data-text-expanded="Events, expanded">Events, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="/v2/events" data-ga-category="header_sub_level_nav" data-ga-label="Calendar of Events - Events">Calendar of Events</a></li><li class='desktop mobile'><a href="https://www.wccls.org/storytimes-kids-events-teen-events" data-ga-category="header_sub_level_nav" data-ga-label="Storytimes, Events for Kids, Teens - Events">Storytimes, Events for Kids, Teens</a></li><li class='desktop mobile'><a href="https://www.wccls.org/srp/main2021" data-ga-category="header_sub_level_nav" data-ga-label="Summer Reading - Events">Summer Reading</a></li><li class='desktop mobile'><a href="https://www.wccls.org/dates-closed" data-ga-category="header_sub_level_nav" data-ga-label="Upcoming Library Closures - Events">Upcoming Library Closures</a></li><li class='desktop mobile'><a href="https://www.wccls.org/wccls-patron-newsletter" data-ga-category="header_sub_level_nav" data-ga-label="WCCLS Patron Newsletter - Events">WCCLS Patron Newsletter</a></li><li class='desktop mobile'><a href="https://www.wccls.org/blog" data-ga-category="header_sub_level_nav" data-ga-label="News Blog - Events">News Blog</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Digital Library' data-ga-event='show'><a href="#digital_library_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Digital Library</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Digital Library, collapsed" data-text-expanded="Digital Library, expanded">Digital Library, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://wccls.overdrive.com/" data-ga-category="header_sub_level_nav" data-ga-label="Overdrive - Digital Library">Overdrive</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/tumblebook-library" data-ga-category="header_sub_level_nav" data-ga-label="Tumblebook Library - Digital Library">Tumblebook Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/e-books" data-ga-category="header_sub_level_nav" data-ga-label="About E-books - Digital Library">About E-books</a></li><li class='desktop mobile'><a href="https://wccls.kanopy.com/" data-ga-category="header_sub_level_nav" data-ga-label="Kanopy - Digital Library">Kanopy</a></li><li class='desktop mobile'><a href="https://www.wccls.org/streaming-video" data-ga-category="header_sub_level_nav" data-ga-label="About Streaming Video - Digital Library">About Streaming Video</a></li><li class='desktop mobile'><a href="https://wccls.libanswers.com/econtent" data-ga-category="header_sub_level_nav" data-ga-label="Get Help for Digital Library - Digital Library">Get Help for Digital Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries-continue" data-ga-category="header_sub_level_nav" data-ga-label="24-Hour Online Access - Digital Library">24-Hour Online Access</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Research' data-ga-event='show'><a href="#research_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Research</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Research, collapsed" data-text-expanded="Research, expanded">Research, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/research/glossary" data-ga-category="header_sub_level_nav" data-ga-label="Resources by A to Z - Research">Resources by A to Z</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/subject" data-ga-category="header_sub_level_nav" data-ga-label="Resources by Category - Research">Resources by Category</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/all" data-ga-category="header_sub_level_nav" data-ga-label="Resources by Filter - Research">Resources by Filter</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/homeworkhelp" data-ga-category="header_sub_level_nav" data-ga-label="Homework Help - Research">Homework Help</a></li><li class='desktop mobile'><a href="https://www.wccls.org/job-builder" data-ga-category="header_sub_level_nav" data-ga-label="Job Builder - Research">Job Builder</a></li><li class='desktop mobile'><a href="https://www.wccls.org/racial-equity-resources" data-ga-category="header_sub_level_nav" data-ga-label="Racial Equity Resources - Research">Racial Equity Resources</a></li><li class='desktop mobile'><a href="https://www.wccls.org/taxhelp" data-ga-category="header_sub_level_nav" data-ga-label="Tax Assistance - Research">Tax Assistance</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/techlearning" data-ga-category="header_sub_level_nav" data-ga-label="Tech Learning - Research">Tech Learning</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Services' data-ga-event='show'><a href="#services_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Services</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Services, collapsed" data-text-expanded="Services, expanded">Services, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.libraryaware.com/1554/Subscribers/Subscribe?optInPageId=bfa26b83-7b98-45df-99e5-5f405417109b" data-ga-category="header_sub_level_nav" data-ga-label="Booklists by Email - Services">Booklists by Email</a></li><li class='desktop mobile'><a href="https://www.wccls.org/computer-meeting-rooms" data-ga-category="header_sub_level_nav" data-ga-label="Computer &amp; Meeting Room Use - Services">Computer & Meeting Room Use</a></li><li class='desktop mobile'><a href="https://www.wccls.org/distance-learning-resources" data-ga-category="header_sub_level_nav" data-ga-label="Distance Learning Resources - Services">Distance Learning Resources</a></li><li class='desktop mobile'><a href="https://www.wccls.org/donate" data-ga-category="header_sub_level_nav" data-ga-label="Donate to WCCLS Libraries - Services">Donate to WCCLS Libraries</a></li><li class='desktop mobile'><a href="https://www.wccls.org/librarymailservice" data-ga-category="header_sub_level_nav" data-ga-label="Library Mail Service - Services">Library Mail Service</a></li><li class='desktop mobile'><a href="https://www.wccls.org/interlibrary-loan" data-ga-category="header_sub_level_nav" data-ga-label="Interlibrary Loan &amp; Document Delivery - Services">Interlibrary Loan & Document Delivery</a></li><li class='desktop mobile'><a href="https://www.wccls.org/kids" data-ga-category="header_sub_level_nav" data-ga-label="Kids - Services">Kids</a></li><li class='desktop mobile'><a href="https://www.wccls.org/printfromanywhere" data-ga-category="header_sub_level_nav" data-ga-label="Print from Anywhere - Services">Print from Anywhere</a></li><li class='desktop mobile'><a href="https://www.wccls.org/suggest" data-ga-category="header_sub_level_nav" data-ga-label="Suggest a Purchase - Services">Suggest a Purchase</a></li><li class='desktop mobile'><a href="https://www.wccls.org/teens" data-ga-category="header_sub_level_nav" data-ga-label="Teens - Services">Teens</a></li><li class='desktop mobile'><a href="https://www.wccls.org/volunteering" data-ga-category="header_sub_level_nav" data-ga-label="Volunteer at WCCLS libraries - Services">Volunteer at WCCLS libraries</a></li></ul></div>    </div></div></li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+</div>
+<!-- /.cp_header_nav -->
+
+<script id="t_biblionav_header_nav_xs" type="x-handlebars-template">
+  <div class="navbar yamm navbar-default cp_header_nav">
+    <nav class="col-xs-12">
+
+      {{{nav_html}}}
+
+    </nav>
+  </div>
+</script>
+
+    </div>
+  </div><!-- /.cp_header -->
+</div>
+
+
+  <div class="container container_for_page">
+
+    <div id="page">
+
+      <div class="legacy_page_row">
+
+          
+
+        
+
+        <div id="top_banner">
+          
+        </div>
+
+        
+
+        <div id="main" class="clearfix row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9" data-analytics="{ &quot;Section&quot;: &quot;Center&quot; }" id="">
+    <div class="content clearfix">
+
+  <h1 id="content-start">
+    Log In
+  </h1>
+  
+    <a href="https://help.bibliocommons.com/000getting/005logging-in" class="help_icon blockHijack inline" id="main_help_000getting/005logging_in_id_11cb7cbqi59db448te1534bkku" target="_blank"><i aria-hidden="true" class=" icon-info-circled"></i><span class="sr-only">Help for logging in, opens a new window</span></a>
+
+  
+
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        
+<form accept-charset="UTF-8" action="https://wccls.bibliocommons.com/user/login?destination=%2Fuser_dashboard" autocorrect="off" class="loginForm left" data-js="login_form" id="login_6qir5h0b3q7dqbk6c8u4sndap0" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>
+  <label for="user_name_6qir5h0b3q7dqbk6c8u4sndap0">Username or Barcode:</label>
+  <input class="field_username text" data-js="username_login" id="user_name_6qir5h0b3q7dqbk6c8u4sndap0" name="name" testid="field_username" type="text" />
+  <label for="user_pin_6qir5h0b3q7dqbk6c8u4sndap0">
+    Password:
+  </label>
+  <input autocomplete="on" class="text" id="user_pin_6qir5h0b3q7dqbk6c8u4sndap0" name="user_pin" testid="field_userpin" type="password" value="" />    <p>
+      <a href="/user/forgot" class="help" target="_parent" testid="link_forgotpin">Forgot your Password?</a>  
+    </p>
+    <div class="bc_checkbox">
+      <input class="rememberMe" id="remember_6qir5h0b3q7dqbk6c8u4sndap0" name="remember_me" testid="checkbox_rememberme" type="checkbox" value="true" /> <label for="remember_6qir5h0b3q7dqbk6c8u4sndap0">Remember me on this device</label>
+    </div> 
+  <input id="local" name="local" type="hidden" value="false" />  
+  <p>
+    
+      <input alt="Log In" class="btn btn-primary" data-js="button_login" name="commit" testid="button_login" title="Log In" type="submit" value="Log In" />        <a href="https://www.wccls.org/online-card" target="_parent">Get a Card</a>
+  </p>
+  
+</form>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-7">
+
+      </div>
+
+
+  </div>
+
+</div>
+  </div>  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" data-analytics="{ &quot;Section&quot;: &quot;Right&quot; }" id="">
+        	<div class="tout">
+	  <div class="toutContent">
+	    <h2>Welcome to Your New Catalog!</h2>
+	    <p>Here's what's new&hellip;</p> <ul> <li>Find what you want with a better search.</li> <li>Track your borrowing.</li> <li>Rate and review titles you borrow, and share your opinions on them.</li> <li>Get personalized recommendations.</li> </ul>
+	  </div>
+	</div>
+
+    <div class="tout">
+  <div class="toutContent">
+    <h2 id="content-start">Trouble logging in?</h2>
+    <p><a href="https://help.bibliocommons.com/000getting/005logging-in" class="help_popup" id="id_75aci1tnvfrug4g2qulqkd0moc" target="_blank">Click here for help.</a></p>
+  </div>
+</div>
+
+    
+</div>
+        </div>
+        <!-- /#main -->
+
+</div>
+    </div>
+    <!-- /#page -->
+
+</div>
+    <div data-react-class="FeedbackBoxContainer" data-react-props="{}"></div>
+    
+  <div id="footer" class="">
+      <div class="footerContent clearfix container">
+          
+<div class="footerLinks">
+  <div class="library-custom-links">
+            <a href="https://www.wccls.org" testid="footer_link_1">WCCLS</a>
+            <a href="https://www.wccls.org/contact-library" testid="footer_link_2">Contact Your Library</a>
+            <a href="https://wccls.libanswers.com/bibliocommons" testid="footer_link_3">FAQs</a>
+            <a href="https://www.wccls.org/cataloghelp" testid="footer_link_4">Ask a Question</a>
+            <a href="https://www.wccls.org/about/wccls-privacy-statement" testid="footer_link_5">WCCLS Privacy Statement</a>
+            <a href="http://catalog.wccls.org" testid="footer_link_6">Alternate Catalog</a>
+  </div>
+
+  <div class="policy-links">
+    <a href="/info/privacy" testid="footer_link_privacy">Privacy Statement</a>
+    <a href="/info/terms" testid="footer_link_terms">Terms of Use</a>
+    <a href="/info/accessibility" testid="footer_link_accessibility_statement">Accessibility Statement</a>
+  </div>
+</div>
+
+      </div>
+  </div>
+  
+  <div class="container">
+  
+    <div class="appserver">
+  <div class="powered-by">
+    Powered by BiblioCommons.
+  </div>
+  
+  <div class="product-version">
+    BiblioCore: app02 Version 9.6.1 Last updated 2022/03/11 12:19
+  </div>
+</div>
+
+  </div>
+
+
+  <!-- begin POSITIONED ELEMENTS -->
+  
+
+
+  <div class="errorSpace messaging">
+    <div class="errors">[]</div>
+  </div>
+
+
+  <div class="messageSpace messaging">
+    <div class="messages">[]</div>
+  </div>
+
+<div data-analytics='{ "Section":"Messaging" }'>
+  <div class="messaging" data-test-id="top-message-container" id="id_5cijdigrtfb0vmg0g09nor0omm">
+  <div class="messageContent">
+    <span class="message-icon"></span>
+    <div class="top_message" id="msg_id_4emebi0crat9hcd6ji6hcevflb">
+      <a name=""></a>
+</div>  </div>
+  <div class="closeButton" data-js="close_system_message" data-test-id="message-close-button"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    registered_messages.push( {element: 'msg_id_4emebi0crat9hcd6ji6hcevflb', key: [], type: ["message","error"]});
+</script> 
+</div>
+  <div class="cp_bc_modal">
+  <div class="modal fade" id="master_modal" data-test-id="modal-container" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Currently, we cannot cache these templates because the content would change depending on the value of the
+feature flag.-->
+<script type="x-handlebars-template" id="discussion_flag_tpl" charset="utf-8">  
+  <div class="flagging overlay-white" id="flag_{{content_id}}">
+    <div class="flag_selection">
+      <h4>
+        <span class="flag_icon"><i aria-hidden="true" class=" icon-flag-empty"></i></span>
+        Flag this content because:
+          <a href="https://help.bibliocommons.com/025ug/060reporting-inappropriate-content/" class="help_icon blockHijack inline" id="main_help_025ug/060reporting-inappropriate-content/_id_32rvjgm5c6g7n8vk0j38303ru1" target="_blank"><i aria-hidden="true" class=" icon-info-circled"></i></a>
+      </h4>
+        {{#if flag_options.violates_appropriate_use_show_option}} 
+        <div class="types" testid="violates_appropriate_use">          <a href="#" data-js="type_form_trigger" data-type="violates_appropriate_use"><i aria-hidden="true" class=" icon-right-open"></i> Violates Appropriate Use Standards</a>
+</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_violates_appropriate_use" method="post" style="display:none;" testid="flag_form_violates_appropriate_use"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="VIOLATES_APPROPRIATE_USE" />
+          <input data-js="java-content-class" id="content_class" name="content_class" type="hidden" value="{{java_content_class}}" />
+          <p>Please review the Appropriate Use standard and tell us which term has been violated.</p>
+<input checked="checked" id="violation_type_UNRELATED" name="violation_type" type="radio" value="UNRELATED" /> Unrelated <br/>
+<input id="violation_type_UNLAWFUL" name="violation_type" type="radio" value="UNLAWFUL" /> Unlawful <br/>
+<input id="violation_type_OBSCENE" name="violation_type" type="radio" value="OBSCENE" /> Obscene <br/>
+<input id="violation_type_MARKETING_SCHEME" name="violation_type" type="radio" value="MARKETING_SCHEME" /> Marketing Scheme <br/>
+<input id="violation_type_ADVERTISING" name="violation_type" type="radio" value="ADVERTISING" /> Advertising <br/>
+<input id="violation_type_PRIVACY_VIOLATION" name="violation_type" type="radio" value="PRIVACY_VIOLATION" /> Privacy Violation <br/>
+<input id="violation_type_VIRUS" name="violation_type" type="radio" value="VIRUS" /> Virus <br/>
+<input id="violation_type_RIGHTS_VIOLATION" name="violation_type" type="radio" value="RIGHTS_VIOLATION" /> Rights Violation <br/>
+<input id="violation_type_CRIMINAL_ADVICE" name="violation_type" type="radio" value="CRIMINAL_ADVICE" /> Criminal Advice <br/>
+<p><label for="accept" class="review_standards"><input class="required" id="accept" name="accept" type="checkbox" value="1" /> I have reviewed the <a href="/info/terms" target="_blank">Appropriate Use Standards</a></label></p>
+
+          <input class="btn btn-primary" name="commit" type="submit" value="Submit" />
+</form>        {{/if}}
+        {{#if flag_options.offensive_show_option}} 
+        <div class="types" testid="offensive">          <a href="#" data-js="type_form_trigger" data-type="offensive"><i aria-hidden="true" class=" icon-right-open"></i> Is offensive (To me or my community)</a>
+</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_offensive" method="post" style="display:none;" testid="flag_form_offensive"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="OFFENSIVE" />
+          <input data-js="java-content-class" id="content_class" name="content_class" type="hidden" value="{{java_content_class}}" />
+          <p>This content is offensive because:</p>
+<textarea class="required" id="reason" name="reason" placeholder="Please enter the reason">
+</textarea>
+
+          <input class="btn btn-primary" name="commit" type="submit" value="Submit" />
+</form>        {{/if}}
+        {{#if flag_options.spoiler_show_option}} 
+        <div class="types" testid="spoiler">          <a href="#" data-js="type_form_trigger" data-type="spoiler"><i aria-hidden="true" class=" icon-right-open"></i> Contains spoilers (Gives away the ending)</a>
+</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_spoiler" method="post" style="display:none;" testid="flag_form_spoiler"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="SPOILER" />
+          <input data-js="java-content-class" id="content_class" name="content_class" type="hidden" value="{{java_content_class}}" />
+          <p>This content contains spoilers.</p>
+<p>Some people don't want to ruin the ending.</p>
+
+          <input class="btn btn-primary" name="commit" type="submit" value="Submit" />
+</form>        {{/if}}
+    </div>
+  </div>
+</script>
+<!-- For the popout when user clicks "Contains Spoiler" on a tagged UGC. -->
+<script type="x-handlebars-template" id="ugc_flagged_content_spoiler_info" charset="utf-8">
+  <p><b>May contain spoilers</b><br> Spoilers give away details you may not want to know until you've read/watched this yourself.</p>
+</script>
+<!-- For the popout when user clicks "Contains Offensive Content" on a tagged UGC. -->
+<script type="x-handlebars-template" id="ugc_flagged_content_offensive_info" charset="utf-8">
+  <p><b>This content has been tagged as offensive</b><br> This content has been reported by other users as offensive. <a href="/info/terms">Learn more about reported content.</a></p>
+</script>
+
+<script id="dropdown_filter_template" type="x-handlebars-template" charset="UTF-8">
+  <div class="cp_filter_overlay">
+    <h2 class="filter_title" data-js='overlay-title'>{{{title}}}</h2>
+    <div class="list-group">
+      {{#each options}}
+        <a class="list-group-item {{#if active}} active {{/if}}" href="#" data-js="filter-option" data-filter-attribute="{{filterAttribute}}">{{filterLabel}}</a>
+      {{/each}}
+    </div>
+  </div>
+</script>
+<script type="x-handlebars-template" id="list_more_actions_tmpl" charset="utf-8">
+  <div class="more_actions_overlay">
+    <div class="content-header">
+      <button type="button" class="close close_top_right" data-js="close_button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="content-title" id="modal_label">
+        {{{sectionTitle}}}
+      </h4>
+    </div>
+    <div class="content-body">
+      <h3 class="inline_bib_title">{{{bibTitle}}}</h3>
+      <div class="more_actions_info" data-js="more_actions_info_container"></div>
+      <div class="list-group more_actions_list" data-js="append-links">
+        
+      </div>
+      <a href="#" data-js="close_button" class="nevermind_link">
+        No, go back
+      </a>
+    </div>
+  </div>
+</script>
+<script data-js="like_button_template" type="text/x-handlebars-template" charset="utf-8">
+  <button class="like_button {{liking_like_status liked}}" data-liked="{{liked}}" data-js="like_button" data-count="{{like_count}}" data-content-id="{{content_id}}" data-resource="{{resource}}">
+    {{liking_like_heart_icon liked}}{{liking_like_state liked display_text="true"}}
+  </button>
+  {{#if like_count_button_enabled}}
+	{{#if like_count}}
+      <button class="like_count_button" data-js="like_count_button">{{format_number_with_commas like_count}} {{liking_like_noun like_count}}</button>
+    {{/if}}
+  {{/if}}
+</script>
+
+<script data-js="like_breakdown_template" type="text/x-handlebars-template" charset="utf-8">
+  <a href="#" class="like_breakdown_close" data-js="like_breakdown_close"><i aria-hidden="true" class=" icon-cancel"></i></a>
+  {{#liking_ifContentHasLikes like_count}}
+    <h4 class="like_breakdown_heading">
+        {{#liking_if_single_user_liked like_count}}
+          {{liking_liked_users_count like_count}} likes this
+        {{else}}
+          {{liking_liked_users_count like_count}} like this
+        {{/liking_if_single_user_liked}}
+    </h4>
+    <span class="like_usernames">
+      <i aria-hidden="true" class=" icon-heart"></i>
+      {{#if liked}}
+        You{{#liking_unlessContentOnlyHasOneLike like_count}},{{/liking_unlessContentOnlyHasOneLike}}
+      {{/if}}
+      {{#each liked_users.users}}
+        {{#if is_active}}
+          <a class="like_username" href="/user_profile/{{id}}">{{username}}</a>{{#unless @last}},{{/unless}}
+        {{else}}
+          <span class="like_username" title="Inactive User">{{username}}</span>{{#unless @last}},{{/unless}}
+        {{/if}}
+      {{/each}}
+    </span>
+
+    {{#if liked_users.see_more}}
+      <div class="like_usernames_see_more_wrap">
+        <a href="{{url}}" data-js="like_breakdown_see_more">See more<i aria-hidden="true" class=" icon-down-dir"></i></a>
+        <i aria-hidden="true" class="hidden icon-spinner" data-js="liked_users_spinner"></i>
+      </div>
+    {{/if}}
+
+  {{else}}
+    <h4 class="like_breakdown_heading">No one has liked this yet. Be the first!</h4>
+  {{/liking_ifContentHasLikes}}
+</script>
+<script id="tmpl_save_search_form" type="text/x-handlebars">
+  <form accept-charset="UTF-8" action="/user/save_search" class="form-inline save_search_form" data-js="save_search_form" data-remote="true" data-type="json" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>
+    <div data-js="messaging">
+    </div>
+    <button type="button" class="close close_top_right" data-js="close_button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <input type="hidden" name="search_string" data-js="search_string">
+    <input type="hidden" name="inline_messaging" value="true">
+    <input type="hidden" name="original_search_name" data-js="original_search_name">
+    <div class="search_prompt">
+      <div class="form-group">
+        <label for="search_name">
+          Save search as:
+        </label>
+        <input type="text" name="search_name" data-js="search_name" required class="form-control search_name_field" maxlength="100" value="{{current_query}}">
+
+        <div class="form_buttons">
+          <button type="submit" class="btn btn-primary" data-saving-text="<i class='icon-spinner animate-spin'></i> Saving..." data-js="save_button">
+            <i aria-hidden="true" class=" icon-ok"></i> Save it
+          </button>
+          <a href="#" data-js="close_button" class="btn btn-default">
+            Cancel
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="duplicate_search_prompt">
+      <div class="form-group">
+        <span>
+          You already have a search saved as "<span class="replace_query" data-js="search_name_replace"></span>". Replace it with this one?
+        </span>
+        <div class="form_buttons">
+          <button type="submit" class="btn btn-primary" data-saving-text="<i class='icon-spinner animate-spin'></i> Saving..." data-js="save_button" name="replace" value="true">
+            Yes, replace it
+          </button>
+
+          <a href="#" data-js="choose_new_name" class="btn btn-default">
+            Choose new name
+          </a>
+
+          <a href="#" data-js="close_button" class="btn btn-default">
+            Cancel
+          </a>
+        </div>
+      </div>
+    </div>
+</form></script>
+<script type="x-handlebars-template" id="confirmation_prompt_tpl" charset="utf-8">
+	<div class="content-header">
+  <button type="button" class="close close_top_right" data-js="close_button" data-test-id="modal-close-button">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only">Close Dialog</span>
+  </button>
+  <h4 class="content-title" id="modal_label">
+    Log In      {{#if title}}
+        {{title}}
+      {{else}}
+        Are you sure?
+      {{/if}}
+
+  </h4>
+</div>
+<div class="content-body">
+  
+	  <p>Caution: This cannot be undone.</p>
+		{{#if message}}<p> {{message}}</p>{{/if}}
+			<label for="conf_prompt_ignore" data-js="confirmation-prompt-do-not-show-again">
+			<input data-js="pretty-checkbox conf_prompt_ignore" id="conf_prompt_ignore" name="conf_prompt_ignore" testid="conf_checkbox" type="checkbox" value="1" /> 
+			Don't show this message again
+			</label>
+
+</div>
+  <div class="content-footer">
+      		<input class="btn btn-transactional" data-js="conf_proceed_btn" data-test-id="confirmation-proceed-button" name="commit" testid="conf_proceed_btn" type="submit" value="Yes, I'm sure" />
+		<a href="#" class="nevermind_link link_contextual" data-js="close_button" testid="conf_cancel_btn">No, go back</a>
+
+  </div>
+</script>
+
+<script data-js="user_card_template" type="text/x-handlebars-template" charset="utf-8">
+  <div class="card" testid="user_card_hover_{{id}}" data-test-id="user-card-content-{{id}}">
+    <div class="row card-row">
+      <div class="col-xs-3">
+        <span class="cp_user_avatar md {{libraryMembership}}" testid="user_avatar">
+          <a href="/user_profile/{{id}}">
+            {{#if avatar}}
+              <img src="{{avatar}}" class="img-circle">
+            {{else}}
+              <div class="img-circle initial"><span>{{initial}}</span></div>
+            {{/if}}
+          </a>
+        </span>
+      </div>
+
+      <div class="col-xs-9 user-card-info">
+        <h4 class="user-card-username">
+          <a 
+            href="/user_profile/{{id}}" 
+            title="{{name}}'s Profile"
+            testid="user_profile_link"
+            data-ga-category="user_card"
+            data-ga-label="User Profile Link">
+            {{name}}
+          </a>
+        </h4>
+
+        {{#if libraryName}}
+          <p>{{libraryName}}</p>
+        {{/if}}
+
+        {{#if staff}}<p><span class="cp_staff_stamp">Library Staff</span></p>{{/if}}
+
+        <p>
+          <a 
+            href="/user_profile/{{id}}" 
+            title="{{name}}'s Profile" 
+            data-ga-category="user_card" 
+            data-ga-label="User Profile Link"
+            data-test-id="user-profile-link"
+          >
+            View Profile
+          </a>
+        </p>
+
+        <p>  <a href="/user/login" class="btn btn-secondary btn-flat btn-sm" testid="logged_out_follow_user"><i aria-hidden="true" class=" icon-user-plus"></i>Follow</a>
+  <a href="/user/login" class="btn btn-secondary btn-flat btn-sm" testid="logged_out_ignore_user"><i aria-hidden="true" class=" icon-block"></i>Ignore</a>
+</p>
+        
+        {{#if is_currently_logged_in_user}}<div class="status-label status-label-info">This is me!</div>{{/if}}
+      </div>
+    </div>
+  </div>
+</script>
+
+<script charset="utf-8" data-js="tour_dots_template" type="text/x-handlebars-template">
+  <div class="pagination_dots">
+    {{#each steps}}
+      <div class="dot {{#isTourDotFilledIn ../currentStep @index}}active{{/isTourDotFilledIn}}"></div>
+    {{/each}}
+  </div>
+</script>
+  <div id="overlay" aria-hidden="true" role="application" data-js="overlay-container" data-test-id="overlay-container">
+  <div class="overlay-backdrop"></div>
+  <div class="overlay-inner">
+    <div class="overlay-body" data-test-id="overlay-body"></div>
+    <a href="#close-overlay" class="overlay-close js-close-trigger" data-test-id="overlay-close">
+      <i aria-hidden="true" class=" icon-cancel"></i>
+      <span class="sr-only">Close Dialog</span>
+    </a>
+  </div>
+</div>
+  <div class="popup-box-ie-position">
+  <div class="popout-box">
+    <div id="popout-box-content" aria-live="polite" aria-atomic="true" aria-relevant="additions"></div>
+    <div class="popout-box-border"></div>
+    <div class="popout-box-arrow"></div>
+  </div>
+</div>
+  
+<div class="spinner " data-test-id="" id="globalSpinner">
+	<img alt="" data-test-id="spinner-image" src="//cor-cdn-static.bibliocommons.com/assets/ajax-loader-2ad22ee6988a62b7f1661cb696219501.gif" title="" />
+</div>
+  <a class="btn btn-secondary cp_sticky_tab btn-float back_to_top" data-bottom="30" data-right="0" data-js="sticky_tab back_to_top">
+  <i aria-hidden="true" class=" icon-up"></i> To Top
+</a> 
+  
+  <!-- end POSITIONED ELEMENTS -->
+
+</div>
+<!-- /#ct_controller -->
+
+<!-- begin JS BLOCK -->
+  <script src="//cor-cdn-static.bibliocommons.com/assets/vendor-4554d50bfb44aebd717f8b60209469d3.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/v2/sdk.js"></script>
+  
+  <script src="//cor-cdn-static.bibliocommons.com/assets/core-c3db7de5f699d7673dc4840f591bc3c4.js" type="text/javascript"></script>
+  <script src="//cor-cdn-static.bibliocommons.com/assets/controllers/session-d0aca3286d65eeb43d5e00ca7f3d8e32.js" type="text/javascript"></script>
+  
+
+
+
+
+
+
+
+
+<!-- end JS BLOCK -->
+</body>
+</html>
+
