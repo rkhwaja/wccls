@@ -26,7 +26,7 @@ class Item:
 		return StatusType[self.__class__.__name__]
 
 	@classmethod
-	def __init_subclass__(cls, *args, **kwargs): # pylint: disable=unused-argument
+	def __init_subclass__(cls, *args, **kwargs):
 		_AddStatusType(cls.__name__)
 
 @dataclass
