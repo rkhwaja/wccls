@@ -20,11 +20,10 @@ async def _DoRequestAsync(session, request):
 	if request.verb == 'GET':
 		async with session.get(request.url, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
 			return await resp.text()
-	elif request.verb == 'POST':
+	if request.verb == 'POST':
 		async with session.post(request.url, data=request.data, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
 			return await resp.text()
-	else:
-		assert False, f'Unexpected request: {request}'
+	assert False, f'Unexpected request: {request}'
 
 def BiblioCommons(subdomain: str, login: str, password: str) -> List[Item]:
 	parser = Parser(subdomain, login, password)
