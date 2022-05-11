@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.9, "3.10"]
+        python-version: [3.9, "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v2
@@ -36,6 +36,8 @@ jobs:
         poe lint
     - name: Tests
       run: |
-        poe test
+        if python --version | grep -q 'Python 3.11' ; then
+          poe test
+        fi
     - name: Coverage
       uses: codecov/codecov-action@v2.1.0
