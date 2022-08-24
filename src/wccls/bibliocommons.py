@@ -4,7 +4,7 @@ from aiohttp import ClientSession
 from requests import Session
 
 from .parser import Parser
-from .wccls import Item
+from .item_types import Item
 
 def _DoRequestSync(session, request):
 	if request.verb == 'GET':
@@ -45,8 +45,14 @@ async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[
 			reqs.extend(parser.Receive(req.url, response))
 		return parser.items
 
-Wccls = lambda login, password: BiblioCommons('wccls', login, password)
-MultCoLib = lambda login, password: BiblioCommons('multcolib', login, password)
+def Wccls(login, password):
+	return BiblioCommons('wccls', login, password)
 
-WcclsAsync = lambda login, password: BiblioCommonsAsync('wccls', login, password)
-MultCoLibAsync = lambda login, password: BiblioCommonsAsync('multcolib', login, password)
+def MultCoLib(login, password):
+	return BiblioCommons('multcolib', login, password)
+
+def WcclsAsync(login, password):
+	return BiblioCommonsAsync('wccls', login, password)
+
+def MultCoLibAsync(login, password):
+	return BiblioCommonsAsync('multcolib', login, password)

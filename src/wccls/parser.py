@@ -6,7 +6,7 @@ from re import search
 
 from bs4 import BeautifulSoup
 
-from .wccls import Checkout, FormatType, HoldInTransit, HoldNotReady, HoldPaused, HoldReady, ParseError
+from .item_types import Checkout, FormatType, HoldInTransit, HoldNotReady, HoldPaused, HoldReady, ParseError
 
 _log = getLogger(__name__)
 

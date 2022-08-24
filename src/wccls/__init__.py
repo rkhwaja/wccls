@@ -1,2 +1,2 @@
-from .wccls import *
+from .item_types import *
 from .bibliocommons import *
