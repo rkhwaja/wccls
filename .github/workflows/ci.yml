@@ -34,10 +34,9 @@ jobs:
         poetry install
     - name: Lint
       run: |
-        pylint src/wccls tests
+        poe lint
     - name: Tests
       run: |
-        pytest --cov=src/wccls
-        coverage xml
+        poe test
     - name: Coverage
       uses: codecov/codecov-action@v2.1.0
