@@ -36,6 +36,7 @@ pylint = ">=2.11" # need at least this for all the extensions
 pylint-quotes = ">=0.2.1"
 pytest-cov = ">=2.10.1"
 pytest-asyncio = ">=0.16.0"
+poethepoet = ">=0.16.4"
 
 [tool.poe.tasks]
 lint = "pylint src/wccls tests"
