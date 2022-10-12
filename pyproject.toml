@@ -37,6 +37,15 @@ pylint-quotes = ">=0.2.1"
 pytest-cov = ">=2.10.1"
 pytest-asyncio = ">=0.16.0"
 
+[tool.poe.tasks]
+lint = "pylint src/wccls tests"
+
+[tool.poe.tasks.test]
+shell = """
+pytest --cov=src/wccls
+coverage xml
+"""
+
 [tool.pylint.master]
 load-plugins = [
 	"pylint_quotes",
