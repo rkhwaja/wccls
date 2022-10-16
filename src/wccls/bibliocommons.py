@@ -26,6 +26,7 @@ async def _DoRequestAsync(session, request):
 	assert False, f'Unexpected request: {request}'
 
 def BiblioCommons(subdomain: str, login: str, password: str) -> List[Item]:
+	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
 	with Session() as session:
 		reqs = parser.Receive(None, None)
@@ -36,6 +37,7 @@ def BiblioCommons(subdomain: str, login: str, password: str) -> List[Item]:
 	return parser.items
 
 async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[Item]:
+	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
 	async with ClientSession() as session:
 		reqs = parser.Receive(None, None)
@@ -45,14 +47,18 @@ async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[
 			reqs.extend(parser.Receive(req.url, response))
 		return parser.items
 
-def Wccls(login, password):
+def Wccls(login: str, password: str):
+	"""Gets the list of items for the WCCLS site"""
 	return BiblioCommons('wccls', login, password)
 
-def MultCoLib(login, password):
+def MultCoLib(login: str, password: str):
+	"""Gets the list of items for the Multnomah County Library site"""
 	return BiblioCommons('multcolib', login, password)
 
-def WcclsAsync(login, password):
+def WcclsAsync(login: str, password: str):
+	"""Gets the list of items for the WCCLS site"""
 	return BiblioCommonsAsync('wccls', login, password)
 
-def MultCoLibAsync(login, password):
+def MultCoLibAsync(login: str, password: str):
+	"""Gets the list of items for the Multnomah County Library site"""
 	return BiblioCommonsAsync('multcolib', login, password)
