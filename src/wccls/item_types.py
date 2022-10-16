@@ -17,6 +17,7 @@ FormatType = Enum('Format', ['DownloadableAudiobook', 'eBook', 'Book', 'DVD', 'B
 
 @dataclass
 class Item:
+	"""Base class for all items"""
 	title: str
 	isDigital: bool
 	format: FormatType
@@ -31,6 +32,7 @@ class Item:
 
 @dataclass
 class Checkout(Item):
+	"""Checked out item"""
 	dueDate: date
 	renewals: int
 
@@ -40,6 +42,7 @@ class Checkout(Item):
 
 @dataclass
 class HoldPaused(Item):
+	"""Paused hold"""
 	reactivationDate: date
 
 @dataclass
