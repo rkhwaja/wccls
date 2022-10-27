@@ -45,7 +45,7 @@ lint = "pylint src/wccls tests"
 
 [tool.poe.tasks.test]
 shell = """
-pytest --cov=src/wccls
+pytest --cov=src/wccls || exit 1
 coverage xml
 """
 
