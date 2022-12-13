@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "wccls"
-version = "3.1.1"
+version = "3.1.2"
 description = "Scraper for the WCCLS account page"
 authors = ["Rehan Khwaja <rehan@khwaja.name>"]
 license = "MIT"
