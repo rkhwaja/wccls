@@ -162,7 +162,7 @@ def _ParseFormatInfo(element):
 		'DVD': FormatType.DVD,
 		'Blu-ray Disc': FormatType.BluRay,
 		'Graphic Novel': FormatType.GraphicNovel,
-		'3-D Object': FormatType.Object3D
+		'3D Object': FormatType.Object3D
 	}
 	return formatLookup[formatIndicator.text]
 

@@ -3,60 +3,42 @@
 		"title": "Zombieland: Double Tap",
 		"isDigital": false,
 		"format": "Format.DVD",
-		"reactivationDate": "2023-01-01",
+		"reactivationDate": "2024-01-01",
 		"status": "StatusType.HoldPaused"
 	},
 	{
 		"title": "Little Woods",
 		"isDigital": false,
 		"format": "Format.DVD",
-		"reactivationDate": "2023-01-01",
+		"reactivationDate": "2024-01-01",
 		"status": "StatusType.HoldPaused"
 	},
 	{
 		"title": "Nine Nasty Words: English in the Gutter : Then, Now, and Forever",
 		"isDigital": true,
 		"format": "Format.eBook",
-		"reactivationDate": "2023-01-02",
+		"reactivationDate": "2024-01-01",
 		"status": "StatusType.HoldPaused"
 	},
 	{
 		"title": "Shadows in Flight",
 		"isDigital": true,
 		"format": "Format.DownloadableAudiobook",
-		"reactivationDate": "2023-01-02",
+		"reactivationDate": "2024-01-01",
 		"status": "StatusType.HoldPaused"
 	},
 	{
 		"title": "One Billion Americans: The Case for Thinking Bigger",
 		"isDigital": true,
 		"format": "Format.eBook",
-		"reactivationDate": "2023-01-02",
+		"reactivationDate": "2024-01-01",
 		"status": "StatusType.HoldPaused"
 	},
 	{
-		"title": "Maus: A Survivor's Tale",
-		"isDigital": false,
-		"format": "Format.GraphicNovel",
-		"activationDate": "2024-01-29",
-		"queuePosition": "45",
-		"queueSize": null,
-		"copies": "39",
-		"status": "StatusType.HoldNotReady"
-	},
-	{
-		"title": "9.5\" Laminator",
+		"title": "Infrared Thermometer",
 		"isDigital": false,
 		"format": "Format.Object3D",
-		"expiryDate": "2022-04-13",
+		"expiryDate": "2022-12-15",
 		"status": "StatusType.HoldReady"
-	},
-	{
-		"title": "Project Hail Mary: A Novel",
-		"isDigital": false,
-		"format": "Format.Book",
-		"dueDate": "2022-04-27",
-		"renewals": 0,
-		"status": "StatusType.Checkout"
 	}
 ]

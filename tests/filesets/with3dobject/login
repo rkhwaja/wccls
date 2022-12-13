@@ -9,7 +9,7 @@
 <head>
   <!-- Data Layer -->
 <script>
-  window.dataLayer = window.dataLayer || [{"bc.siteId":"OR-WCCLS","bc.libraryId":143,"bc.localBranch":null,"bc.shortName":"WCCLS","bc.longName":"Washington County Cooperative Library Services","bc.domain":"wccls","bc.externalGaId":"UA-3058328-17","bc.externalCoreGAId":"UA-3058328-17","bc.gaCrossDomainNames":[],"bc.gaCrossDomainEnabled":false,"bc.cmsEnabled":false,"bc.cmsUrl":"http://bibliocms.com/","bc.crazyEggId":"00178067","bc.allowGoogleAdFeatures":false,"bc.externalEventsGAId":null,"bc.product":"core","bc.branch":null,"bc.version":"Version 9.6.1 Last updated 2022/03/11 12:19 [cor-liv-app02]"}];
+  window.dataLayer = window.dataLayer || [{"bc.siteId":"OR-WCCLS","bc.language":"en-US","bc.libraryId":143,"bc.localBranch":null,"bc.shortName":"WCCLS","bc.longName":"Washington County Cooperative Library Services","bc.domain":"wccls","bc.externalGaId":"UA-3058328-17","bc.externalCoreGAId":"UA-3058328-17","bc.gaCrossDomainNames":[],"bc.gaCrossDomainEnabled":false,"bc.ga4MeasurementId":"G-G3PEY6405E","bc.cmsEnabled":false,"bc.cmsUrl":"http://bibliocms.com/","bc.crazyEggId":"00178067","bc.allowGoogleAdFeatures":false,"bc.externalEventsGAId":null,"bc.product":"core","bc.branch":null,"bc.version":"Version 9.11.0 Last updated 2022/12/07 16:05 [cor-liv-app17]"}];
 </script>
 <!-- end Data Layer -->
 <!-- Start Google Tag Manager-->
@@ -71,8 +71,8 @@
     "@type": "Library",
     "url": "https://wccls.bibliocommons.com/",
     "name": "Washington County Cooperative Library Services",
-    "logo": "https://cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1649340211432",
-    "image": "https://cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1649340211432"
+    "logo": "https://cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1670863772850",
+    "image": "https://cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1670863772850"
   }
 </script>
 
@@ -91,13 +91,13 @@
 <title data-analytics="session">Log In | Washington County Cooperative Library Services | BiblioCommons</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="App-Version" content="Version 9.6.1 Last updated 2022/03/11 12:19 [cor-liv-app02]">
+<meta name="App-Version" content="Version 9.11.0 Last updated 2022/12/07 16:05 [cor-liv-app17]">
 <meta name="format-detection" content="telephone=no">
 
   <meta name="google-site-verification" content="XP15EF9-Mx4nKTFwmhzJkL6q7mc-CuNVTmbkg8MnZRU" />
 
 <meta content="authenticity_token" name="csrf-param" />
-<meta content="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" name="csrf-token" />
+<meta content="tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=" name="csrf-token" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -123,14 +123,14 @@
 
 
   <link href="//cor-cdn-static.bibliocommons.com/assets/bc_base-7458b34fb4de9be11818e405e123b860.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="//cor-cdn-static.bibliocommons.com/assets/core-9bc965911a52514b40e04f7f6e1a3d67.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="//cor-cdn-static.bibliocommons.com/assets/core-7d64d4c928373d7aa8d477bce16543c5.css" media="screen" rel="stylesheet" type="text/css" />
   
   
 
   <link href="//cor-cdn-static.bibliocommons.com/assets/controllers/session-d64750f199c2bd27fd47e6758652b573.css" media="screen" rel="stylesheet" type="text/css" />
   
-  <link href="//cor-liv-cdn-static.bibliocommons.com/dynamic_stylesheet/OR-WCCLS/library_branding.css?1649340211432" media="all" rel="stylesheet" type="text/css" />
-  <link href="//cor-liv-cdn-static.bibliocommons.com/dynamic_stylesheet/OR-WCCLS/stylesheet.css?1649340211432" media="all" rel="stylesheet" type="text/css" />
+  <link href="//cor-liv-cdn-static.bibliocommons.com/dynamic_stylesheet/OR-WCCLS/library_branding.css?1670863772850" media="all" rel="stylesheet" type="text/css" />
+  <link href="//cor-liv-cdn-static.bibliocommons.com/dynamic_stylesheet/OR-WCCLS/stylesheet.css?1670863772850" media="all" rel="stylesheet" type="text/css" />
 
   <!--[if lt IE 9]><link href="//cor-cdn-static.bibliocommons.com/assets/deprecated/context/core/IE-223cce97d2a1ab4365e01eb4070abbb7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
   <!--[if IE 8]><link href="//cor-cdn-static.bibliocommons.com/assets/deprecated/context/core/IE8-6423c920b2af42d04525fdd61d76a9ee.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
@@ -143,14 +143,14 @@
 
   <script type="text/javascript">
     
-var AUTH_TOKEN = "OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=";
+var AUTH_TOKEN = "tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=";
 var BC_USER_ID = 0;
 var BC_LIBRARY_ID = 143;
 var BC_USERNAME = "";
 var BC_MD5_USER = "";
 var at_local_branch = "";
 var USER_PRESENT = "false";
-var current_time = "Fri, 08 Apr 2022 05:06:09 GMT";
+var current_time = "Tue, 13 Dec 2022 07:41:52 GMT";
 var j_callback = "";
 var SEND_FORMS = true;
 var CURRENT_LOCALE = "en-US";
@@ -811,7 +811,7 @@ var images_path_location = /assets/;
   <div class="container">
     <div class="pull-left cp_header_client_area">
   <div class="pull-left logo">
-    <a href="https://www.wccls.org/"><picture><source media="(max-width: 991px)" sizes="64px" srcset="//cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/mobile_logo.png?1649340211432" /><img alt="Washington County Cooperative Library Services" src="//cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1649340211432" title="" /></picture></a>
+    <a href="https://www.wccls.org/"><picture><source media="(max-width: 991px)" sizes="64px" srcset="//cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/mobile_logo.png?1670863772850" /><img alt="Washington County Cooperative Library Services" src="//cor-liv-cdn-static.bibliocommons.com/images/OR-WCCLS/logo.png?1670863772850" title="" /></picture></a>
   </div>
 
   <div class="pull-left visible-xs-block visible-sm-block xs_icon_triggers">
@@ -844,7 +844,7 @@ var images_path_location = /assets/;
     by
   </span>
   <!-- begin SEARCH TYPE -->
-<div class="bootstrap-select-wrapper" data-test-id="header-search-type-dropdown"><select aria-label="Search type" class="form-control selectpicker form-control" data-dropup-auto="false" data-js="search_type" data-style="btn-flat btn-default" id="search_filter_id_4eh4im3ufndfg5nmu68ks7tfpn" name="t" testid="search_filter"><option value="smart">Keyword</option>
+<div class="bootstrap-select-wrapper" data-test-id="header-search-type-dropdown"><select aria-label="Search type" class="form-control selectpicker form-control" data-dropup-auto="false" data-js="search_type" data-style="btn-flat btn-default" id="search_filter_id_dbpd7ta0p3f857ioesni8fgns" name="t" testid="search_filter"><option value="smart">Keyword</option>
 <option value="title">Title</option>
 <option value="author">Author</option>
 <option value="subject">Subject</option>
@@ -853,7 +853,7 @@ var images_path_location = /assets/;
 <option value="userlist">List</option>
 <option value="user">User</option></select></div>
 
-<input data-js="search_category" id="search_category_id_1icf7bklb5cuoarfi2s9djqcqs" name="search_category" testid="search_category" type="hidden" value="keyword" />
+<input data-js="search_category" id="search_category_id_2e2mk6d4vatj8n4n22khkr2tmp" name="search_category" testid="search_category" type="hidden" value="keyword" />
 <!-- end SEARCH TYPE-->
 </div>
 
@@ -866,10 +866,10 @@ var images_path_location = /assets/;
 
   <div class="input-group header_search_box">
 
-    <label class="sr-only" for="search_box_id_5998limj0evvnfcdl6f7hojmsl">Enter search query</label>
+    <label class="sr-only" for="search_box_id_5d12tt1bekj923cf3im1nrsd4n">Enter search query</label>
     
     <span class="main_search_input_wrapper" data-js="main_search_input_wrapper">
-      <input aria-activedescendant="" aria-autocomplete="both" aria-expanded="false" aria-owns="header_auto_suggest_id_1j6bbe65thdn6o9pdpcuj5pjj" autocomplete="off" class="form-control main_search_input text" data-js="main_search_input" id="search_box_id_5998limj0evvnfcdl6f7hojmsl" maxlength="1000" name="q" testid="main_search_input" type="search" />
+      <input aria-activedescendant="" aria-autocomplete="both" aria-expanded="false" aria-owns="header_auto_suggest_id_4etjgkjrg11r265dgdauuhg4fi" autocomplete="off" class="form-control main_search_input text" data-js="main_search_input" id="search_box_id_5d12tt1bekj923cf3im1nrsd4n" maxlength="1000" name="q" testid="main_search_input" type="search" />
       <span class="header_search_filter_lock form-control-feedback" data-js="search_filter_locked" aria-hidden="true">
         <svg aria-hidden="true" class="svg_icon " focusable="false" height="14" style="transform: rotate(-45deg);" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg">
   <path d="M8.5 0l-1.5 1.5 1.5 1.5-3.5 4h-3.5l2.75 2.75-4.25 5.635v0.615h0.615l5.635-4.25 2.75 2.75v-3.5l4-3.5 1.5 1.5 1.5-1.5-7.5-7.5zM7 8.5l-1-1 3.5-3.5 1 1-3.5 3.5z" />
@@ -887,7 +887,7 @@ var images_path_location = /assets/;
 </button>
         <div data-js="header_auto_suggest" class="cp_header_auto_suggest hidden">
   <div data-js="auto_suggest_aria_messages" class="sr-only" role="alert" aria-live="polite" aria-atomic="false"></div>
-  <ul id="header_auto_suggest_id_1j6bbe65thdn6o9pdpcuj5pjj" data-js="suggestion-menu" class="dropdown-menu" role="listbox"></ul>
+  <ul id="header_auto_suggest_id_4etjgkjrg11r265dgdauuhg4fi" data-js="suggestion-menu" class="dropdown-menu" role="listbox"></ul>
 
   <div class="hidden">
     <svg aria-hidden="true" class="suggestion-skeleton-icon pulse" data-js="suggestion_skeleton_svg" focusable="false" height="14" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 10" width="14" xmlns="http://www.w3.org/2000/svg">
@@ -943,7 +943,7 @@ var images_path_location = /assets/;
     by
   </span>
   <!-- begin SEARCH TYPE -->
-<div class="bootstrap-select-wrapper" data-test-id="header-search-type-dropdown"><select aria-label="Search type" class="form-control selectpicker form-control" data-dropup-auto="false" data-js="search_type" data-style="btn-flat btn-default" id="search_filter_id_7rumc0kuu81pnv2kqsf9t3ks0n" name="t" testid="search_filter"><option value="smart">Keyword</option>
+<div class="bootstrap-select-wrapper" data-test-id="header-search-type-dropdown"><select aria-label="Search type" class="form-control selectpicker form-control" data-dropup-auto="false" data-js="search_type" data-style="btn-flat btn-default" id="search_filter_id_1evtc5afbao9rc22pbkkge1ce3" name="t" testid="search_filter"><option value="smart">Keyword</option>
 <option value="title">Title</option>
 <option value="author">Author</option>
 <option value="subject">Subject</option>
@@ -952,7 +952,7 @@ var images_path_location = /assets/;
 <option value="userlist">List</option>
 <option value="user">User</option></select></div>
 
-<input data-js="search_category" id="search_category_id_n5kgrom62etned9s4evpm97ka" name="search_category" testid="search_category" type="hidden" value="keyword" />
+<input data-js="search_category" id="search_category_id_1se4u4jjtmm6t85judtc93ps0f" name="search_category" testid="search_category" type="hidden" value="keyword" />
 <!-- end SEARCH TYPE-->
 </div>
 
@@ -965,10 +965,10 @@ var images_path_location = /assets/;
 
   <div class="input-group header_search_box">
 
-    <label class="sr-only" for="search_box_id_5bss4i3tfqp1d6cn533jgm80nn">Enter search query</label>
+    <label class="sr-only" for="search_box_id_75ugsspqkm5helhv914hcj4puk">Enter search query</label>
     
     <span class="main_search_input_wrapper" data-js="main_search_input_wrapper">
-      <input aria-activedescendant="" aria-autocomplete="both" aria-expanded="false" aria-owns="header_auto_suggest_id_4uc5vuokb0rbhl8e2ecfu0go1j" autocomplete="off" class="form-control main_search_input text" data-js="main_search_input" id="search_box_id_5bss4i3tfqp1d6cn533jgm80nn" maxlength="1000" name="q" testid="main_search_input" type="search" />
+      <input aria-activedescendant="" aria-autocomplete="both" aria-expanded="false" aria-owns="header_auto_suggest_id_35oebmr3evl397jifk9c0p93hd" autocomplete="off" class="form-control main_search_input text" data-js="main_search_input" id="search_box_id_75ugsspqkm5helhv914hcj4puk" maxlength="1000" name="q" testid="main_search_input" type="search" />
       <span class="header_search_filter_lock form-control-feedback" data-js="search_filter_locked" aria-hidden="true">
         <svg aria-hidden="true" class="svg_icon " focusable="false" height="14" style="transform: rotate(-45deg);" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg">
   <path d="M8.5 0l-1.5 1.5 1.5 1.5-3.5 4h-3.5l2.75 2.75-4.25 5.635v0.615h0.615l5.635-4.25 2.75 2.75v-3.5l4-3.5 1.5 1.5 1.5-1.5-7.5-7.5zM7 8.5l-1-1 3.5-3.5 1 1-3.5 3.5z" />
@@ -986,7 +986,7 @@ var images_path_location = /assets/;
 </button>
         <div data-js="header_auto_suggest" class="cp_header_auto_suggest hidden">
   <div data-js="auto_suggest_aria_messages" class="sr-only" role="alert" aria-live="polite" aria-atomic="false"></div>
-  <ul id="header_auto_suggest_id_4uc5vuokb0rbhl8e2ecfu0go1j" data-js="suggestion-menu" class="dropdown-menu" role="listbox"></ul>
+  <ul id="header_auto_suggest_id_35oebmr3evl397jifk9c0p93hd" data-js="suggestion-menu" class="dropdown-menu" role="listbox"></ul>
 
   <div class="hidden">
     <svg aria-hidden="true" class="suggestion-skeleton-icon pulse" data-js="suggestion_skeleton_svg" focusable="false" height="14" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 10" width="14" xmlns="http://www.w3.org/2000/svg">
@@ -1029,7 +1029,7 @@ var images_path_location = /assets/;
           aria-haspopup="true"
           data-js="header-main-nav">
 
-        <li class='desktop mobile'><a href="https://wccls.bibliocommons.com/" data-ga-category="header_top_level_nav" data-ga-label="Home">Home</a></li><li class='dropdown desktop mobile header_nav_explore' data-js='header_nav_explore' data-ga-category='header_top_level_nav' data-ga-label='Explore' data-ga-event='show'><a href="#explore_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Explore</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Explore, collapsed" data-text-expanded="Explore, expanded">Explore, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/recent_arrivals" data-ga-category="header_sub_level_nav" data-ga-label="New Titles - Explore">New Titles</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/awards" data-ga-category="header_sub_level_nav" data-ga-label="Awards - Explore">Awards</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/bestsellers" data-ga-category="header_sub_level_nav" data-ga-label="Bestsellers - Explore">Bestsellers</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/featured_lists/languages" data-ga-category="header_sub_level_nav" data-ga-label="World Languages - Explore">World Languages</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Locations' data-ga-event='show'><a href="#locations_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Locations</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Locations, collapsed" data-text-expanded="Locations, expanded">Locations, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/your_libraries" data-ga-category="header_sub_level_nav" data-ga-label="Library Map and Hours - Locations">Library Map and Hours</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/aloha" data-ga-category="header_sub_level_nav" data-ga-label="Aloha Community Library - Locations">Aloha Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/banks" data-ga-category="header_sub_level_nav" data-ga-label="Banks Public Library - Locations">Banks Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/beaverton" data-ga-category="header_sub_level_nav" data-ga-label="Beaverton City Library Main - Locations">Beaverton City Library Main</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/beavertonmurrayscholls" data-ga-category="header_sub_level_nav" data-ga-label="Beaverton City Library Murray Scholls - Locations">Beaverton City Library Murray Scholls</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cedarmillbethany" data-ga-category="header_sub_level_nav" data-ga-label="Bethany Library - Locations">Bethany Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cedarmill" data-ga-category="header_sub_level_nav" data-ga-label="Cedar Mill Library - Locations">Cedar Mill Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cornelius" data-ga-category="header_sub_level_nav" data-ga-label="Cornelius Public Library - Locations">Cornelius Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/forestgrove" data-ga-category="header_sub_level_nav" data-ga-label="Forest Grove City Library - Locations">Forest Grove City Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/gardenhome" data-ga-category="header_sub_level_nav" data-ga-label="Garden Home Community Library - Locations">Garden Home Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/hillsborobrookwood" data-ga-category="header_sub_level_nav" data-ga-label="Hillsboro Public Library Brookwood - Locations">Hillsboro Public Library Brookwood</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/hillsboroshutepark" data-ga-category="header_sub_level_nav" data-ga-label="Hillsboro Public Library Shute Park - Locations">Hillsboro Public Library Shute Park</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/northplains" data-ga-category="header_sub_level_nav" data-ga-label="North Plains Public Library - Locations">North Plains Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/sherwood" data-ga-category="header_sub_level_nav" data-ga-label="Sherwood Public Library - Locations">Sherwood Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/tigard" data-ga-category="header_sub_level_nav" data-ga-label="Tigard Public Library - Locations">Tigard Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/tualatin" data-ga-category="header_sub_level_nav" data-ga-label="Tualatin Public Library - Locations">Tualatin Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/westslope" data-ga-category="header_sub_level_nav" data-ga-label="West Slope Community Library - Locations">West Slope Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/dates-closed" data-ga-category="header_sub_level_nav" data-ga-label="Upcoming Library Closures - Locations">Upcoming Library Closures</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Library Card' data-ga-event='show'><a href="#library_card_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Library Card</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Library Card, collapsed" data-text-expanded="Library Card, expanded">Library Card, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/online-card" data-ga-category="header_sub_level_nav" data-ga-label="Get a card - Library Card">Get a card</a></li><li class='desktop mobile'><a href="https://www.wccls.org/borrowing-policies" data-ga-category="header_sub_level_nav" data-ga-label="Borrowing information - Library Card">Borrowing information</a></li><li class='desktop mobile'><a href="https://www.wccls.org/about-catalog" data-ga-category="header_sub_level_nav" data-ga-label="Use the catalog - Library Card">Use the catalog</a></li><li class='desktop mobile'><a href="https://www.wccls.org/account-reminders" data-ga-category="header_sub_level_nav" data-ga-label="Get reminders - Library Card">Get reminders</a></li><li class='desktop mobile'><a href="https://www.wccls.org/how-place-hold-specific-issue" data-ga-category="header_sub_level_nav" data-ga-label="Holds on magazines - Library Card">Holds on magazines</a></li><li class='desktop mobile'><a href="https://www.wccls.org/how-cancel-holds" data-ga-category="header_sub_level_nav" data-ga-label="Cancel a hold - Library Card">Cancel a hold</a></li><li class='desktop mobile'><a href="https://www.wccls.org/library-card-faq" data-ga-category="header_sub_level_nav" data-ga-label="Library card f.a.q. - Library Card">Library card f.a.q.</a></li><li class='desktop mobile'><a href="https://www.wccls.org/pay-account-charges-online" data-ga-category="header_sub_level_nav" data-ga-label="Pay fees - Library Card">Pay fees</a></li><li class='desktop mobile'><a href="https://www.wccls.org/culturalpass" data-ga-category="header_sub_level_nav" data-ga-label="Cultural Pass to Adventure - Library Card">Cultural Pass to Adventure</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Events' data-ga-event='show'><a href="#events_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Events</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Events, collapsed" data-text-expanded="Events, expanded">Events, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="/v2/events" data-ga-category="header_sub_level_nav" data-ga-label="Calendar of Events - Events">Calendar of Events</a></li><li class='desktop mobile'><a href="https://www.wccls.org/storytimes-kids-events-teen-events" data-ga-category="header_sub_level_nav" data-ga-label="Storytimes, Events for Kids, Teens - Events">Storytimes, Events for Kids, Teens</a></li><li class='desktop mobile'><a href="https://www.wccls.org/srp/main2021" data-ga-category="header_sub_level_nav" data-ga-label="Summer Reading - Events">Summer Reading</a></li><li class='desktop mobile'><a href="https://www.wccls.org/dates-closed" data-ga-category="header_sub_level_nav" data-ga-label="Upcoming Library Closures - Events">Upcoming Library Closures</a></li><li class='desktop mobile'><a href="https://www.wccls.org/wccls-patron-newsletter" data-ga-category="header_sub_level_nav" data-ga-label="WCCLS Patron Newsletter - Events">WCCLS Patron Newsletter</a></li><li class='desktop mobile'><a href="https://www.wccls.org/blog" data-ga-category="header_sub_level_nav" data-ga-label="News Blog - Events">News Blog</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Digital Library' data-ga-event='show'><a href="#digital_library_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Digital Library</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Digital Library, collapsed" data-text-expanded="Digital Library, expanded">Digital Library, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://wccls.overdrive.com/" data-ga-category="header_sub_level_nav" data-ga-label="Overdrive - Digital Library">Overdrive</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/tumblebook-library" data-ga-category="header_sub_level_nav" data-ga-label="Tumblebook Library - Digital Library">Tumblebook Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/e-books" data-ga-category="header_sub_level_nav" data-ga-label="About E-books - Digital Library">About E-books</a></li><li class='desktop mobile'><a href="https://wccls.kanopy.com/" data-ga-category="header_sub_level_nav" data-ga-label="Kanopy - Digital Library">Kanopy</a></li><li class='desktop mobile'><a href="https://www.wccls.org/streaming-video" data-ga-category="header_sub_level_nav" data-ga-label="About Streaming Video - Digital Library">About Streaming Video</a></li><li class='desktop mobile'><a href="https://wccls.libanswers.com/econtent" data-ga-category="header_sub_level_nav" data-ga-label="Get Help for Digital Library - Digital Library">Get Help for Digital Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries-continue" data-ga-category="header_sub_level_nav" data-ga-label="24-Hour Online Access - Digital Library">24-Hour Online Access</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Research' data-ga-event='show'><a href="#research_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Research</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Research, collapsed" data-text-expanded="Research, expanded">Research, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/research/glossary" data-ga-category="header_sub_level_nav" data-ga-label="Resources by A to Z - Research">Resources by A to Z</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/subject" data-ga-category="header_sub_level_nav" data-ga-label="Resources by Category - Research">Resources by Category</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/all" data-ga-category="header_sub_level_nav" data-ga-label="Resources by Filter - Research">Resources by Filter</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/homeworkhelp" data-ga-category="header_sub_level_nav" data-ga-label="Homework Help - Research">Homework Help</a></li><li class='desktop mobile'><a href="https://www.wccls.org/job-builder" data-ga-category="header_sub_level_nav" data-ga-label="Job Builder - Research">Job Builder</a></li><li class='desktop mobile'><a href="https://www.wccls.org/racial-equity-resources" data-ga-category="header_sub_level_nav" data-ga-label="Racial Equity Resources - Research">Racial Equity Resources</a></li><li class='desktop mobile'><a href="https://www.wccls.org/taxhelp" data-ga-category="header_sub_level_nav" data-ga-label="Tax Assistance - Research">Tax Assistance</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/techlearning" data-ga-category="header_sub_level_nav" data-ga-label="Tech Learning - Research">Tech Learning</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Services' data-ga-event='show'><a href="#services_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Services</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Services, collapsed" data-text-expanded="Services, expanded">Services, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.libraryaware.com/1554/Subscribers/Subscribe?optInPageId=bfa26b83-7b98-45df-99e5-5f405417109b" data-ga-category="header_sub_level_nav" data-ga-label="Booklists by Email - Services">Booklists by Email</a></li><li class='desktop mobile'><a href="https://www.wccls.org/computer-meeting-rooms" data-ga-category="header_sub_level_nav" data-ga-label="Computer &amp; Meeting Room Use - Services">Computer & Meeting Room Use</a></li><li class='desktop mobile'><a href="https://www.wccls.org/distance-learning-resources" data-ga-category="header_sub_level_nav" data-ga-label="Distance Learning Resources - Services">Distance Learning Resources</a></li><li class='desktop mobile'><a href="https://www.wccls.org/donate" data-ga-category="header_sub_level_nav" data-ga-label="Donate to WCCLS Libraries - Services">Donate to WCCLS Libraries</a></li><li class='desktop mobile'><a href="https://www.wccls.org/librarymailservice" data-ga-category="header_sub_level_nav" data-ga-label="Library Mail Service - Services">Library Mail Service</a></li><li class='desktop mobile'><a href="https://www.wccls.org/interlibrary-loan" data-ga-category="header_sub_level_nav" data-ga-label="Interlibrary Loan &amp; Document Delivery - Services">Interlibrary Loan & Document Delivery</a></li><li class='desktop mobile'><a href="https://www.wccls.org/kids" data-ga-category="header_sub_level_nav" data-ga-label="Kids - Services">Kids</a></li><li class='desktop mobile'><a href="https://www.wccls.org/printfromanywhere" data-ga-category="header_sub_level_nav" data-ga-label="Print from Anywhere - Services">Print from Anywhere</a></li><li class='desktop mobile'><a href="https://www.wccls.org/suggest" data-ga-category="header_sub_level_nav" data-ga-label="Suggest a Purchase - Services">Suggest a Purchase</a></li><li class='desktop mobile'><a href="https://www.wccls.org/teens" data-ga-category="header_sub_level_nav" data-ga-label="Teens - Services">Teens</a></li><li class='desktop mobile'><a href="https://www.wccls.org/volunteering" data-ga-category="header_sub_level_nav" data-ga-label="Volunteer at WCCLS libraries - Services">Volunteer at WCCLS libraries</a></li></ul></div>    </div></div></li>
+        <li class='desktop mobile'><a href="https://wccls.bibliocommons.com/" data-ga-category="header_top_level_nav" data-ga-label="Home">Home</a></li><li class='dropdown desktop mobile header_nav_explore' data-js='header_nav_explore' data-ga-category='header_top_level_nav' data-ga-label='Explore' data-ga-event='show'><a href="#explore_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Explore</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Explore, collapsed" data-text-expanded="Explore, expanded">Explore, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/recent_arrivals" data-ga-category="header_sub_level_nav" data-ga-label="New Titles - Explore">New Titles</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/awards" data-ga-category="header_sub_level_nav" data-ga-label="Awards - Explore">Awards</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/bestsellers" data-ga-category="header_sub_level_nav" data-ga-label="Bestsellers - Explore">Bestsellers</a></li><li class='desktop mobile'><a href="https://wccls.bibliocommons.com/explore/featured_lists/languages" data-ga-category="header_sub_level_nav" data-ga-label="World Languages - Explore">World Languages</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Locations' data-ga-event='show'><a href="#locations_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Locations</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Locations, collapsed" data-text-expanded="Locations, expanded">Locations, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/your_libraries" data-ga-category="header_sub_level_nav" data-ga-label="Library Map and Hours - Locations">Library Map and Hours</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/aloha" data-ga-category="header_sub_level_nav" data-ga-label="Aloha Community Library - Locations">Aloha Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/banks" data-ga-category="header_sub_level_nav" data-ga-label="Banks Public Library - Locations">Banks Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/beaverton" data-ga-category="header_sub_level_nav" data-ga-label="Beaverton City Library Main - Locations">Beaverton City Library Main</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/beavertonmurrayscholls" data-ga-category="header_sub_level_nav" data-ga-label="Beaverton City Library Murray Scholls - Locations">Beaverton City Library Murray Scholls</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cedarmillbethany" data-ga-category="header_sub_level_nav" data-ga-label="Bethany Library - Locations">Bethany Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cedarmill" data-ga-category="header_sub_level_nav" data-ga-label="Cedar Mill Library - Locations">Cedar Mill Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/cornelius" data-ga-category="header_sub_level_nav" data-ga-label="Cornelius Public Library - Locations">Cornelius Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/forestgrove" data-ga-category="header_sub_level_nav" data-ga-label="Forest Grove City Library - Locations">Forest Grove City Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/gardenhome" data-ga-category="header_sub_level_nav" data-ga-label="Garden Home Community Library - Locations">Garden Home Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/hillsborobrookwood" data-ga-category="header_sub_level_nav" data-ga-label="Hillsboro Public Library Brookwood - Locations">Hillsboro Public Library Brookwood</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/hillsboroshutepark" data-ga-category="header_sub_level_nav" data-ga-label="Hillsboro Public Library Shute Park - Locations">Hillsboro Public Library Shute Park</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/northplains" data-ga-category="header_sub_level_nav" data-ga-label="North Plains Public Library - Locations">North Plains Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/sherwood" data-ga-category="header_sub_level_nav" data-ga-label="Sherwood Public Library - Locations">Sherwood Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/tigard" data-ga-category="header_sub_level_nav" data-ga-label="Tigard Public Library - Locations">Tigard Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/tualatin" data-ga-category="header_sub_level_nav" data-ga-label="Tualatin Public Library - Locations">Tualatin Public Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries/westslope" data-ga-category="header_sub_level_nav" data-ga-label="West Slope Community Library - Locations">West Slope Community Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/dates-closed" data-ga-category="header_sub_level_nav" data-ga-label="Upcoming Library Closures - Locations">Upcoming Library Closures</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Library Card' data-ga-event='show'><a href="#library_card_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Library Card</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Library Card, collapsed" data-text-expanded="Library Card, expanded">Library Card, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/online-card" data-ga-category="header_sub_level_nav" data-ga-label="Get a card - Library Card">Get a card</a></li><li class='desktop mobile'><a href="https://www.wccls.org/borrowing-policies" data-ga-category="header_sub_level_nav" data-ga-label="Borrowing information - Library Card">Borrowing information</a></li><li class='desktop mobile'><a href="https://www.wccls.org/about-catalog" data-ga-category="header_sub_level_nav" data-ga-label="Use the catalog - Library Card">Use the catalog</a></li><li class='desktop mobile'><a href="https://www.wccls.org/account-reminders" data-ga-category="header_sub_level_nav" data-ga-label="Get reminders - Library Card">Get reminders</a></li><li class='desktop mobile'><a href="https://www.wccls.org/how-place-hold-specific-issue" data-ga-category="header_sub_level_nav" data-ga-label="Holds on magazines - Library Card">Holds on magazines</a></li><li class='desktop mobile'><a href="https://www.wccls.org/how-cancel-holds" data-ga-category="header_sub_level_nav" data-ga-label="Cancel a hold - Library Card">Cancel a hold</a></li><li class='desktop mobile'><a href="https://www.wccls.org/library-card-faq" data-ga-category="header_sub_level_nav" data-ga-label="Library card f.a.q. - Library Card">Library card f.a.q.</a></li><li class='desktop mobile'><a href="https://www.wccls.org/pay-account-charges-online" data-ga-category="header_sub_level_nav" data-ga-label="Pay fees - Library Card">Pay fees</a></li><li class='desktop mobile'><a href="https://www.wccls.org/adventurepass" data-ga-category="header_sub_level_nav" data-ga-label="Adventure Pass - Library Card">Adventure Pass</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Events' data-ga-event='show'><a href="#events_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Events</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Events, collapsed" data-text-expanded="Events, expanded">Events, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="/v2/events" data-ga-category="header_sub_level_nav" data-ga-label="Calendar of Events - Events">Calendar of Events</a></li><li class='desktop mobile'><a href="https://www.wccls.org/storytimes-kids-events-teen-events" data-ga-category="header_sub_level_nav" data-ga-label="Storytimes, Events for Kids, Teens - Events">Storytimes, Events for Kids, Teens</a></li><li class='desktop mobile'><a href="https://www.wccls.org/srp/main2021" data-ga-category="header_sub_level_nav" data-ga-label="Summer Reading - Events">Summer Reading</a></li><li class='desktop mobile'><a href="https://www.wccls.org/teen-art-contest" data-ga-category="header_sub_level_nav" data-ga-label="Teen Summer Reading Art Contest - Events">Teen Summer Reading Art Contest</a></li><li class='desktop mobile'><a href="https://www.wccls.org/dates-closed" data-ga-category="header_sub_level_nav" data-ga-label="Upcoming Library Closures - Events">Upcoming Library Closures</a></li><li class='desktop mobile'><a href="https://www.wccls.org/wccls-patron-newsletter" data-ga-category="header_sub_level_nav" data-ga-label="WCCLS Patron Newsletter - Events">WCCLS Patron Newsletter</a></li><li class='desktop mobile'><a href="https://www.wccls.org/blog" data-ga-category="header_sub_level_nav" data-ga-label="News Blog - Events">News Blog</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Digital Library' data-ga-event='show'><a href="#digital_library_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Digital Library</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Digital Library, collapsed" data-text-expanded="Digital Library, expanded">Digital Library, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://wccls.overdrive.com/" data-ga-category="header_sub_level_nav" data-ga-label="Overdrive - Digital Library">Overdrive</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/tumblebook-library" data-ga-category="header_sub_level_nav" data-ga-label="Tumblebook Library - Digital Library">Tumblebook Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/e-books" data-ga-category="header_sub_level_nav" data-ga-label="About E-books - Digital Library">About E-books</a></li><li class='desktop mobile'><a href="https://www.wccls.org/news-magazines" data-ga-category="header_sub_level_nav" data-ga-label="Newspapers &amp; Magazines - Digital Library">Newspapers & Magazines</a></li><li class='desktop mobile'><a href="https://wccls.kanopy.com/" data-ga-category="header_sub_level_nav" data-ga-label="Kanopy - Digital Library">Kanopy</a></li><li class='desktop mobile'><a href="https://www.wccls.org/streaming-video" data-ga-category="header_sub_level_nav" data-ga-label="About Streaming Video - Digital Library">About Streaming Video</a></li><li class='desktop mobile'><a href="https://wccls.libanswers.com/econtent" data-ga-category="header_sub_level_nav" data-ga-label="Get Help for Digital Library - Digital Library">Get Help for Digital Library</a></li><li class='desktop mobile'><a href="https://www.wccls.org/libraries-continue" data-ga-category="header_sub_level_nav" data-ga-label="24-Hour Online Access - Digital Library">24-Hour Online Access</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Research' data-ga-event='show'><a href="#research_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Research</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Research, collapsed" data-text-expanded="Research, expanded">Research, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/research/glossary" data-ga-category="header_sub_level_nav" data-ga-label="Resources by A to Z - Research">Resources by A to Z</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/subject" data-ga-category="header_sub_level_nav" data-ga-label="Resources by Category - Research">Resources by Category</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/all" data-ga-category="header_sub_level_nav" data-ga-label="Resources by Filter - Research">Resources by Filter</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/homeworkhelp" data-ga-category="header_sub_level_nav" data-ga-label="Homework Help - Research">Homework Help</a></li><li class='desktop mobile'><a href="https://www.wccls.org/job-builder" data-ga-category="header_sub_level_nav" data-ga-label="Job Builder - Research">Job Builder</a></li><li class='desktop mobile'><a href="https://www.wccls.org/racial-equity-resources" data-ga-category="header_sub_level_nav" data-ga-label="Racial Equity Resources - Research">Racial Equity Resources</a></li><li class='desktop mobile'><a href="https://www.wccls.org/taxhelp" data-ga-category="header_sub_level_nav" data-ga-label="Tax Assistance - Research">Tax Assistance</a></li><li class='desktop mobile'><a href="https://www.wccls.org/research/techlearning" data-ga-category="header_sub_level_nav" data-ga-label="Tech Learning - Research">Tech Learning</a></li></ul></div>    </div></div></li><li class='dropdown desktop mobile' data-ga-category='header_top_level_nav' data-ga-label='Services' data-ga-event='show'><a href="#services_menu" class="dropdown-toggle hide_trigger_icon" data-toggle="dropdown"><span aria-hidden="true">Services</span><span class="sr-only" data-js="sr-only-dropdown-toggle" data-text-collapsed="Services, collapsed" data-text-expanded="Services, expanded">Services, collapsed</span><span aria-hidden="true" class="icon-arrow"></span></a><div class="dropdown-menu" data-listbox="true">   <div class="yamm-content"><div class="menu-column"><ul class="list-unstyled"><li class='desktop mobile'><a href="https://www.wccls.org/adventurepass" data-ga-category="header_sub_level_nav" data-ga-label="Adventure Pass - Services">Adventure Pass</a></li><li class='desktop mobile'><a href="https://www.libraryaware.com/1554/Subscribers/Subscribe?optInPageId=bfa26b83-7b98-45df-99e5-5f405417109b" data-ga-category="header_sub_level_nav" data-ga-label="Booklists by Email - Services">Booklists by Email</a></li><li class='desktop mobile'><a href="https://www.wccls.org/computer-meeting-rooms" data-ga-category="header_sub_level_nav" data-ga-label="Computer &amp; Meeting Room Use - Services">Computer & Meeting Room Use</a></li><li class='desktop mobile'><a href="https://www.wccls.org/distance-learning-resources" data-ga-category="header_sub_level_nav" data-ga-label="Distance Learning Resources - Services">Distance Learning Resources</a></li><li class='desktop mobile'><a href="https://www.wccls.org/donate" data-ga-category="header_sub_level_nav" data-ga-label="Donate to WCCLS Libraries - Services">Donate to WCCLS Libraries</a></li><li class='desktop mobile'><a href="https://www.wccls.org/librarymailservice" data-ga-category="header_sub_level_nav" data-ga-label="Library Mail Service - Services">Library Mail Service</a></li><li class='desktop mobile'><a href="https://www.wccls.org/interlibrary-loan" data-ga-category="header_sub_level_nav" data-ga-label="Interlibrary Loan &amp; Document Delivery - Services">Interlibrary Loan & Document Delivery</a></li><li class='desktop mobile'><a href="https://www.wccls.org/kids" data-ga-category="header_sub_level_nav" data-ga-label="Kids - Services">Kids</a></li><li class='desktop mobile'><a href="https://www.wccls.org/printfromanywhere" data-ga-category="header_sub_level_nav" data-ga-label="Print from Anywhere - Services">Print from Anywhere</a></li><li class='desktop mobile'><a href="https://www.wccls.org/suggest" data-ga-category="header_sub_level_nav" data-ga-label="Suggest a Purchase - Services">Suggest a Purchase</a></li><li class='desktop mobile'><a href="https://www.wccls.org/teens" data-ga-category="header_sub_level_nav" data-ga-label="Teens - Services">Teens</a></li><li class='desktop mobile'><a href="https://www.wccls.org/volunteering" data-ga-category="header_sub_level_nav" data-ga-label="Volunteer at WCCLS libraries - Services">Volunteer at WCCLS libraries</a></li></ul></div>    </div></div></li>
 
       </ul>
 
@@ -1078,24 +1078,24 @@ var images_path_location = /assets/;
     Log In
   </h1>
   
-    <a href="https://help.bibliocommons.com/000getting/005logging-in" class="help_icon blockHijack inline" id="main_help_000getting/005logging_in_id_11cb7cbqi59db448te1534bkku" target="_blank"><i aria-hidden="true" class=" icon-info-circled"></i><span class="sr-only">Help for logging in, opens a new window</span></a>
+    <a href="https://help.bibliocommons.com/000getting/005logging-in" class="help_icon blockHijack inline" id="main_help_000getting/005logging_in_id_6jldo5kt7vk1umnkc0bslpna46" target="_blank"><i aria-hidden="true" class=" icon-info-circled"></i><span class="sr-only">Help for logging in, opens a new window</span></a>
 
   
 
   <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-5">
         
-<form accept-charset="UTF-8" action="https://wccls.bibliocommons.com/user/login?destination=%2Fuser_dashboard" autocorrect="off" class="loginForm left" data-js="login_form" id="login_6qir5h0b3q7dqbk6c8u4sndap0" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>
-  <label for="user_name_6qir5h0b3q7dqbk6c8u4sndap0">Username or Barcode:</label>
-  <input class="field_username text" data-js="username_login" id="user_name_6qir5h0b3q7dqbk6c8u4sndap0" name="name" testid="field_username" type="text" />
-  <label for="user_pin_6qir5h0b3q7dqbk6c8u4sndap0">
+<form accept-charset="UTF-8" action="https://wccls.bibliocommons.com/user/login?destination=%2Fuser_dashboard" autocorrect="off" class="loginForm left" data-js="login_form" id="login_58j5beovck7dostli0auih3ovb" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=" /></div>
+  <label for="user_name_58j5beovck7dostli0auih3ovb">Username or Barcode:</label>
+  <input class="field_username text" data-js="username_login" id="user_name_58j5beovck7dostli0auih3ovb" name="name" testid="field_username" type="text" />
+  <label for="user_pin_58j5beovck7dostli0auih3ovb">
     Password:
   </label>
-  <input autocomplete="on" class="text" id="user_pin_6qir5h0b3q7dqbk6c8u4sndap0" name="user_pin" testid="field_userpin" type="password" value="" />    <p>
+  <input autocomplete="on" class="text" id="user_pin_58j5beovck7dostli0auih3ovb" name="user_pin" testid="field_userpin" type="password" value="" />    <p>
       <a href="/user/forgot" class="help" target="_parent" testid="link_forgotpin">Forgot your Password?</a>  
     </p>
     <div class="bc_checkbox">
-      <input class="rememberMe" id="remember_6qir5h0b3q7dqbk6c8u4sndap0" name="remember_me" testid="checkbox_rememberme" type="checkbox" value="true" /> <label for="remember_6qir5h0b3q7dqbk6c8u4sndap0">Remember me on this device</label>
+      <input class="rememberMe" id="remember_58j5beovck7dostli0auih3ovb" name="remember_me" testid="checkbox_rememberme" type="checkbox" value="true" /> <label for="remember_58j5beovck7dostli0auih3ovb">Remember me on this device</label>
     </div> 
   <input id="local" name="local" type="hidden" value="false" />  
   <p>
@@ -1124,7 +1124,7 @@ var images_path_location = /assets/;
     <div class="tout">
   <div class="toutContent">
     <h2 id="content-start">Trouble logging in?</h2>
-    <p><a href="https://help.bibliocommons.com/000getting/005logging-in" class="help_popup" id="id_75aci1tnvfrug4g2qulqkd0moc" target="_blank">Click here for help.</a></p>
+    <p><a href="https://help.bibliocommons.com/000getting/005logging-in" class="help_popup" id="id_3umqh9hcg6pit2s3k8t0qbntql" target="_blank">Click here for help.</a></p>
   </div>
 </div>
 
@@ -1171,7 +1171,7 @@ var images_path_location = /assets/;
   </div>
   
   <div class="product-version">
-    BiblioCore: app02 Version 9.6.1 Last updated 2022/03/11 12:19
+    BiblioCore: app17 Version 9.11.0 Last updated 2022/12/07 16:05
   </div>
 </div>
 
@@ -1192,16 +1192,16 @@ var images_path_location = /assets/;
   </div>
 
 <div data-analytics='{ "Section":"Messaging" }'>
-  <div class="messaging" data-test-id="top-message-container" id="id_5cijdigrtfb0vmg0g09nor0omm">
+  <div class="messaging" data-test-id="top-message-container" id="id_8kp8kltnlunl6qm7nl6te50a3">
   <div class="messageContent">
     <span class="message-icon"></span>
-    <div class="top_message" id="msg_id_4emebi0crat9hcd6ji6hcevflb">
+    <div class="top_message" id="msg_id_mbrahchrs4bteutthqp7gabje">
       <a name=""></a>
 </div>  </div>
   <div class="closeButton" data-js="close_system_message" data-test-id="message-close-button"></div>
 </div>
 <script type="text/javascript" charset="utf-8">
-    registered_messages.push( {element: 'msg_id_4emebi0crat9hcd6ji6hcevflb', key: [], type: ["message","error"]});
+    registered_messages.push( {element: 'msg_id_mbrahchrs4bteutthqp7gabje', key: [], type: ["message","error"]});
 </script> 
 </div>
   <div class="cp_bc_modal">
@@ -1220,11 +1220,11 @@ feature flag.-->
       <h4>
         <span class="flag_icon"><i aria-hidden="true" class=" icon-flag-empty"></i></span>
         Flag this content because:
-          <a href="https://help.bibliocommons.com/025ug/060reporting-inappropriate-content/" class="help_icon blockHijack inline" id="main_help_025ug/060reporting-inappropriate-content/_id_32rvjgm5c6g7n8vk0j38303ru1" target="_blank"><i aria-hidden="true" class=" icon-info-circled"></i></a>
+          <a href="https://help.bibliocommons.com/025ug/060reporting-inappropriate-content/" class="help_icon blockHijack inline" id="main_help_025ug/060reporting-inappropriate-content/_id_6br7ek9t9i8ne1skcauivtplr7" target="_blank"><i aria-hidden="true" class=" icon-info-circled"></i></a>
       </h4>
         {{#if flag_options.violates_appropriate_use_show_option}} 
         <div class="types" testid="violates_appropriate_use">          <a href="#" data-js="type_form_trigger" data-type="violates_appropriate_use"><i aria-hidden="true" class=" icon-right-open"></i> Violates Appropriate Use Standards</a>
-</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_violates_appropriate_use" method="post" style="display:none;" testid="flag_form_violates_appropriate_use"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="VIOLATES_APPROPRIATE_USE" />
+</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_violates_appropriate_use" method="post" style="display:none;" testid="flag_form_violates_appropriate_use"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="VIOLATES_APPROPRIATE_USE" />
           <input data-js="java-content-class" id="content_class" name="content_class" type="hidden" value="{{java_content_class}}" />
           <p>Please review the Appropriate Use standard and tell us which term has been violated.</p>
 <input checked="checked" id="violation_type_UNRELATED" name="violation_type" type="radio" value="UNRELATED" /> Unrelated <br/>
@@ -1242,7 +1242,7 @@ feature flag.-->
 </form>        {{/if}}
         {{#if flag_options.offensive_show_option}} 
         <div class="types" testid="offensive">          <a href="#" data-js="type_form_trigger" data-type="offensive"><i aria-hidden="true" class=" icon-right-open"></i> Is offensive (To me or my community)</a>
-</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_offensive" method="post" style="display:none;" testid="flag_form_offensive"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="OFFENSIVE" />
+</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_offensive" method="post" style="display:none;" testid="flag_form_offensive"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="OFFENSIVE" />
           <input data-js="java-content-class" id="content_class" name="content_class" type="hidden" value="{{java_content_class}}" />
           <p>This content is offensive because:</p>
 <textarea class="required" id="reason" name="reason" placeholder="Please enter the reason">
@@ -1252,7 +1252,7 @@ feature flag.-->
 </form>        {{/if}}
         {{#if flag_options.spoiler_show_option}} 
         <div class="types" testid="spoiler">          <a href="#" data-js="type_form_trigger" data-type="spoiler"><i aria-hidden="true" class=" icon-right-open"></i> Contains spoilers (Gives away the ending)</a>
-</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_spoiler" method="post" style="display:none;" testid="flag_form_spoiler"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="SPOILER" />
+</div>        <form accept-charset="UTF-8" action="/{{controller}}/flag/{{content_id}}" class="flag_form" id="flag_form_spoiler" method="post" style="display:none;" testid="flag_form_spoiler"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=" /></div>          <input data-js="flag_type" id="flag_type" name="flag_type" type="hidden" value="SPOILER" />
           <input data-js="java-content-class" id="content_class" name="content_class" type="hidden" value="{{java_content_class}}" />
           <p>This content contains spoilers.</p>
 <p>Some people don't want to ruin the ending.</p>
@@ -1350,7 +1350,7 @@ feature flag.-->
   {{/liking_ifContentHasLikes}}
 </script>
 <script id="tmpl_save_search_form" type="text/x-handlebars">
-  <form accept-charset="UTF-8" action="/user/save_search" class="form-inline save_search_form" data-js="save_search_form" data-remote="true" data-type="json" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OZHZD5jqsME5vDxojX6oC2zDsZukE6hW1d3izRne270=" /></div>
+  <form accept-charset="UTF-8" action="/user/save_search" class="form-inline save_search_form" data-js="save_search_form" data-remote="true" data-type="json" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="tvUbCOmLA969jJH83wM76DPgQUtAbHT7HejScHlVPww=" /></div>
     <div data-js="messaging">
     </div>
     <button type="button" class="close close_top_right" data-js="close_button">
@@ -1523,10 +1523,10 @@ feature flag.-->
 <!-- /#ct_controller -->
 
 <!-- begin JS BLOCK -->
-  <script src="//cor-cdn-static.bibliocommons.com/assets/vendor-4554d50bfb44aebd717f8b60209469d3.js" type="text/javascript"></script>
+  <script src="//cor-cdn-static.bibliocommons.com/assets/vendor-8b62f51688d44fede5e5f3b4d64b7ba8.js" type="text/javascript"></script>
   <script type="text/javascript" src="/v2/sdk.js"></script>
   
-  <script src="//cor-cdn-static.bibliocommons.com/assets/core-c3db7de5f699d7673dc4840f591bc3c4.js" type="text/javascript"></script>
+  <script src="//cor-cdn-static.bibliocommons.com/assets/core-264842fdd1dc08997bd47efd0a791aa7.js" type="text/javascript"></script>
   <script src="//cor-cdn-static.bibliocommons.com/assets/controllers/session-d0aca3286d65eeb43d5e00ca7f3d8e32.js" type="text/javascript"></script>
   
 
@@ -1536,6 +1536,28 @@ feature flag.-->
 
 
 
+
+
+  <script>
+    if (BiblioCommonsSDK && BiblioCommonsSDK.onAnalyticsReady) {
+      BiblioCommonsSDK.onAnalyticsReady(function(analytics) {
+        let list = null;
+        analytics.trackPageView({ list });
+
+        const ga4TrackMethod = window.sessionStorage && window.sessionStorage.getItem('ga4TrackMethod') || null;
+        if (ga4TrackMethod && typeof analytics[ga4TrackMethod] === 'function') {
+          window.sessionStorage.removeItem('ga4TrackMethod');
+          try {
+            analytics[ga4TrackMethod]();
+          } catch (err) {
+            console.error('Error calling analytics method:', ga4TrackMethod, err.message);
+          }
+        }
+      });
+    } else {
+      console.error('BiblioCommonsSDK with onAnalyticsReady handler not found');
+    }
+  </script>
 
 <!-- end JS BLOCK -->
 </body>
