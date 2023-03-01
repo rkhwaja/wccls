@@ -47,18 +47,18 @@ async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[
 			reqs.extend(parser.Receive(req.url, response))
 		return parser.items
 
-def Wccls(login: str, password: str):
+def Wccls(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the WCCLS site"""
 	return BiblioCommons('wccls', login, password)
 
-def MultCoLib(login: str, password: str):
+def MultCoLib(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the Multnomah County Library site"""
 	return BiblioCommons('multcolib', login, password)
 
-def WcclsAsync(login: str, password: str):
+def WcclsAsync(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the WCCLS site"""
 	return BiblioCommonsAsync('wccls', login, password)
 
-def MultCoLibAsync(login: str, password: str):
+def MultCoLibAsync(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the Multnomah County Library site"""
 	return BiblioCommonsAsync('multcolib', login, password)
