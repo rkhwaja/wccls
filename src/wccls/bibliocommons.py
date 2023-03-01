@@ -55,10 +55,10 @@ def MultCoLib(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the Multnomah County Library site"""
 	return BiblioCommons('multcolib', login, password)
 
-def WcclsAsync(login: str, password: str) -> List[Item]:
+async def WcclsAsync(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the WCCLS site"""
-	return BiblioCommonsAsync('wccls', login, password)
+	return await BiblioCommonsAsync('wccls', login, password)
 
-def MultCoLibAsync(login: str, password: str) -> List[Item]:
+async def MultCoLibAsync(login: str, password: str) -> List[Item]:
 	"""Gets the list of items for the Multnomah County Library site"""
-	return BiblioCommonsAsync('multcolib', login, password)
+	return await BiblioCommonsAsync('multcolib', login, password)
