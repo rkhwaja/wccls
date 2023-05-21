@@ -14,6 +14,7 @@ def collect(request):
 		raise RuntimeError(f'Invalid value for "collect" option. Options are {",".join(_COLLECT_OPTIONS)}')
 	return value
 
+# parameterize tests by the directories under test/filesets
 def pytest_generate_tests(metafunc):
 	filesetsRoot = Path('tests/filesets')
 	if 'fileset' in metafunc.fixturenames:

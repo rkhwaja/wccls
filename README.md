@@ -19,19 +19,12 @@ for item in items:
 
 # Running tests
 
-## Run against the live website
-
-- Set the environment variables to show what the expected counts are for the various categories
-
-- Run
-```bash
-pytest
-```
-
-## To record new test data
+## To record new test data (also test against live website)
 Set SCRUB_EMAIL, WCCLS_CARD_NUMBER, WCCLS_PASSWORD environment variables
+
+Make a new directory tests/filesets/new_fileset
 ``` python
-pytest --collect=save
+pytest --collect=save -k new_fileset
 ```
 
 ## To test existing test data

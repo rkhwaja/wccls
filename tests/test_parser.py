@@ -96,7 +96,7 @@ def testWcclsParser(collect, fileset):
 	if collect == 'save':
 		wrapper = SaveToFileWrapper('wccls', fileset, environ['WCCLS_CARD_NUMBER'], environ['WCCLS_PASSWORD'])
 	elif collect == 'test':
-		wrapper = CompareWrapper('wccls', fileset, 'fake_login', 'fake_password')
+		wrapper = CompareWrapper('fake_subdomain', fileset, 'fake_login', 'fake_password')
 		assert len(wrapper.items) == len(wrapper.expectedItems)
 		for item, expectedItem in zip(wrapper.items, wrapper.expectedItems):
 			assert item == expectedItem, expectedItem
