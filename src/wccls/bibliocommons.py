@@ -1,4 +1,4 @@
-from typing import List
+from __future__ import annotations
 
 from aiohttp import ClientSession
 from requests import Session
@@ -25,7 +25,7 @@ async def _DoRequestAsync(session, request):
 			return await resp.text()
 	assert False, f'Unexpected request: {request}'
 
-def BiblioCommons(subdomain: str, login: str, password: str) -> List[Item]:
+def BiblioCommons(subdomain: str, login: str, password: str) -> list[Item]:
 	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
 	with Session() as session:
@@ -36,7 +36,7 @@ def BiblioCommons(subdomain: str, login: str, password: str) -> List[Item]:
 			reqs.extend(parser.Receive(req.url, resp))
 	return parser.items
 
-async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[Item]:
+async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> list[Item]:
 	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
 	async with ClientSession() as session:
@@ -47,18 +47,18 @@ async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> List[
 			reqs.extend(parser.Receive(req.url, response))
 		return parser.items
 
-def Wccls(login: str, password: str) -> List[Item]:
+def Wccls(login: str, password: str) -> list[Item]:
 	"""Gets the list of items for the WCCLS site"""
 	return BiblioCommons('wccls', login, password)
 
-def MultCoLib(login: str, password: str) -> List[Item]:
+def MultCoLib(login: str, password: str) -> list[Item]:
 	"""Gets the list of items for the Multnomah County Library site"""
 	return BiblioCommons('multcolib', login, password)
 
-async def WcclsAsync(login: str, password: str) -> List[Item]:
+async def WcclsAsync(login: str, password: str) -> list[Item]:
 	"""Gets the list of items for the WCCLS site"""
 	return await BiblioCommonsAsync('wccls', login, password)
 
-async def MultCoLibAsync(login: str, password: str) -> List[Item]:
+async def MultCoLibAsync(login: str, password: str) -> list[Item]:
 	"""Gets the list of items for the Multnomah County Library site"""
 	return await BiblioCommonsAsync('multcolib', login, password)

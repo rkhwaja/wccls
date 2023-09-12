@@ -8,7 +8,7 @@ class ParseError(Exception):
 StatusType = Enum('StatusType', [])
 
 def _AddStatusType(name):
-	global StatusType # pylint: disable=global-statement
+	global StatusType # noqa: PLW0603
 	names = [x.name for x in StatusType]
 	names.append(name)
 	StatusType = Enum('StatusType', names)
