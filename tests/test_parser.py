@@ -15,7 +15,7 @@ class ItemJsonEncoder(JSONEncoder):
 			return o.isoformat()
 		if isinstance(o, Item):
 			return asdict(o) | {'status': str(o.status)}
-		if isinstance(o, FormatType): # pylint: disable=isinstance-second-argument-not-valid-type
+		if isinstance(o, FormatType):
 			return str(o)
 		return super().default(o)
 
@@ -67,7 +67,7 @@ class CompareWrapper(BaseWrapper):
 
 	def _DoRequest(self, request):
 		path = self._rootPath / FilenameFromRequest(request)
-		with open(path, 'r', encoding='utf-8') as f:
+		with open(path, encoding='utf-8') as f:
 			return f.read()
 
 class SaveToFileWrapper(BaseWrapper):

@@ -7,7 +7,7 @@ _COLLECT_OPTIONS = ['save', 'test']
 def pytest_addoption(parser):
 	parser.addoption('--collect', action='store', default='test', help=f'Valid options are {",".join(_COLLECT_OPTIONS)}')
 
-@fixture
+@fixture()
 def collect(request):
 	value = request.config.getoption('--collect')
 	if value not in _COLLECT_OPTIONS:

@@ -33,15 +33,13 @@ aiohttp = ">=3.8.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.1"
-pylint = ">=2.13"
-wrapt = ">=1.4.0" # should have been a dependency of pylint
-pylint-quotes = ">=0.2.1"
 pytest-cov = ">=2.10.1"
 pytest-asyncio = ">=0.16.0"
 poethepoet = ">=0.16.4"
+ruff = ">=0.0.289"
 
 [tool.poe.tasks]
-lint = "pylint src/wccls tests"
+lint = "ruff src tests"
 
 [tool.poe.tasks.test]
 shell = """
@@ -49,37 +47,18 @@ pytest --cov=src/wccls || exit 1
 coverage xml
 """
 
-[tool.pylint.master]
-load-plugins = [
-	"pylint_quotes",
-	"pylint.extensions.code_style",
-	"pylint.extensions.confusing_elif",
-	"pylint.extensions.bad_builtin",
-	"pylint.extensions.mccabe",
-	"pylint.extensions.check_elif",
-	"pylint.extensions.redefined_variable_type",
-	"pylint.extensions.overlapping_exceptions",
-	"pylint.extensions.empty_comment",
-	"pylint.extensions.set_membership",
-	# "pylint.extensions.while_used",
-	]
-enable="useless-suppression"
+[tool.ruff]
+line-length = 200
+ignore = ["A003", "ANN", "B011", "D", "DTZ", "EM", "FBT003", "FIX002", "I", "N", "PT013", "PT015", "PTH123", "S101", "TCH", "TD", "TRY003", "W191"]
+select = ["ALL"]
 
-[tool.pylint.format]
-indent-string = "\t"
-string-quote = "single-avoid-escape"
-triple-quote = "single"
+[tool.ruff.extend-per-file-ignores]
+"__init__.py" = ["F403"]
+"tests/*" = ["INP001"]
 
-[tool.pylint.messages_control]
-disable = [
-	"consider-using-assignment-expr",
-	"fixme",
-	"invalid-name",
-	"line-too-long",
-	"missing-docstring",
-	"too-few-public-methods",
-	"too-many-arguments"
-]
+[tool.ruff.flake8-quotes]
+inline-quotes = "single"
+multiline-quotes = "single"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

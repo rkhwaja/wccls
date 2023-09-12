@@ -75,9 +75,7 @@ class Parser:
 
 	def _ProcessItems(self, ParseFunction, response):
 		soup = _MakeSoup(response)
-		result = []
-		for listItem in soup.find_all(class_='item-row'):
-			result.append(ParseFunction(listItem))
+		result = [ParseFunction(item) for item in soup.find_all(class_='item-row')]
 		# Make sure the whole parse works before adding items
 		self.items.extend(result)
 		return []
@@ -162,7 +160,7 @@ def _ParseFormatInfo(element):
 		'DVD': FormatType.DVD,
 		'Blu-ray Disc': FormatType.BluRay,
 		'Graphic Novel': FormatType.GraphicNovel,
-		'3D Object': FormatType.Object3D
+		'3D Object': FormatType.Object3D,
 	}
 	return formatLookup[formatIndicator.text]
 
