@@ -26,6 +26,7 @@ Make a new directory tests/filesets/new_fileset
 ``` python
 pytest --collect=save -k new_fileset
 ```
+And check the new output.json against reality
 
 ## To test existing test data
 ``` python
