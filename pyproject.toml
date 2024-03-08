@@ -37,10 +37,10 @@ pytest = ">=7.1"
 pytest-cov = ">=2.10.1"
 pytest-asyncio = ">=0.16.0"
 poethepoet = ">=0.16.4"
-ruff = ">=0.0.289"
+ruff = ">=0.3.1"
 
 [tool.poe.tasks]
-lint = "ruff src tests"
+lint = "ruff check src tests"
 
 [tool.poe.tasks.test]
 shell = """
@@ -50,14 +50,14 @@ coverage xml
 
 [tool.ruff]
 line-length = 200
-ignore = ["A003", "ANN", "B011", "D", "DTZ", "EM", "FBT003", "FIX002", "I", "N", "PT013", "PT015", "PTH123", "S101", "TCH", "TD", "TRY003", "W191"]
-select = ["ALL"]
+lint.ignore = ["A003", "ANN", "B011", "D", "DTZ", "EM", "FBT003", "FIX002", "I", "N", "PT013", "PT015", "PTH123", "S101", "TCH", "TD", "TRY003", "W191"]
+lint.select = ["ALL"]
 
-[tool.ruff.extend-per-file-ignores]
+[tool.ruff.lint.extend-per-file-ignores]
 "__init__.py" = ["F403"]
 "tests/*" = ["INP001"]
 
-[tool.ruff.flake8-quotes]
+[tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
 multiline-quotes = "single"
 

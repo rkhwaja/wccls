@@ -67,7 +67,7 @@ class Parser:
 		loginForm = soup.find_all('form', class_='loginForm')[0]
 		formData = {}
 		for input_ in loginForm.find('input'):
-			formData[input_.attrs['name']] = input_.attrs['value'] if 'value' in input_.attrs else ''
+			formData[input_.attrs['name']] = input_.attrs.get('value', '')
 		formData['user_pin'] = self._password
 		formData['name'] = self._login
 		loginAction = loginForm.attrs['action']

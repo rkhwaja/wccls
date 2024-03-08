@@ -11,3 +11,5 @@ env.bat
 .idea
 .venv
 .vscode
+.coverage
+coverage.xml
