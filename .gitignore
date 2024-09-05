@@ -6,7 +6,7 @@ dist
 .pytest_cache
 .env
 .DS_Store
-poetry.lock
+uv.lock
 env.bat
 .idea
 .venv
