@@ -51,12 +51,34 @@ coverage xml
 
 [tool.ruff]
 line-length = 200
-lint.ignore = ["A003", "ANN", "B011", "D", "DTZ", "EM", "FBT003", "FIX002", "I", "N", "PT013", "PT015", "PTH123", "S101", "TCH", "TD", "TRY003", "W191"]
+lint.ignore = [
+	"ANN",    # requires annotations
+	"B011",   # disallows assert False
+	"D",      # requires docstrings
+	"DTZ",    # requires aware datetimes
+	"EM",     # disallows f-strings in exception constructors
+	"FBT003", # disallows boolean positional parameters
+	"FIX002", # disallows TODOs
+	"I",      # isort - produces false positives
+	"N",      # PEP8 naming
+	"PT013",  # requires importing pytest in a particular way
+	"PT015",  # No `assert False` in tests
+	"PTH123", # disallows use of builtin open
+	"S101",   # disallows use of assert
+	"TC",     # requires use of type-checking blocks
+	"TD",     # requires a specific format of TODO comments
+	"TRY003", # disallows long exception messages
+	"W191",   # disallows tab indentation
+	]
 lint.select = ["ALL"]
 
 [tool.ruff.lint.extend-per-file-ignores]
-"__init__.py" = ["F403"]
-"tests/*" = ["INP001"]
+"__init__.py" = [
+	"F403", # disallows star imports
+	]
+"tests/*" = [
+	"INP001", # disallows namespace packages
+	]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
