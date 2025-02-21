@@ -52,6 +52,7 @@ coverage xml
 [tool.ruff]
 line-length = 200
 lint.ignore = [
+	"A005",   # disallows shadowing a builtin module
 	"ANN",    # requires annotations
 	"B011",   # disallows assert False
 	"D",      # requires docstrings
