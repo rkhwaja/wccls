@@ -150,9 +150,9 @@ def _IsDigital(format_):
 	return format_ in [FormatType.eBook, FormatType.DownloadableAudiobook]
 
 def _ParseFormatInfo(element):
-	formatIndicator = element.find(class_='cp-format-indicator')
+	formatIndicator = element.find(class_='cp-format-info')
 	if formatIndicator is None:
-		return False
+		return None
 	formatLookup = {
 		'Downloadable Audiobook': FormatType.DownloadableAudiobook,
 		'eBook': FormatType.eBook,
@@ -162,7 +162,10 @@ def _ParseFormatInfo(element):
 		'Graphic Novel': FormatType.GraphicNovel,
 		'3D Object': FormatType.Object3D,
 	}
-	return formatLookup[formatIndicator.text]
+	for text, type_ in formatLookup.items():
+		if formatIndicator.text.startswith(text):
+			return type_
+	return None
 
 def _ParseDate(listItem):
 	dateAttr = listItem.find_all(class_='cp-short-formatted-date')[0]
