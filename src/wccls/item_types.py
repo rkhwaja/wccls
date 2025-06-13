@@ -53,12 +53,10 @@ class HoldReady(Item):
 @dataclass
 class HoldInTransit(Item):
 	"""Shipping to the library"""
-	shippedDate: date
 
 @dataclass
 class HoldNotReady(Item):
 	"""In the queue"""
 	activationDate: date
 	queuePosition: int
-	queueSize: int
 	copies: int

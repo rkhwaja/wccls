@@ -46,7 +46,7 @@ class Parser:
 
 	def _GetRequest(self, url, allowRedirects, function):
 		self._handlers[url] = function
-		return Request('GET', url, None, allowRedirects)
+		return Request('GET', url, {}, allowRedirects)
 
 	def _PostRequest(self, url, formData, allowRedirects, function):
 		self._handlers[url] = function
@@ -103,7 +103,6 @@ def _ParseNotYetAvailable(listItem):
 		title=_ParseTitle(listItem),
 		activationDate=_ParseDate(listItem), # TODO - this isn't an activation date anymore - it's the expiry date
 		queuePosition=holdInfo[0],
-		queueSize=None, # Not shown on the initial screen anymore
 		copies=holdInfo[1],
 		isDigital=_IsDigital(format_),
 		format=format_)
@@ -121,8 +120,7 @@ def _ParseInTransit(listItem):
 	return HoldInTransit(
 		title=_ParseTitle(listItem),
 		isDigital=_IsDigital(format_),
-		format=format_,
-		shippedDate=None) # they don't seem to show this anymore
+		format=format_) # they don't seem to show this anymore
 
 def _ParseRenewalCount(listItem):
 	# if there are holds, there will be no renewals
@@ -133,6 +131,8 @@ def _ParseRenewalCount(listItem):
 	renewCountElement = listItem.find(class_='cp-renew-count')
 	if renewCountElement is not None:
 		match = search(r'Renewed (\d+) time', renewCountElement.text)
+		if match is None:
+			raise ParseError(f'Failed to parse renew count: {renewCountElement.text}')
 		return 4 - int(match.group(1))
 
 	return 1 # we don't know how many renewals are really left - this just means at least one
@@ -177,4 +177,6 @@ def _ParseDate(listItem):
 def _ParseHoldPosition(listItem):
 	text = listItem.find_all(class_='cp-hold-position')[0].text
 	match = search(r'\#(\d+) on (\d+) cop', text)
+	if match is None:
+		raise ParseError(f'Failed to parse hold position: {text}')
 	return (match.group(1), match.group(2))

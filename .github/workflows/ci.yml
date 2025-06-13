@@ -32,6 +32,7 @@ jobs:
     - name: Lint
       run: |
         poe lint
+        poe ty
     - name: Tests
       run: |
         python -c "import wccls"
