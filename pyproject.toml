@@ -1,6 +1,6 @@
 [project]
 name = "wccls"
-version = "3.1.6"
+version = "4.0.0"
 description = "Scraper for the WCCLS account page"
 maintainers = [
 	{ name = "Rehan Khwaja", email = "rehan@khwaja.name" }
@@ -39,10 +39,12 @@ dev = [
     "pytest-asyncio>=0.16.0",
     "poethepoet>=0.16.4",
     "ruff>=0.6.3",
+    "ty>=0.0.1a9",
 ]
 
 [tool.poe.tasks]
 lint = "ruff check src tests"
+ty = "ty check src tests"
 
 [tool.poe.tasks.test]
 shell = """
