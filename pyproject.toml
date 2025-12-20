@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = [
     "beautifulsoup4>=4.9.3",
-    "httpx>=1.0.dev2"
+    "httpx>=1.0.dev3"
 ]
 
 [project.urls]
