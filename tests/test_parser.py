@@ -98,7 +98,7 @@ def testWcclsParser(collect, fileset):
 	elif collect == 'test':
 		wrapper = CompareWrapper('fake_subdomain', fileset, 'fake_login', 'fake_password')
 		assert len(wrapper.items) == len(wrapper.expectedItems)
-		for item, expectedItem in zip(wrapper.items, wrapper.expectedItems):
+		for item, expectedItem in zip(wrapper.items, wrapper.expectedItems, strict=True):
 			assert item == expectedItem, expectedItem
 	else:
 		assert False, f'Invalid collect strategy: {collect}'
