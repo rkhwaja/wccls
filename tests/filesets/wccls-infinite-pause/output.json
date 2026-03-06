@@ -1,0 +1,39 @@
+[
+	{
+		"title": "The Bletchley Circle: San Francisco",
+		"isDigital": false,
+		"format": "Format.DVD",
+		"reactivationDate": "2027-01-01",
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "How to Invent Everything",
+		"isDigital": true,
+		"format": "Format.eBook",
+		"reactivationDate": null,
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Shadows in Flight",
+		"isDigital": true,
+		"format": "Format.DownloadableAudiobook",
+		"reactivationDate": null,
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "One Billion Americans: The Case for Thinking Bigger",
+		"isDigital": true,
+		"format": "Format.eBook",
+		"reactivationDate": null,
+		"status": "StatusType.HoldPaused"
+	},
+	{
+		"title": "Dungeon Crawler Carl",
+		"isDigital": true,
+		"format": "Format.eBook",
+		"activationDate": "2026-01-24",
+		"queuePosition": "75",
+		"copies": "42",
+		"status": "StatusType.HoldNotReady"
+	}
+]

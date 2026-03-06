@@ -90,9 +90,10 @@ def _ParseTitle(listItem):
 
 def _ParseSuspended(listItem):
 	format_ = _ParseFormatInfo(listItem)
+	pauseDate = listItem.find(class_='cp-hold-pause-date')
 	return HoldPaused(
 		title=_ParseTitle(listItem),
-		reactivationDate=_ParseDate(listItem),
+		reactivationDate=None if pauseDate is None else _ParseDate(pauseDate),
 		isDigital=_IsDigital(format_),
 		format=format_)
 
@@ -168,7 +169,7 @@ def _ParseFormatInfo(element):
 	return None
 
 def _ParseDate(listItem):
-	dateAttr = listItem.find_all(class_='cp-short-formatted-date')[0]
+	dateAttr = listItem.find(class_='cp-short-formatted-date')
 	if dateAttr is None:
 		return None
 	# text value here seems to have been run through some javascript
