@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from aiohttp import ClientSession
-from requests import Session
+from niquests import Session
 
 from .parser import Parser
 from .item_types import Item
