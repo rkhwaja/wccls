@@ -28,7 +28,7 @@ def ItemObjectHook(o):
 		elif key == 'format' and value.startswith('Format.'):
 			o['format'] = FormatType[o['format'][7:]]
 		elif key in {'dueDate', 'reactivationDate', 'expiryDate', 'activationDate'}:
-			o[key] = datetime.fromisoformat(o[key]).date()
+			o[key] = datetime.fromisoformat(o[key]).date() if o[key] is not None else None
 	if o['status'] == StatusType.Checkout:
 		return Checkout(o['title'], o['isDigital'], o['format'], o['dueDate'], o['renewals'])
 	if o['status'] == StatusType.HoldNotReady:

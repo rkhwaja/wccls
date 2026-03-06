@@ -43,7 +43,7 @@ class Checkout(Item):
 @dataclass
 class HoldPaused(Item):
 	"""Paused hold"""
-	reactivationDate: date
+	reactivationDate: date | None
 
 @dataclass
 class HoldReady(Item):
