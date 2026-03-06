@@ -5,7 +5,7 @@ from os import environ
 from json import dump, load, JSONEncoder
 from pathlib import Path
 
-from requests import Session
+from niquests import Session
 
 from wccls import Checkout, FormatType, HoldNotReady, HoldPaused, HoldReady, Item, Parser, StatusType
 
@@ -85,6 +85,7 @@ class SaveToFileWrapper(BaseWrapper):
 		else:
 			assert False, f'Unexpected request: {request}'
 		response.raise_for_status()
+		assert response.text is not None
 		responseText = response.text.replace(environ['SCRUB_EMAIL'], 'SCRUBBED_EMAIL')
 		responseText = responseText.replace(environ['WCCLS_CARD_NUMBER'], 'WCCLS_CARD_NUMBER')
 		responseText = responseText.replace(environ['MULTCOLIB_CARD_NUMBER'], 'MULTCOLIB_CARD_NUMBER')
