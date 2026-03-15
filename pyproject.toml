@@ -1,6 +1,6 @@
 [project]
 name = "wccls"
-version = "5.0.0"
+version = "5.0.1"
 description = "Scraper for the WCCLS account page"
 maintainers = [
 	{ name = "Rehan Khwaja", email = "rehan@khwaja.name" }
@@ -20,7 +20,6 @@ classifiers = [
 ]
 dependencies = [
     "beautifulsoup4>=4.9.3",
-    "aiohttp>=3.9",
     "niquests>=3.17.0",
 ]
 
