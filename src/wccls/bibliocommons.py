@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from aiohttp import ClientSession
-from niquests import Session
+from niquests import AsyncSession, Session
 
 from .parser import Parser
 from .item_types import Item
@@ -18,11 +17,11 @@ def _DoRequestSync(session, request):
 
 async def _DoRequestAsync(session, request):
 	if request.verb == 'GET':
-		async with session.get(request.url, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
-			return await resp.text()
+		resp = await session.get(request.url, allow_redirects=request.allowRedirects, raise_for_status=True)
+		return resp.text
 	if request.verb == 'POST':
-		async with session.post(request.url, data=request.data, allow_redirects=request.allowRedirects, raise_for_status=True) as resp:
-			return await resp.text()
+		resp = session.post(request.url, data=request.data, allow_redirects=request.allowRedirects, raise_for_status=True)
+		return resp.text
 	assert False, f'Unexpected request: {request}'
 
 def BiblioCommons(subdomain: str, login: str, password: str) -> list[Item]:
@@ -39,7 +38,7 @@ def BiblioCommons(subdomain: str, login: str, password: str) -> list[Item]:
 async def BiblioCommonsAsync(subdomain: str, login: str, password: str) -> list[Item]:
 	"""Gets the list of items for a Bibliocommons site"""
 	parser = Parser(subdomain, login, password)
-	async with ClientSession() as session:
+	async with AsyncSession() as session:
 		reqs = parser.Receive(None, None)
 		while len(reqs) > 0:
 			req = reqs.pop()
