@@ -1,6 +1,6 @@
 [project]
 name = "wccls"
-version = "5.0.1"
+version = "5.0.2"
 description = "Scraper for the WCCLS account page"
 maintainers = [
 	{ name = "Rehan Khwaja", email = "rehan@khwaja.name" }
