@@ -17,12 +17,13 @@ def _DoRequestSync(session, request):
 
 async def _DoRequestAsync(session, request):
 	if request.verb == 'GET':
-		resp = await session.get(request.url, allow_redirects=request.allowRedirects, raise_for_status=True)
-		return resp.text
-	if request.verb == 'POST':
-		resp = session.post(request.url, data=request.data, allow_redirects=request.allowRedirects, raise_for_status=True)
-		return resp.text
-	assert False, f'Unexpected request: {request}'
+		resp = await session.get(request.url, allow_redirects=request.allowRedirects)
+	elif request.verb == 'POST':
+		resp = await session.post(request.url, data=request.data, allow_redirects=request.allowRedirects)
+	else:
+		assert False, f'Unexpected request: {request}'
+	resp.raise_for_status()
+	return resp.text
 
 def BiblioCommons(subdomain: str, login: str, password: str) -> list[Item]:
 	"""Gets the list of items for a Bibliocommons site"""
