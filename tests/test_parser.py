@@ -1,3 +1,5 @@
+# ty: ignore[unresolved-attribute]
+
 from abc import abstractmethod, ABC
 from dataclasses import asdict
 from datetime import date, datetime

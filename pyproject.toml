@@ -86,5 +86,8 @@ lint.select = ["ALL"]
 inline-quotes = "single"
 multiline-quotes = "single"
 
+[tool.ty.rules]
+mismatched-type-name = "ignore" # ignore until FormatType is fixed
+
 [tool.pytest]
 pythonpath = ["src"]

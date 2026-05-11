@@ -9,7 +9,7 @@ StatusType = Enum('StatusType', [])
 
 def _AddStatusType(name):
 	global StatusType # noqa: PLW0603
-	names = [x.name for x in StatusType]
+	names = [x.name for x in StatusType] # ty: ignore[unresolved-attribute]
 	names.append(name)
 	StatusType = Enum('StatusType', names)
 
