@@ -36,7 +36,7 @@ dev = [
     "pytest-cov>=2.10.1",
     "pytest-asyncio>=0.16.0",
     "poethepoet>=0.16.4",
-    "ruff>=0.6.3",
+    "ruff>=0.16.1",
     "ty>=0.0.1a9",
     "pysentry-rs>=0.4.5",
 ]
@@ -58,6 +58,7 @@ lint.ignore = [
 	"A005",   # disallows shadowing a builtin module
 	"ANN",    # requires annotations
 	"B011",   # disallows assert False
+	"CPY001", # requires copyright notices
 	"D",      # requires docstrings
 	"DTZ",    # requires aware datetimes
 	"EM",     # disallows f-strings in exception constructors
