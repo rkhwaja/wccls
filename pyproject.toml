@@ -33,13 +33,13 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.2",
+    "pytest>=9.0.3",
     "pytest-cov>=2.10.1",
     "pytest-asyncio>=0.16.0",
     "poethepoet>=0.16.4",
     "ruff>=0.16.1",
     "ty>=0.0.1a9",
-    "pysentry-rs>=0.4.5",
+    "pysentry-rs>=0.5.0",
 ]
 
 [tool.poe.tasks]
