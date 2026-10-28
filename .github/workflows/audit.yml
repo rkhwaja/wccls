@@ -5,24 +5,15 @@ on:
     - cron: '0 3 * * *'
   workflow_dispatch: # Allows manual triggering from the Actions tab
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14", "3.15"]
+permissions:
+  contents: read
+  security-events: write # required for the SARIF upload
 
+jobs:
+  audit:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v6
-    - name: Install uv
-      uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-      with:
-        python-version: ${{ matrix.python-version }}
-        activate-environment: true
-    - name: Dependencies
-      run: |
-        uv sync --resolution lowest-direct
-    - name: Audit
-      run: poe audit --direct-only
+      - uses: actions/checkout@v4
+      - uses: nyudenkov/pysentry@v0.5.0
+        with:
+          args: --direct-only
