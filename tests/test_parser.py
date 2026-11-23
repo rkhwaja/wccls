@@ -1,4 +1,4 @@
-# ty: ignore[unresolved-attribute]
+# ty: ignore[missing-union-attribute]
 
 from abc import abstractmethod, ABC
 from dataclasses import asdict

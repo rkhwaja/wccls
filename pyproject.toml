@@ -38,7 +38,7 @@ dev = [
     "pytest-asyncio>=0.16.0",
     "poethepoet>=0.16.4",
     "ruff>=0.16.1",
-    "ty>=0.0.1a9",
+    "ty>=0.0.108",
     "pysentry-rs>=0.5.0",
 ]
 
@@ -89,9 +89,6 @@ lint.select = ["ALL"]
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
 multiline-quotes = "single"
-
-[tool.ty.rules]
-mismatched-type-name = "ignore" # ignore until FormatType is fixed
 
 [tool.pytest]
 pythonpath = ["src"]
