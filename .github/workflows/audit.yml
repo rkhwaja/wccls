@@ -1,0 +1,27 @@
+name: Audit
+
+on:
+  schedule:
+    - cron: '0 3 * * 5'
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+
+permissions:
+  contents: read
+  security-events: write # required for the SARIF upload
+
+jobs:
+  audit-lowest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Resolve lowest compatible dependencies
+        run: uv lock --resolution lowest-direct
+
+      - name: Run PySentry
+        uses: nyudenkov/pysentry@v0.5.0
+        with:
+          args: --direct-only
